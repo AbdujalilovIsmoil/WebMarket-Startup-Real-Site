@@ -50,19 +50,26 @@ const index = memo(() => {
   }, []);
 
   const deleteProductItem = (id) => {
-    const data = useDelete({ api: `/products/${id}`, token }).then(
-      (response) => {
+    const data = useDelete({ api: `/products/${id}`, token })
+      .then((response) => {
         if (get(response, "data.status") === 200) {
           getProductsFunction();
-          toast.success("1 ta product o'chirildi", {
+          toast.success("Product o'chirildi", {
             autoClose: 3000,
             draggable: false,
             pauseOnHover: false,
             position: "top-right",
           });
         }
-      }
-    );
+      })
+      .catch(() => {
+        toast.error("Product o'chirilmadi", {
+          autoClose: 3000,
+          draggable: false,
+          pauseOnHover: false,
+          position: "top-right",
+        });
+      });
   };
 
   return (

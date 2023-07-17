@@ -23,8 +23,8 @@ const index = memo(() => {
       email,
       password,
     };
-    const data = usePost({ api: "/users/login", values: userData }).then(
-      (response) => {
+    const data = usePost({ api: "/users/login", values: userData })
+      .then((response) => {
         if (get(response, "data.success") === true) {
           storage.set("token", get(response, "data.token"));
           storage.set("username", get(response, "data.data.username"));
@@ -37,16 +37,15 @@ const index = memo(() => {
           });
           navigate("/");
         }
-        if (get(response, "success") == false) {
-          toast.error("Emailingiz kiritilmadi", {
-            autoClose: 3000,
-            draggable: false,
-            pauseOnHover: false,
-            position: "top-right",
-          });
-        }
-      }
-    );
+      })
+      .catch(() => {
+        toast.error("Saytga kira olmadingiz", {
+          autoClose: 3000,
+          draggable: false,
+          pauseOnHover: false,
+          position: "top-right",
+        });
+      });
   };
 
   return (

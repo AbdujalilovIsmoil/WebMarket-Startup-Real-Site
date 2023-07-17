@@ -46,8 +46,8 @@ const index = memo(() => {
       portfolioLink,
       confirmationCode,
     };
-    const data = usePost({ api: "/users", values: postDataObject }).then(
-      (response) => {
+    const data = usePost({ api: "/users", values: postDataObject })
+      .then((response) => {
         if (get(response, "data.success") === true) {
           setConfirmationCode(get(response, "data.confirmationCode"));
           setIsConfirmationCode(true);
@@ -96,8 +96,15 @@ const index = memo(() => {
             position: "top-right",
           });
         }
-      }
-    );
+      })
+      .catch(() => {
+        toast.error("Saytga kira olmadingiz", {
+          autoClose: 3000,
+          draggable: false,
+          pauseOnHover: false,
+          position: "top-right",
+        });
+      });
   };
 
   return (

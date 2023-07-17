@@ -26,8 +26,8 @@ const index = memo(() => {
       password,
       confirmationCode: userCode,
     };
-    const data = usePost({ api: "/users/forget", values: forgetData }).then(
-      (response) => {
+    const data = usePost({ api: "/users/forget", values: forgetData })
+      .then((response) => {
         setConfirmationCode(get(response, "data.confirmationCode"));
         setIsConfirmationCode(true);
         isConfirmationCode
@@ -55,8 +55,15 @@ const index = memo(() => {
               })
             : null;
         }
-      }
-    );
+      })
+      .catch(() => {
+        toast.error("Saytga kira olmadingiz", {
+          autoClose: 3000,
+          draggable: false,
+          pauseOnHover: false,
+          position: "top-right",
+        });
+      });
   };
 
   return (

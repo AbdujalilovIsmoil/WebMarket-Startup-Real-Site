@@ -30,9 +30,7 @@ const index = memo(() => {
         setImageLink(get(response, "data.data[0].imageLink"));
         setPortfolioLink(get(response, "data.data[0].portfolioLink"));
       }
-    }).catch(() => {
-      
-    })
+    });
   }, []);
 
   const postImageLinkFunction = (picsum) => {
@@ -58,8 +56,8 @@ const index = memo(() => {
       imageLink,
       portfolioLink,
     };
-    const updateData = usePut({ api: "/users", token, values: data }).then(
-      (response) => {
+    const updateData = usePut({ api: "/users", token, values: data })
+      .then((response) => {
         if (get(response, "status") === 200) {
           storage.set("username", get(response, "data.data.username"));
           dispatch(USERNAME(get(response, "data.data.username")));
@@ -84,8 +82,15 @@ const index = memo(() => {
             position: "top-right",
           });
         }
-      }
-    );
+      })
+      .catch(() => {
+        toast.error("User ma'lumoti o'zgartirilmadi", {
+          autoClose: 3000,
+          draggable: false,
+          pauseOnHover: false,
+          position: "top-right",
+        });
+      });
   };
 
   return (
