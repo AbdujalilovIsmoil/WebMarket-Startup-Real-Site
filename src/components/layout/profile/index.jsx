@@ -21,7 +21,9 @@ const index = memo(() => {
         dispatch(LOADER());
         setUser(get(response, "data.data"));
       }
-    });
+    }).catch(() => {
+      dispatch(LOADER());
+    })
   }, []);
 
   return (

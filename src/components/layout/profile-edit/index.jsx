@@ -30,7 +30,9 @@ const index = memo(() => {
         setImageLink(get(response, "data.data[0].imageLink"));
         setPortfolioLink(get(response, "data.data[0].portfolioLink"));
       }
-    });
+    }).catch(() => {
+      
+    })
   }, []);
 
   const postImageLinkFunction = (picsum) => {
