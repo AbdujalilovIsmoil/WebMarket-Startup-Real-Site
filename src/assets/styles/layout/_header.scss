@@ -67,6 +67,7 @@
       @include flexbox(flex, flex-end, center, row, 12px);
       &-animation {
         padding: 5px;
+        cursor: pointer;
         border-radius: 9999px;
         background-color: $buttons-bg-color;
         @include flexbox(flex, center, center, row, 5px);
@@ -76,10 +77,6 @@
         }
         &__moon {
           color: $moon-color;
-        }
-        &__sun,
-        &__moon {
-          cursor: pointer;
         }
         &__btn {
           @include button(

@@ -20,6 +20,7 @@ const index = memo(() => {
   const username = storage.get("username");
   const { navbar } = useSelector((state) => state);
   const [dataUserName, setDataUserName] = useState("");
+  const [themeColorState, setThemeColorState] = useState(false);
 
   useEffect(() => {
     setDataUserName(username);
@@ -31,6 +32,15 @@ const index = memo(() => {
 
   const darkFunction = () => {
     document.body.classList.remove("light");
+  };
+
+  const themeFunction = () => {
+    setThemeColorState((prevState) => !prevState);
+    if (themeColorState) {
+      document.body.classList.add("light");
+    } else {
+      document.body.classList.remove("light");
+    }
   };
 
   return (
@@ -113,15 +123,12 @@ const index = memo(() => {
                 </div>
               ) : null}
 
-              <div className="nav-buttons-animation">
-                <FiSun
-                  onClick={() => lightFunction()}
-                  className="nav-buttons-animation__sun"
-                />
-                <WiMoonAltNew
-                  onClick={() => darkFunction()}
-                  className="nav-buttons-animation__moon"
-                />
+              <div
+                className="nav-buttons-animation"
+                onClick={() => themeFunction()}
+              >
+                <FiSun className="nav-buttons-animation__sun" />
+                <WiMoonAltNew className="nav-buttons-animation__moon" />
               </div>
               <Link to="/registration" className="nav-buttons-animation__btn">
                 Registr
