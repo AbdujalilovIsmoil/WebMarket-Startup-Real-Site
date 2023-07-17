@@ -1,0 +1,49 @@
+.live {
+  text-align: center;
+  &-iframe {
+    width: 100%;
+    min-height: 100vh;
+  }
+  &-buttons {
+    flex-wrap: wrap;
+    @include flexbox(flex, center, center, row, 10px);
+    &-label {
+      position: relative;
+      margin: 15px 0;
+      @include flexbox(flex, center, center, row, 15px);
+      &__input {
+        cursor: pointer;
+        position: absolute;
+        -webkit-appearance: none;
+        @include sizes(100%, 100%);
+        @include button(
+          none,
+          20px 20px 20px 20px !important,
+          4px,
+          transparent,
+          1px solid $moon-color,
+          default
+        );
+        &:checked ~ .live-buttons-label-breakpoint {
+          background-color: $moon-color;
+        }
+      }
+      &-breakpoint {
+        transition: all 300ms ease;
+        background-color: transparent;
+        @include flexbox(flex, center, center, row, 5px);
+        @include button(
+          none,
+          20px 20px 20px 20px !important,
+          4px,
+          transparent,
+          1px solid $moon-color,
+          default
+        );
+        &__icon {
+          color: $title-color;
+        }
+      }
+    }
+  }
+}

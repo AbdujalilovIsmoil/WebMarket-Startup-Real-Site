@@ -1,0 +1,78 @@
+.login {
+  max-width: 50%;
+  margin: 175px auto 0 auto;
+  @include lg {
+    max-width: 75%;
+  }
+  @include md {
+    max-width: 85%;
+  }
+  @include sm {
+    max-width: 100%;
+  }
+  &__title {
+    text-align: center;
+    @include title($title-color, 30px, 600, default, uppercase);
+  }
+  &-form {
+    &-box {
+      text-align: center;
+      &__link {
+        text-align: center;
+        margin: 10px 0 0 0;
+        display: inline-block;
+        text-decoration: underline;
+        @include title($title-color, 18px, 400, default, default);
+        &:hover {
+          color: $title-color;
+          text-decoration: underline;
+        }
+      }
+    }
+    &-label {
+      @include sizes(75px, 100%);
+      &__input {
+        margin: 35px 0 0 0;
+        padding: 20px 0;
+        @include title(default, 16px, 500, default, default);
+        @include input(
+          100%,
+          100%,
+          1px solid $footer-border-color,
+          none,
+          25px,
+          4px,
+          transparent,
+          $title-color,
+          $title-color
+        );
+      }
+      input[type="file"] {
+        display: none;
+      }
+    }
+    &__btn {
+      width: 100%;
+      margin: 35px 0 0 0;
+      @include title($title-color, 16px, 500, default, uppercase);
+      @include button(
+        none,
+        20px 0,
+        4px,
+        $btn-first-bg-color,
+        1px solid $btn-first-bg-color,
+        all 500ms ease
+      );
+      &:hover {
+        @include button(
+          none,
+          20px 0,
+          4px,
+          transparent,
+          1px solid $btn-first-bg-color,
+          all 500ms ease
+        );
+      }
+    }
+  }
+}

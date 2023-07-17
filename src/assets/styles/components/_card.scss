@@ -1,0 +1,80 @@
+.section-container-box-cards-card {
+  cursor: pointer;
+  max-width: 360px;
+  min-height: 420px;
+  border-radius: 4px;
+  transition: border 500ms ease;
+  background-color: $buttons-bg-color;
+  border: 1px solid $buttons-bg-color;
+  box-shadow: 0px 2px 15px -4px $card-shadow-color;
+  padding: 0 0 20px 0;
+  @include xl {
+    max-width: 100%;
+  }
+  &:hover {
+    transition: border 500ms ease;
+    border: 1px solid $btn-first-bg-color;
+  }
+  &-box {
+    &__img {
+      width: 100%;
+      object-fit: cover;
+      height: 250px;
+      @include md {
+        height: 225px;
+      }
+      @include sm {
+        height: 300px;
+      }
+    }
+    &-content {
+      padding: 16px;
+      &-header {
+        @include flexbox(flex, space-between, center, row, stretch);
+        &__title {
+          @include title($title-color, 18px, 400, 28px, capitalize);
+        }
+        &-price {
+          @include flexbox(flex, default, center, row, 5px);
+          &__number {
+            @include title($title-color, 14px, 400, 20px, default);
+          }
+        }
+      }
+      &-description {
+        margin: 7px 0 0 0;
+        @include title($card-description-color, 12px, 400, 16px, default);
+      }
+    }
+    &-footer {
+      @include flexbox(flex, space-between, center, row, stretch);
+      &-box {
+        padding: 16px;
+        &:nth-child(1) {
+          @include flexbox(flex, flex-start, center, row, 12px);
+        }
+        &:nth-child(2) {
+          @include flexbox(flex, default, center, row, 10px);
+        }
+        &__icon {
+          object-fit: cover;
+          @include sizes(30px, 30px);
+        }
+        &-btn {
+          padding: 10px;
+          border-radius: 4px;
+          background: rgba(34, 34, 34, 0.1);
+          border: 1px solid rgba(5, 150, 105, 0.25);
+          @include flexbox(flex, center, center, row, 5px);
+          &__icon {
+            font-size: 15px;
+            color: $title-color;
+          }
+          &__name {
+            @include title($title-color, 14px, 400, 14px, capitalize);
+          }
+        }
+      }
+    }
+  }
+}

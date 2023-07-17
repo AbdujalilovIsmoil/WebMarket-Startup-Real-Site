@@ -1,0 +1,57 @@
+.section-container-box-buttons-container {
+  flex-wrap: wrap;
+  margin: 55px 0 0 0;
+  @include flexbox(flex, flex-start, flex-start, row, 10px);
+  &-label {
+    position: relative;
+    &__input {
+      cursor: pointer;
+      position: absolute;
+      -webkit-appearance: none;
+      @include sizes(100%, 100%);
+      @include button(
+        none,
+        10px,
+        4px,
+        transparent,
+        1px solid $moon-color,
+        default
+      );
+      &:checked ~ .section-container-box-buttons-container-label-btn {
+        background-color: $btn-first-bg-color !important;
+        .section-container-box-buttons-container-label-btn__name {
+          color: $title-color;
+        }
+        .section-container-box-buttons-container-label-btn__number {
+          color: $title-color;
+          background-color: $bg-color;
+        }
+      }
+    }
+    &-btn {
+      transition: all 300ms ease;
+      background-color: transparent;
+      @include flexbox(flex, center, center, row, 5px);
+      @include button(
+        none,
+        15px 20px 7.5px 20px !important,
+        4px,
+        transparent,
+        1px solid $moon-color,
+        default
+      );
+      &__name {
+        transition: all 300ms ease;
+        @include title($description-color, 12.8px, 400, 21px, capitalize);
+      }
+      &__number {
+        padding: 2px 4px;
+        border-radius: 4px;
+        transition: all 300ms ease;
+        background-color: $moon-color;
+        @include title($description-color, 12px, 400, 16px, capitalize);
+        @include flexbox(flex, center, center, row, stretch);
+      }
+    }
+  }
+}

@@ -1,0 +1,20 @@
+.blog-titles {
+  margin: 65px 0 0 0;
+  @include flexbox(flex, center, center, column, 19.67px);
+  @include sm{
+    margin: 35px 0 0 0;
+    @include flexbox(flex, center, center, column, 5px);
+  }
+  &__title {
+    @include title($title-color, 30.137px, 600, 37.671px, default);
+    @include sm{
+      @include title($title-color, 25px, 600, 37.671px, default);
+    }
+  }
+  &__text {
+    @include sm{
+      @include title($description-color, 13px, 400, 26px, default);
+    }
+    @include title($description-color, 16px, 400, 26px, default);
+  }
+}

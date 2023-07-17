@@ -1,0 +1,170 @@
+import { get } from "lodash";
+import { useFetch } from "../../hook";
+import { LOADER } from "../../store/actions";
+import { Link, useParams } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import React, { memo, useEffect, useState } from "react";
+import { RxDesktop, RxMobile } from "../../assets/icons";
+import { Card, Button, Loader } from "../../components/field";
+
+const index = memo(() => {
+  const { id } = useParams();
+  const { useGet } = useFetch;
+  const dispatch = useDispatch();
+  const [about, setAbout] = useState([]);
+  const [products, setProducts] = useState([]);
+  const { loader } = useSelector((state) => state);
+
+  useEffect(() => {
+    const data = useGet({ api: `/products/${id}` })
+      .then((response) => {
+        if (get(response, "status") === 200) {
+          setAbout([get(response, "data.data.data")]);
+          dispatch(LOADER());
+        }
+      })
+      .catch(() => {
+        dispatch(LOADER());
+      });
+  }, []);
+
+  useEffect(() => {
+    const data = useGet({ api: "/products" })
+      .then((response) => {
+        console.log(get(response, "data.data", []));
+        if (get(response, "status") === 200) {
+          dispatch(LOADER());
+          setProducts(get(response, "data.data", []).slice(0, 4));
+        }
+      })
+      .catch(() => {
+        dispatch(LOADER());
+      });
+  }, []);
+
+  return (
+    <>
+      <div className="container">
+        <section className="about w-100">
+          {loader ? (
+            <div className="text-center">
+              <Loader />
+            </div>
+          ) : about?.length > 0 ? (
+            about.map((el) => {
+              console.log(el);
+              return (
+                <>
+                  <div className="about-container" key={el?._id}>
+                    <div className="about-container-box">
+                      <img
+                        src={el?.img_link}
+                        alt="BreakPoint"
+                        title="BreakPoint"
+                        className="about-container-box__img"
+                      />
+                      <h2 className="about-container-box__title">
+                        Key Features :
+                      </h2>
+                      <p className="about-container-box__description">
+                        {el?.desc}
+                      </p>
+                    </div>
+                    <div className="about-container-box">
+                      <h3 className="about-container-box__title">{el?.name}</h3>
+                      <p className="about-container-box__description">
+                        {el?.desc}
+                      </p>
+                      <div className="about-container-box-buttons">
+                        <Link
+                          to={`/liveSite/${el?._id}`}
+                          className="about-container-box-buttons__btn"
+                        >
+                          Live Demo
+                        </Link>
+                        <a
+                          target="_blank"
+                          href={el?.github_link}
+                          className="about-container-box-buttons__btn"
+                        >
+                          Download
+                        </a>
+                      </div>
+                      <div className="about-container-box-information">
+                        <h2 className="about-container-box-information__title">
+                          Theme Information:
+                        </h2>
+                        <ul className="about-container-box-information-list w-100">
+                          <li className="about-container-box-information-list-item">
+                            <h4 className="about-container-box-information-list-item__key">
+                              Price :
+                            </h4>
+                            <h4 className="about-container-box-information-list-item__value">
+                              {el?.price}
+                            </h4>
+                          </li>
+                          <li className="about-container-box-information-list-item">
+                            <h4 className="about-container-box-information-list-item__key">
+                              Types:
+                            </h4>
+                            <div className="about-container-box-information-list-item-images d-flex justify-content-center text-center w-100">
+                              {loader ? (
+                                <div className="text-center w-100">
+                                  <Loader />
+                                </div>
+                              ) : el?.technology?.length > 0 ? (
+                                el.technology.map((el) => {
+                                  return (
+                                    <React.Fragment key={el._id}>
+                                      <img
+                                        src={el.img_link}
+                                        alt="Lang1"
+                                        title="Lang1"
+                                        className="about-container-box-information-list-item-images__icon"
+                                      />
+                                    </React.Fragment>
+                                  );
+                                })
+                              ) : (
+                                <h1 className="text-center text-light">
+                                  NOT FOUND
+                                </h1>
+                              )}
+                            </div>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </>
+              );
+            })
+          ) : (
+            <h1 className="text-center text-light">NOT FOUND</h1>
+          )}
+          <div className="about-cards">
+            {loader ? (
+              <>
+                <Loader />
+              </>
+            ) : products.length > 0 ? (
+              products.map((el) => {
+                return (
+                  <>
+                    <Card items={el} />
+                  </>
+                );
+              })
+            ) : (
+              <div className="d-flex justify-content-center">
+                <h1 className="text-center text-light">NOT FOUND</h1>
+              </div>
+            )}
+          </div>
+        </section>
+      </div>
+    </>
+  );
+});
+
+export default index;

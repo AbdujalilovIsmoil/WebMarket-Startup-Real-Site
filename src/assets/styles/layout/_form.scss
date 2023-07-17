@@ -1,0 +1,77 @@
+.form {
+  margin: 55px 0 0 0;
+  @include flexbox(flex, space-between, center, row, 10px);
+  @include xl {
+    display: block;
+  }
+  &-label {
+    position: relative;
+    @include sizes(56px, 100%);
+    @include flexbox(flex, flex-start, center, row, 10px);
+
+    &-btn {
+      @include button(
+        none,
+        17px 24px 17px 24px,
+        5px,
+        $btn-first-bg-color,
+        1px solid $btn-first-bg-color,
+        default
+      );
+      &__icon {
+        font-size: 20px;
+        color: $title-color;
+      }
+      @include flexbox(flex, center, center, row, stretch);
+    }
+
+    &__search {
+      letter-spacing: 0.7px;
+      box-shadow: 0px 2px 9px $input-shadow-color;
+      @include title($title-color, 14px, 400, 20px, default);
+      @include input(
+        100%,
+        100%,
+        1px solid $moon-color,
+        none,
+        24px,
+        5px,
+        $moon-color,
+        $title-color,
+        $title-color
+      );
+    }
+    &-select {
+      transform: translateY(-5px);
+      letter-spacing: 0.7px;
+      padding: 0 24px 0 24px;
+      box-shadow: 0px 2px 9px $input-shadow-color;
+      @include title($title-color, 14px, 400, 20px, default);
+      @include input(
+        200px,
+        56px,
+        1px solid $moon-color,
+        none,
+        default,
+        5px,
+        $moon-color,
+        $title-color,
+        $title-color
+      );
+      @include xl {
+        width: 100%;
+        margin: 15px 0 0 0;
+      }
+
+      &__option {
+        border: none;
+        padding: 8px 0;
+        margin: 10px 0;
+        border-radius: 5px;
+        background: $btn-first-bg-color;
+        box-shadow: 0px 2px 9px $input-shadow-color;
+        @include title($title-color, 14px, 400, 20px, default);
+      }
+    }
+  }
+}

@@ -1,0 +1,31 @@
+.section {
+  margin: 0 0 50px 0;
+  &-container {
+    width: 100%;
+    @include flexbox(flex, flex-start, flex-start, row, stretch);
+    &-box {
+      &-cards {
+        margin: 55px 0 0 0;
+        @include gridLayout(
+          grid,
+          repeat(3, auto),
+          center,
+          flex-start,
+          15px
+        );
+        @include xl {
+          @include gridLayout(
+            grid,
+            repeat(2, auto),
+            center,
+            flex-start,
+            24px
+          );
+        }
+        @include sm {
+          @include gridLayout(grid, auto, center, flex-start, 24px);
+        }
+      }
+    }
+  }
+}

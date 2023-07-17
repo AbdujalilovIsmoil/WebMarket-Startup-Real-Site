@@ -1,0 +1,104 @@
+@mixin flexbox($flex, $jc, $ai, $fd, $gap) {
+  display: $flex;
+  justify-content: $jc;
+  align-items: $ai;
+  flex-direction: $fd;
+  gap: $gap;
+}
+
+@mixin gridLayout($grid, $gtc, $jc, $ai, $gap) {
+  display: $grid;
+  grid-template-columns: $gtc;
+  justify-content: $jc;
+  align-items: $ai;
+  gap: $gap;
+}
+
+@mixin input(
+  $width,
+  $height,
+  $border,
+  $outline,
+  $text-indent,
+  $border-radius,
+  $background-color,
+  $placeholder,
+  $color
+) {
+  width: $width;
+  height: $height;
+  border: $border;
+  outline: $outline;
+  text-indent: $text-indent;
+  background-color: $background-color;
+  border-radius: $border-radius;
+  color: $color;
+  &::placeholder {
+    color: $placeholder;
+  }
+}
+
+@mixin title($color, $font-size, $font-weight, $line-height, $text-transform) {
+  color: $color;
+  font-size: $font-size;
+  font-weight: $font-weight;
+  line-height: $line-height;
+  text-transform: $text-transform;
+}
+
+@mixin button(
+  $outline,
+  $padding,
+  $borderRadius,
+  $bgColor,
+  $border,
+  $transition
+) {
+  border: $border;
+  outline: $outline;
+  padding: $padding;
+  transition: $transition;
+  background-color: $bgColor;
+  border-radius: $borderRadius;
+}
+
+@mixin sizes($height: default, $width: default) {
+  width: $width;
+  height: $height;
+}
+
+@mixin sm {
+  @media only screen and (max-width: $sm) {
+    @content;
+  }
+}
+
+@mixin md {
+  @media only screen and (max-width: $md) {
+    @content;
+  }
+}
+
+@mixin lg {
+  @media only screen and (max-width: $lg) {
+    @content;
+  }
+}
+
+@mixin xl {
+  @media only screen and (max-width: $xl) {
+    @content;
+  }
+}
+
+@mixin xxl {
+  @media only screen and (max-width: $xxl) {
+    @content;
+  }
+}
+
+@mixin defaultQuery($defaultQuery) {
+  @media only screen and (max-width: $defaultQuery) {
+    @content;
+  }
+}

@@ -1,0 +1,95 @@
+.product-form {
+  max-width: 50%;
+  margin: 10px auto;
+  @include lg {
+    max-width: 75%;
+  }
+  @include md {
+    max-width: 85%;
+  }
+  @include sm {
+    max-width: 100%;
+  }
+  &-box {
+    text-align: center;
+    &__link {
+      text-align: center;
+      margin: 10px 0 0 0;
+      display: inline-block;
+      text-decoration: underline;
+      @include title($title-color, 18px, 400, default, default);
+      &:hover {
+        color: $title-color;
+        text-decoration: underline;
+      }
+    }
+  }
+  &-label {
+    position: relative;
+    @include sizes(75px, 100%);
+    &-upload {
+      margin: 35px 0;
+      cursor: pointer;
+      @include sizes(75px, 100%);
+      border: 1px solid $footer-border-color;
+      @include flexbox(flex, center, center, row, stretch);
+      &__icon {
+        font-size: 45px;
+        color: $title-color;
+      }
+      &:hover {
+        border: 1px dashed $btn-first-bg-color;
+      }
+      &__img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      &.active {
+        @include sizes(500px, 100%);
+      }
+    }
+    &__input {
+      margin: 35px 0;
+      padding: 20px 0;
+      @include title(default, 16px, 500, default, default);
+      @include input(
+        100%,
+        100%,
+        1px solid $footer-border-color,
+        none,
+        25px,
+        4px,
+        transparent,
+        $title-color,
+        $title-color
+      );
+    }
+  }
+  &__btn {
+    width: 100%;
+    margin: 15px 0 0 0;
+    @include title($title-color, 16px, 500, default, uppercase);
+    @include button(
+      none,
+      20px 0,
+      4px,
+      $btn-first-bg-color,
+      1px solid $btn-first-bg-color,
+      all 500ms ease
+    );
+    &:hover {
+      @include button(
+        none,
+        20px 0,
+        4px,
+        transparent,
+        1px solid $btn-first-bg-color,
+        all 500ms ease
+      );
+    }
+    &.active {
+      margin: 0;
+    }
+  }
+}

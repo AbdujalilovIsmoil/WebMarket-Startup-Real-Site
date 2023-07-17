@@ -1,0 +1,50 @@
+.profile {
+  &-box {
+    @include flexbox(flex, flex-end, center, row, stretch);
+    transform: translate(-50px, 50px);
+    &__btn {
+      margin: 0 0 30px 0;
+      @include button(
+        none,
+        15px 20px 10px 20px,
+        4px,
+        $btn-first-bg-color,
+        1px solid $btn-first-bg-color,
+        all 300ms ease
+      );
+      @include title($title-color, 16px, 400, default, uppercase);
+      &:hover {
+        @include button(
+          none,
+          15px 20px 10px 20px,
+          4px,
+          transparent,
+          1px solid $btn-first-bg-color,
+          all 300ms ease
+        );
+      }
+    }
+  }
+  &-container {
+    text-align: center;
+    &__img {
+      @include sizes(350px, 350px);
+      border-radius: 50%;
+    }
+    &__name {
+      @include title($title-color, 35px, 400, default, capitalize);
+      margin: 20px 0 20px 0;
+    }
+    &__email {
+      @include title($title-color, 20px, 400, default, default);
+      margin: 20px 0;
+    }
+    &__portfolio {
+      @include title($title-color, 20px, 400, default, default);
+      &:hover {
+        text-decoration: underline;
+        @include title($title-color, 20px, 400, default, default);
+      }
+    }
+  }
+}

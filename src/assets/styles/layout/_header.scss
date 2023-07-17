@@ -1,0 +1,103 @@
+.header {
+  top: 0;
+  z-index: 4;
+  position: sticky;
+  padding: 10px 0;
+  background-color: $bg-color;
+  border-top: 1px solid transparent;
+  border-bottom: 1px solid $nav-border-color;
+  .nav {
+    @include flexbox(flex, space-between, center, row, stretch);
+    &-intro {
+      @include flexbox(flex, flex-start, center, row, 10px);
+      &-menu {
+        display: none;
+        font-size: 30px;
+        cursor: pointer;
+        border-radius: 5px;
+        color: $title-color;
+        background-color: $moon-color;
+        @include defaultQuery(900px) {
+          padding: 10px;
+          @include flexbox(flex, center, center, row, stretch);
+        }
+      }
+      &-link {
+        @include defaultQuery(480px) {
+          display: none;
+        }
+        @include flexbox(flex, flex-start, center, row, 10px);
+        &__img {
+          object-fit: cover;
+          @include sizes(50px, 50px);
+        }
+        &__title {
+          @include title(
+            $title-color,
+            25px !important,
+            400,
+            default,
+            capitalize
+          );
+          transform: translateY(4px);
+        }
+      }
+    }
+    &-list {
+      @include flexbox(flex, center, center, row, 35px);
+      transform: translateY(9px);
+      &-item {
+        &__link {
+          @include title($title-color, 16px, 500, 26px, capitalize);
+          transition: color 300ms ease;
+          &--active {
+            color: $isActive-color;
+          }
+          &:hover {
+            color: $isActive-color;
+            transition: color 300ms ease;
+          }
+        }
+      }
+      @include md {
+        display: none;
+      }
+    }
+    &-buttons {
+      @include flexbox(flex, flex-end, center, row, 12px);
+      &-animation {
+        padding: 5px;
+        border-radius: 9999px;
+        background-color: $buttons-bg-color;
+        @include flexbox(flex, center, center, row, 5px);
+        transform: translateY(3px);
+        &__sun {
+          color: $title-color;
+        }
+        &__moon {
+          color: $moon-color;
+        }
+        &__sun,
+        &__moon {
+          cursor: pointer;
+        }
+        &__btn {
+          @include button(
+            none,
+            8px 20px,
+            4px,
+            $btn-first-bg-color,
+            1px solid $btn-first-bg-color,
+            all 300ms ease
+          );
+          @include title($title-color, 14.4px, 400, 23px, default);
+          &:hover {
+            color: $btn-first-bg-color;
+            transition: color 300ms ease, background-color 300ms ease;
+            background-color: transparent;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,73 @@
+.product {
+  &-buttons {
+    margin: 20px 0 0 0;
+    @include flexbox(flex, flex-end, center, row, stretch);
+    &__btn {
+      @include button(
+        none,
+        15px 25px 15px 25px,
+        5px,
+        $btn-first-bg-color,
+        1px solid $btn-first-bg-color,
+        all 500ms ease
+      );
+      @include title($title-color, 16px, 400, default, capitalize);
+      &:hover {
+        @include button(
+          none,
+          15px 25px 15px 25px,
+          5px,
+          transparent,
+          1px solid $btn-first-bg-color,
+          all 500ms ease
+        );
+        @include title($btn-first-bg-color, 16px, 400, default, capitalize);
+      }
+    }
+  }
+  &-table {
+    background-color: $btn-first-bg-color;
+    &-room {
+      &__thead {
+        padding: 10px;
+        @include title($title-color, 15px, 400, default, uppercase);
+      }
+      &__data {
+        padding: 20px 0;
+        max-width: 170px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        @include title($title-color, 15px, 400, default, capitalize);
+      }
+      &-data {
+        &__img {
+          border-radius: 10px;
+          @include sizes(40px, 40px);
+        }
+        &__link {
+          max-width: 185px;
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          text-decoration: underline;
+          @include title($title-color, 15px, 400, default, capitalize);
+          &:hover {
+            text-decoration: underline;
+            @include title($title-color, 15px, 400, default, capitalize);
+          }
+        }
+        &__icon {
+          font-size: 20px;
+          cursor: pointer;
+          &.--first {
+            color: $title-color;
+          }
+          &.--second {
+            color: $error-color;
+          }
+        }
+      }
+    }
+  }
+}

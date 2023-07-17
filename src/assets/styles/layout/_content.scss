@@ -1,0 +1,11 @@
+.content {
+  max-width: 640px;
+  margin: 40px 0 0 0;
+  &__title {
+    @include title($title-color, 30.1369px, 400, 38px, capitalize);
+  }
+  &__description {
+    margin: 5px 0 0 0;
+    @include title($description-color, 16px, 400, 26px, default);
+  }
+}

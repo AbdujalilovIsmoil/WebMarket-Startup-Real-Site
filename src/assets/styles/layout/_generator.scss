@@ -1,0 +1,120 @@
+.wrapper {
+  @include defaultQuery(900px) {
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    overflow-y: scroll;
+    background-color: rgba(0, 0, 0, 0.3);
+    transform: translateX(-100%);
+    transition: transform 500ms ease;
+    &.--active {
+      transform: translateX(0);
+      transition: transform 500ms ease;
+    }
+  }
+}
+
+.generator {
+  width: 330px;
+  min-height: 746px;
+  padding: 30px 5px 80px 0;
+  transition: transform 500ms ease;
+  background-color: $buttons-bg-color;
+
+  @include md {
+    width: 55%;
+    position: absolute;
+  }
+  @include sm {
+    width: 100%;
+  }
+  &-container {
+    &-box {
+      margin: 20px 0 0 0;
+      &:first-child {
+        margin: 0;
+      }
+      &-collapse {
+        padding: 10px 0;
+        cursor: pointer;
+        border-radius: 12px;
+        @include flexbox(flex, space-between, center, row, stretch);
+        &__title {
+          @include title($title-color, 16px, 400, 20px, capitalize);
+        }
+        &__icon {
+          color: $title-color;
+          &.--active {
+            transform: rotate(180deg);
+          }
+        }
+      }
+      &-list {
+        padding: 0 2px;
+        margin: 10px 0 0 0;
+        @include flexbox(flex, center, space-between, column, 10px);
+        &-item {
+          position: relative;
+          &__input {
+            width: 100%;
+            padding: 20px 0;
+            position: absolute;
+            border-radius: 4px;
+            -webkit-appearance: none;
+            &:checked + label {
+              background-color: $moon-color;
+            }
+          }
+          &-label {
+            cursor: pointer;
+            position: relative;
+            border-radius: 4px;
+            padding: 10px 10px;
+            transition: background-color 300ms ease;
+            @include flexbox(flex, space-between, center, row, stretch);
+            &-icons {
+              @include flexbox(flex, flex-start, center, row, 7px);
+              &__language {
+                @include sizes(18px, 18px);
+              }
+              &__title {
+                transform: translateY(5px);
+                @include title($title-color, 14px, 400, 20px, capitalize);
+              }
+            }
+            &__number {
+              transform: translateY(5px);
+              @include title($title-color, 14px, 400, 20px, default);
+            }
+          }
+        }
+      }
+    }
+  }
+  &-list {
+    display: none;
+    position: relative;
+    margin: 45px 0 0 0;
+    @include defaultQuery(900px) {
+      @include flexbox(flex, flex-start, flex-start, column, 16px);
+    }
+    &::after {
+      left: 0;
+      top: -30px;
+      content: "";
+      position: absolute;
+      @include sizes(1px, 100%);
+      background-color: $input-color;
+    }
+    &-item {
+      transform: translateX(-30px);
+      &__link {
+        @include title($title-color, 16px, 400, 26px, capitalize);
+        &:hover {
+          color: $btn-first-bg-color;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,62 @@
+.nav-buttons-dropDown {
+  position: relative;
+  display: inline-block;
+  &:hover > .nav-buttons-dropDown-list {
+    display: block;
+  }
+  &-btn {
+    @include flexbox(flex, center, default, row, stretch);
+    transform: translateY(3px);
+    cursor: pointer;
+    @include button(
+      none,
+      0 15px 0 15px,
+      10px,
+      $btn-dark-first-bg-color,
+      none,
+      all 500ms ease
+    );
+    &__name {
+      padding: 0 0 35px 0;
+      transform: translateY(22px);
+      transition: background 200ms ease;
+      @include title($title-color, 18px, 400, 0, capitalize);
+    }
+  }
+  &-list {
+    z-index: 3;
+    padding: 5px;
+    width: 140px;
+    display: none;
+    border-radius: 4px;
+    position: absolute;
+    transition: background 200ms ease;
+    background-color: $btn-first-bg-color;
+    transform: translateY(10px) translateX(-50px);
+    &-item {
+      width: 100%;
+      cursor: pointer;
+      line-height: 40px;
+      padding: 5px 10px;
+      border-radius: 4px;
+      transition: background 200ms ease;
+      &:hover {
+        background-color: $title-color;
+        transition: background 200ms ease;
+      }
+      &-link {
+        transition: color 200ms ease;
+        @include flexbox(flex, space-between, center, row, stretch);
+        @include title($title-color, 16px, 400, default, capitalize);
+        &__icon {
+          font-size: 20px;
+          transition: color 200ms ease;
+        }
+      }
+      &:hover > .nav-buttons-dropDown-list-item-link {
+        @include title($btn-first-bg-color, 16px, 400, default, capitalize);
+        transition: color 200ms ease;
+      }
+    }
+  }
+}

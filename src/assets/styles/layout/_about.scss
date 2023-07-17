@@ -1,0 +1,124 @@
+.about {
+  margin: 65px 0 0 0;
+  @include sm {
+    margin: 35px 0 0 0;
+  }
+  &-container {
+    @include flexbox(flex, flex-start, flex-start, row, 46px);
+    @include md {
+      display: block;
+    }
+    &-box {
+      &__img {
+        @include sizes(1000px, 100%);
+        @include xl {
+          @include sizes(750px, 100%);
+        }
+        @include defaultQuery(1040px) {
+          @include sizes(600px, 100%);
+        }
+        @include lg {
+          @include sizes(500px, 100%);
+        }
+        @include sm {
+          @include sizes(250px, 100%);
+        }
+      }
+      &__title {
+        margin: 35px 0 0 0;
+        @include title($title-color, 26.552px, 500, 33.19px, default);
+        @include md {
+          @include title($title-color, 26.552px, 500, 0, default);
+        }
+      }
+      &__description {
+        max-width: 530px;
+        margin: 23px 0 0 0;
+        @include title($description-color, 16px, default, 26px, default);
+        @include md {
+          @include title($description-color, 16px, default, 25px, default);
+        }
+      }
+      &-buttons {
+        margin: 27px 0 0 0;
+        @include flexbox(flex, flex-start, flex-start, row, 15px);
+        @include sm {
+          @include flexbox(flex, flex-start, flex-start, row, 15px);
+        }
+        &__btn {
+          border-radius: 4px;
+          white-space: nowrap;
+          @include button(
+            none,
+            12px 50px,
+            4px,
+            transparent,
+            1px solid $btn-first-bg-color,
+            all 500ms ease
+          );
+          @include sm {
+            padding: 12px 45px;
+          }
+          @include title($title-color, 14.4px, default, 23.4px, default);
+          &:hover {
+            color: $title-color;
+          }
+          &:nth-child(2) {
+            background-color: $btn-first-bg-color;
+          }
+          &:nth-child(2):hover {
+            background-color: transparent;
+          }
+          &:hover {
+            background-color: $btn-first-bg-color;
+          }
+        }
+      }
+      &-information {
+        margin: 47px 0 0 0;
+        @include md {
+          margin: 30px 0 0 0;
+        }
+        &__title {
+          @include title($title-color, 20.612px, 400, 25.764px, default);
+        }
+        &-list {
+          transform: translateX(-30px);
+          &-item {
+            margin: 18px 0;
+            @include flexbox(flex, flex-start, flex-start, row, 26px);
+            &__key {
+              @include title($description-color, 16px, default, 26px, default);
+            }
+            &__value {
+              @include title($title-color, 16px, default, 26px, default);
+            }
+            &-images {
+              @include flexbox(flex, flex-start, center, row, 12px);
+              transform: translateX(-80px);
+              &__icon {
+                @include sizes(20px, 20px);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  &-cards {
+    margin: 55px 0;
+    @include gridLayout(grid, repeat(4, auto), center, flex-start, 10px);
+    @include xl {
+      @include gridLayout(
+        grid,
+        repeat(2, auto),
+        center,
+        flex-start,
+        24px
+      );
+    }
+    @include sm {
+      @include gridLayout(grid, auto, center, flex-start, 24px);
+    }
+  }
+}

@@ -1,0 +1,932 @@
+body {
+  overflow: visible;
+  transition: all 500ms ease;
+  background-color: $bg-color;
+  font-family: "Oxygen", sans-serif;
+}
+
+body.hide {
+  overflow: hidden;
+  transition: all 500ms ease;
+}
+
+body.light .lds-ring div {
+  border: 8px solid $btn-first-bg-color;
+  border-color: $btn-first-bg-color transparent transparent transparent;
+}
+
+body.light {
+  background-color: #f2f2f2;
+}
+
+body.light h1 {
+  color: black !important;
+}
+
+body.light h2 {
+  color: black;
+}
+
+body.light h3 {
+  color: black;
+}
+
+body.light .header {
+  border: #ffffff;
+  background-color: #ffffff;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.0562443);
+  .nav {
+    &-intro {
+      &-menu {
+        color: black;
+        background-color: #ffffff;
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.0562443);
+      }
+      &-link {
+        &__title {
+          @include title(black, 25px !important, 400, default, capitalize);
+        }
+      }
+    }
+    &-list {
+      &-item {
+        &__link {
+          @include title(black, 16px, 500, 26px, capitalize);
+          &--active {
+            color: $isActive-color;
+          }
+          &:hover {
+            color: $isActive-color;
+          }
+        }
+      }
+    }
+    &-buttons {
+      &-animation {
+        border-color: #ffffff !important;
+        background-color: #ffffff;
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.0562443);
+        &__btn {
+          @include title(black, 14.4px, 400, 23px, default);
+          box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.0562443);
+          @include button(
+            none,
+            8px 20px,
+            4px,
+            #ffffff,
+            1px solid #ffffff,
+            all 300ms ease
+          );
+        }
+      }
+    }
+  }
+}
+
+body.light .generator {
+  border: #ffffff;
+  background-color: #ffffff;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.0562443);
+  &-container {
+    &-box {
+      &-collapse {
+        &__title {
+          @include title(black, 16px, 400, 20px, capitalize);
+        }
+        &__icon {
+          color: black;
+        }
+      }
+      &-list {
+        &-item {
+          &__input {
+            &:checked + label {
+              background-color: #f2f2f2;
+            }
+          }
+          &-label {
+            &-icons {
+              &__title {
+                @include title(black, 14px, 400, 20px, capitalize);
+              }
+            }
+            &__number {
+              @include title(black, 14px, 400, 20px, default);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+body.light .content {
+  &__title {
+    @include title(black, 30.1369px, 400, 38px, capitalize);
+  }
+  &__description {
+    @include title(black, 16px, 400, 26px, default);
+  }
+}
+
+body.light .section-container-box-buttons-container {
+  &-label {
+    &__input {
+      @include button(none, 10px, 4px, transparent, 1px solid #ffffff, default);
+      &:checked ~ .section-container-box-buttons-container-label-btn {
+        background-color: $btn-first-bg-color !important;
+        .section-container-box-buttons-container-label-btn__name {
+          color: $title-color;
+        }
+        .section-container-box-buttons-container-label-btn__number {
+          color: $btn-first-bg-color;
+          background-color: #ffffff;
+        }
+      }
+    }
+    &-btn {
+      background-color: #ffffff;
+      &__name {
+        color: black;
+      }
+      &__number {
+        color: #ffffff;
+        background-color: $btn-first-bg-color;
+      }
+    }
+  }
+}
+
+body.light .form {
+  &-label {
+    &-btn {
+      @include button(
+        none,
+        17px 24px 17px 24px,
+        5px,
+        #ffffff,
+        1px solid #ffffff,
+        default
+      );
+      &__icon {
+        color: black;
+      }
+    }
+    &__search {
+      @include input(
+        100%,
+        100%,
+        1px solid #ffffff,
+        none,
+        24px,
+        5px,
+        #ffffff,
+        black,
+        black
+      );
+    }
+    &-select {
+      @include input(
+        200px,
+        56px,
+        1px solid #ffffff,
+        none,
+        default,
+        5px,
+        #ffffff,
+        black,
+        black
+      );
+      &__option {
+        color: black;
+        background-color: #ffffff;
+      }
+    }
+  }
+}
+
+body.light .section-container-box-cards-card {
+  border: #ffffff;
+  background-color: #ffffff;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.0562443);
+  &-box {
+    &-content {
+      &-header {
+        &__title {
+          color: black;
+        }
+        &-price {
+          &__number {
+            color: black;
+          }
+        }
+      }
+      &-description {
+        color: black;
+      }
+    }
+  }
+}
+
+body.light .registration {
+  &__title {
+    color: black;
+  }
+  &-form {
+    &-box {
+      &__link {
+        color: black;
+      }
+    }
+    &-label {
+      &-upload {
+        border: 1px solid #ffffff;
+        background-color: #ffffff;
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.0562443);
+        h2 {
+          color: black !important;
+        }
+      }
+      &__input {
+        @include input(
+          100%,
+          100%,
+          1px solid #ffffff,
+          none,
+          25px,
+          4px,
+          #ffffff,
+          black,
+          black
+        );
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.0562443);
+      }
+    }
+    &__btn {
+      color: black;
+      border: #ffffff;
+      background-color: #ffffff;
+      box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.0562443);
+      &:hover {
+        color: $title-color;
+        background-color: $btn-first-bg-color;
+      }
+    }
+  }
+}
+
+body.light .login {
+  &__title {
+    color: black;
+  }
+  &-form {
+    &-box {
+      &__link {
+        color: black;
+      }
+    }
+    &-label {
+      &-upload {
+        border: 1px solid #ffffff;
+        background-color: #ffffff;
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.0562443);
+        h2 {
+          color: black !important;
+        }
+      }
+      &__input {
+        @include input(
+          100%,
+          100%,
+          1px solid #ffffff,
+          none,
+          25px,
+          4px,
+          #ffffff,
+          black,
+          black
+        );
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.0562443);
+      }
+    }
+    &__btn {
+      color: black;
+      border: #ffffff;
+      background-color: #ffffff;
+      box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.0562443);
+      &:hover {
+        color: $title-color;
+        background-color: $btn-first-bg-color;
+      }
+    }
+  }
+}
+
+body.light .forgotPassword {
+  &__title {
+    color: black;
+  }
+  &-form {
+    &-box {
+      &__link {
+        color: black;
+      }
+    }
+    &-label {
+      &-upload {
+        border: 1px solid #ffffff;
+        background-color: #ffffff;
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.0562443);
+        h2 {
+          color: black !important;
+        }
+      }
+      &__input {
+        @include input(
+          100%,
+          100%,
+          1px solid #ffffff,
+          none,
+          25px,
+          4px,
+          #ffffff,
+          black,
+          black
+        );
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.0562443);
+      }
+    }
+    &__btn {
+      color: black;
+      border: #ffffff;
+      background-color: #ffffff;
+      box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.0562443);
+      &:hover {
+        color: $title-color;
+        background-color: $btn-first-bg-color;
+      }
+    }
+  }
+}
+
+body.light .about {
+  &-container {
+    &-box {
+      &__title {
+        color: black;
+      }
+      &__description {
+        color: black;
+      }
+      &-buttons {
+        &__btn {
+          @include button(
+            none,
+            12px 50px,
+            4px,
+            #ffffff,
+            1px solid #ffffff,
+            all 500ms ease
+          );
+          @include title(black, 14.4px, default, 23.4px, default);
+          &:hover {
+            @include button(
+              none,
+              12px 50px,
+              4px,
+              $btn-first-bg-color,
+              1px solid $btn-first-bg-color,
+              all 500ms ease
+            );
+            @include title($title-color, 14.4px, default, 23.4px, default);
+          }
+        }
+      }
+      &-information {
+        &__title {
+          color: black;
+        }
+        &-list {
+          &-item {
+            &__key {
+              color: black;
+            }
+            &__value {
+              color: black;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+body.light .blog-titles {
+  &__title {
+    @include title(black, 30.137px, 600, 37.671px, default);
+  }
+  &__text {
+    @include title(black, 13px, 400, 26px, default);
+  }
+}
+
+body.light .blog-cards-container {
+  &-box {
+    &-content {
+      &__name {
+        color: #ffffff;
+        background-color: $btn-first-bg-color;
+      }
+      &__title {
+        color: black;
+      }
+      &-date {
+        &-box {
+          &__name {
+            color: #000000;
+          }
+          &__date {
+            color: #000000;
+          }
+        }
+      }
+      &__description {
+        color: #000000;
+      }
+    }
+  }
+}
+
+body.light .profile {
+  &-box {
+    &__btn {
+      @include button(
+        none,
+        15px 20px 10px 20px,
+        4px,
+        #ffffff,
+        1px solid #ffffff,
+        all 300ms ease
+      );
+      @include title(#000000, 16px, 400, default, uppercase);
+      &:hover {
+        @include button(
+          none,
+          15px 20px 10px 20px,
+          4px,
+          $btn-first-bg-color,
+          1px solid $btn-first-bg-color,
+          all 300ms ease
+        );
+        @include title($title-color, 16px, 400, default, uppercase);
+      }
+    }
+  }
+  &-container {
+    &__name {
+      color: #000000;
+    }
+    &__email {
+      color: #000000;
+    }
+    &__portfolio {
+      color: #000000;
+    }
+  }
+}
+
+body.light .product-form {
+  &-box {
+    &__link {
+      color: black;
+    }
+  }
+  &-label {
+    &-upload {
+      border: 1px solid #ffffff;
+      background-color: #ffffff;
+      box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.0562443);
+      h2 {
+        color: black !important;
+      }
+    }
+    &__input {
+      @include input(
+        100%,
+        100%,
+        1px solid #ffffff,
+        none,
+        25px,
+        4px,
+        #ffffff,
+        black,
+        black
+      );
+      box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.0562443);
+    }
+  }
+  &__btn {
+    color: black;
+    border: #ffffff;
+    background-color: #ffffff;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.0562443);
+    &:hover {
+      color: $title-color;
+      background-color: $btn-first-bg-color;
+    }
+  }
+}
+
+body.light .product {
+  &-table {
+    &-error-content {
+      h2 {
+        color: black !important;
+      }
+    }
+  }
+}
+
+body.light .product-create {
+  &-form {
+    &-label {
+      &-upload {
+        border: 1px solid #ffffff;
+        background-color: #ffffff;
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.0562443);
+
+        @include flexbox(flex, center, center, row, stretch);
+        &.--active {
+          @include sizes(600px, 100%);
+        }
+        &__img {
+          object-fit: cover;
+          @include sizes(100%, 100%);
+        }
+        h2 {
+          color: black !important;
+        }
+        &__icon {
+          font-size: 45px;
+          color: $title-color;
+        }
+        &:hover {
+          border: 1px dashed $btn-first-bg-color;
+        }
+      }
+      &__input {
+        padding: 20px 0;
+        margin: 10px 0 0 0;
+        @include title(default, 16px, 500, default, default);
+        @include input(
+          100%,
+          100%,
+          1px solid $footer-border-color,
+          none,
+          25px,
+          4px,
+          transparent,
+          $title-color,
+          $title-color
+        );
+      }
+    }
+    &-box {
+      @include flexbox(flex, space-between, center, row, 20px);
+      @include md {
+        display: block;
+      }
+      &-label {
+        margin: 0 0 20px 0;
+        @include sizes(60px, 50%);
+        @include md {
+          @include sizes(60px, 100%);
+        }
+        &__input {
+          font-size: 15px;
+          padding: 0 20px 0 20px;
+          @include input(
+            100%,
+            100%,
+            1px solid $title-color,
+            none,
+            default,
+            4px,
+            $title-color,
+            #000000,
+            #000000
+          );
+          box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.0562443);
+        }
+        &-select {
+          @include input(
+            100%,
+            60px,
+            1px solid $title-color,
+            none,
+            20px,
+            4px,
+            $title-color,
+            default,
+            #000000
+          );
+          box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.0562443);
+          option {
+            color: #000000;
+            background-color: $title-color;
+          }
+        }
+      }
+    }
+    &-technologies {
+      flex-wrap: wrap;
+      @include flexbox(flex, flex-start, flex-start, row, 10px);
+
+      &-label {
+        position: relative;
+        &__input {
+          cursor: pointer;
+          position: absolute;
+          -webkit-appearance: none;
+          @include sizes(100%, 100%);
+          @include button(
+            none,
+            10px,
+            4px,
+            transparent,
+            1px solid $title-color,
+            default
+          );
+          &:checked ~ .product-create-form-technologies-label-btn {
+            background-color: $btn-first-bg-color;
+            .product-create-form-technologies-label-btn__name {
+              color: $title-color;
+            }
+            .product-create-form-technologies-label-btn__number {
+              color: $btn-first-bg-color;
+              background-color: $title-color;
+            }
+          }
+        }
+        &-btn {
+          @include button(
+            none,
+            15px 20px 10px 20px,
+            4px,
+            $title-color,
+            1px solid $title-color,
+            all 300ms ease
+          );
+          @include flexbox(flex, center, center, row, 5px);
+          &__name {
+            @include title(#000000, 12.8px, 400, 21px, capitalize);
+            transition: all 300ms ease;
+          }
+          &__number {
+            padding: 2px 4px;
+            border-radius: 4px;
+            transition: all 300ms ease;
+            background-color: $btn-first-bg-color;
+            @include title($title-color, 12px, 400, 16px, capitalize);
+            @include flexbox(flex, center, center, row, stretch);
+          }
+        }
+      }
+    }
+    &-description {
+      resize: none;
+      padding: 20px;
+      font-size: 15px;
+      margin: 0 0 15px 0;
+      @include input(
+        100%,
+        200px,
+        1px solid $title-color,
+        none,
+        default,
+        4px,
+        $title-color,
+        #000000,
+        #000000
+      );
+      box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.0562443);
+    }
+    &__submit {
+      margin: 20px 0 0 0;
+      @include sizes(default, 100%);
+      @include title(#000000, 16px, 500, default, default);
+      @include button(
+        none,
+        10px 20px,
+        4px,
+        $title-color,
+        1px solid $title-color,
+        all 500ms ease
+      );
+      box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.0562443);
+      &:hover {
+        @include button(
+          none,
+          10px 20px,
+          4px,
+          $btn-first-bg-color,
+          1px solid $btn-first-bg-color,
+          all 500ms ease
+        );
+        @include title($title-color, 16px, 500, default, default);
+      }
+    }
+  }
+}
+
+body.light .product-edit {
+  &-form {
+    &-label {
+      &-upload {
+        border: 1px solid #ffffff;
+        background-color: #ffffff;
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.0562443);
+
+        @include flexbox(flex, center, center, row, stretch);
+        &.--active {
+          @include sizes(600px, 100%);
+        }
+        &__img {
+          object-fit: cover;
+          @include sizes(100%, 100%);
+        }
+        h2 {
+          color: black !important;
+        }
+        &__icon {
+          font-size: 45px;
+          color: $title-color;
+        }
+        &:hover {
+          border: 1px dashed $btn-first-bg-color;
+        }
+      }
+      &__input {
+        padding: 20px 0;
+        margin: 10px 0 0 0;
+        @include title(default, 16px, 500, default, default);
+        @include input(
+          100%,
+          100%,
+          1px solid $footer-border-color,
+          none,
+          25px,
+          4px,
+          transparent,
+          $title-color,
+          $title-color
+        );
+      }
+    }
+    &-box {
+      @include flexbox(flex, space-between, center, row, 20px);
+      @include md {
+        display: block;
+      }
+      &-label {
+        margin: 0 0 20px 0;
+        @include sizes(60px, 50%);
+        @include md {
+          @include sizes(60px, 100%);
+        }
+        &__input {
+          font-size: 15px;
+          padding: 0 20px 0 20px;
+          @include input(
+            100%,
+            100%,
+            1px solid $title-color,
+            none,
+            default,
+            4px,
+            $title-color,
+            #000000,
+            #000000
+          );
+          box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.0562443);
+        }
+        &-select {
+          @include input(
+            100%,
+            60px,
+            1px solid $title-color,
+            none,
+            20px,
+            4px,
+            $title-color,
+            default,
+            #000000
+          );
+          box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.0562443);
+          option {
+            color: #000000;
+            background-color: $title-color;
+          }
+        }
+      }
+    }
+    &-technologies {
+      flex-wrap: wrap;
+      @include flexbox(flex, flex-start, flex-start, row, 10px);
+
+      &-label {
+        position: relative;
+        &__input {
+          cursor: pointer;
+          position: absolute;
+          -webkit-appearance: none;
+          @include sizes(100%, 100%);
+          @include button(
+            none,
+            10px,
+            4px,
+            transparent,
+            1px solid $title-color,
+            default
+          );
+          &:checked ~ .product-edit-form-technologies-label-btn {
+            background-color: $btn-first-bg-color;
+            .product-edit-form-technologies-label-btn__name {
+              color: $title-color;
+            }
+            .product-edit-form-technologies-label-btn__number {
+              color: $btn-first-bg-color;
+              background-color: $title-color;
+            }
+          }
+        }
+        &-btn {
+          @include button(
+            none,
+            15px 20px 10px 20px,
+            4px,
+            $title-color,
+            1px solid $title-color,
+            all 300ms ease
+          );
+          @include flexbox(flex, center, center, row, 5px);
+          &__name {
+            @include title(#000000, 12.8px, 400, 21px, capitalize);
+            transition: all 300ms ease;
+          }
+          &__number {
+            padding: 2px 4px;
+            border-radius: 4px;
+            transition: all 300ms ease;
+            background-color: $btn-first-bg-color;
+            @include title($title-color, 12px, 400, 16px, capitalize);
+            @include flexbox(flex, center, center, row, stretch);
+          }
+        }
+      }
+    }
+    &-description {
+      resize: none;
+      padding: 20px;
+      font-size: 15px;
+      margin: 0 0 15px 0;
+      @include input(
+        100%,
+        200px,
+        1px solid $title-color,
+        none,
+        default,
+        4px,
+        $title-color,
+        #000000,
+        #000000
+      );
+      box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.0562443);
+    }
+    &__submit {
+      margin: 20px 0 0 0;
+      @include sizes(default, 100%);
+      @include title(#000000, 16px, 500, default, default);
+      @include button(
+        none,
+        10px 20px,
+        4px,
+        $title-color,
+        1px solid $title-color,
+        all 500ms ease
+      );
+      box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.0562443);
+      &:hover {
+        @include button(
+          none,
+          10px 20px,
+          4px,
+          $btn-first-bg-color,
+          1px solid $btn-first-bg-color,
+          all 500ms ease
+        );
+        @include title($title-color, 16px, 500, default, default);
+      }
+    }
+  }
+}
