@@ -71,6 +71,21 @@
           $title-color
         );
       }
+      &__code {
+        height: 60px;
+        outline: none;
+        color: $title-color;
+        border-radius: 4px;
+        width: 100% !important;
+        transform: translateY(40px);
+        border: 1px solid $moon-color;
+        &:focus {
+          border: 1px solid $btn-first-bg-color !important;
+        }
+        &:active {
+          border: 1px solid $btn-first-bg-color !important;
+        }
+      }
     }
     &__btn {
       width: 100%;

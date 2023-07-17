@@ -2,6 +2,7 @@ import { get } from "lodash";
 import { toast } from "react-toastify";
 import { useFetch } from "../../../hook";
 import { Input, Button } from "../../field";
+import OTPInput from "react-otp-input";
 import { useDispatch } from "react-redux";
 import React, { memo, useState } from "react";
 import { storage } from "../../../services/storage";
@@ -19,6 +20,7 @@ const index = memo(() => {
   const [imageLink, setImageLink] = useState("");
   const [portfolioLink, setPortfolioLink] = useState("");
   const [confirmationCode, setConfirmationCode] = useState("");
+  const [isConfirmationCode, setIsConfirmationCode] = useState(false);
 
   const postImageLinkFunction = (picsum) => {
     if (picsum.type === "image/jpeg" || picsum.type === "image/png") {
@@ -42,13 +44,14 @@ const index = memo(() => {
       username,
       imageLink,
       portfolioLink,
-      confirmationCode: userCode,
+      confirmationCode,
     };
     const data = usePost({ api: "/users", values: postDataObject }).then(
       (response) => {
         if (get(response, "data.success") === true) {
           setConfirmationCode(get(response, "data.confirmationCode"));
-          confirmationCode
+          setIsConfirmationCode(true);
+          isConfirmationCode
             ? null
             : toast.success("Emailingizga kod yuborildi", {
                 autoClose: 3000,
@@ -56,7 +59,7 @@ const index = memo(() => {
                 pauseOnHover: false,
                 position: "top-right",
               });
-          if (confirmationCode) {
+          if (isConfirmationCode) {
             storage.set("username", get(response, "data.data.username"));
             dispatch(USERNAME(get(response, "data.data.username")));
             setEmail("");
@@ -67,7 +70,7 @@ const index = memo(() => {
             setConfirmationCode("");
             storage.set("token", get(response, "data.token"));
             navigate("/");
-            confirmationCode
+            isConfirmationCode
               ? toast.success("Emailingiz kiritildi", {
                   autoClose: 3000,
                   draggable: false,
@@ -153,24 +156,31 @@ const index = memo(() => {
             }}
             className="registration-form-label__input"
           />
-          {confirmationCode ? (
+          {isConfirmationCode ? (
             <label className="registration-form-label" htmlFor="#">
-              <Input
-                required
-                type="text"
+              <OTPInput
+                numInputs={6}
                 value={userCode}
-                placeholder="Enter your code"
-                className="registration-form-label__input"
-                onChange={(e) => {
-                  setConfirmationCode(e.target.value);
-                  setUserCode(e.target.value);
+                renderSeparator={<span>-</span>}
+                onChange={(value) => {
+                  console.log(value);
+                  setUserCode(value);
+                  setConfirmationCode(value);
+                }}
+                renderInput={(props) => {
+                  return (
+                    <>
+                      <input
+                        required
+                        {...props}
+                        className="registration-form-label__code"
+                      />
+                    </>
+                  );
                 }}
               />
             </label>
-          ) : (
-            ""
-          )}
-
+          ) : null}
           <div
             className={`registration-form-label-upload ${
               imageLink ? "active" : ""

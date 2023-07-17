@@ -2,6 +2,7 @@ import { get } from "lodash";
 import { toast } from "react-toastify";
 import { useFetch } from "../../../hook";
 import { Input, Button } from "../../field";
+import OTPInput from "react-otp-input";
 import { useDispatch } from "react-redux";
 import React, { memo, useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -15,6 +16,7 @@ const index = memo(() => {
   const [password, setPassword] = useState("");
   const [userCode, setUserCode] = useState("");
   const [confirmationCode, setConfirmationCode] = useState("");
+  const [isConfirmationCode, setIsConfirmationCode] = useState(false);
 
   const postData = (e) => {
     e.preventDefault();
@@ -27,7 +29,8 @@ const index = memo(() => {
     const data = usePost({ api: "/users/forget", values: forgetData }).then(
       (response) => {
         setConfirmationCode(get(response, "data.confirmationCode"));
-        confirmationCode
+        setIsConfirmationCode(true);
+        isConfirmationCode
           ? null
           : toast.success("Emailingizga kod yuborildi", {
               autoClose: 3000,
@@ -36,14 +39,14 @@ const index = memo(() => {
               position: "top-right",
             });
         storage.set("token", get(response, "data.token"));
-        if (confirmationCode) {
+        if (isConfirmationCode) {
           dispatch(USERNAME(get(response, "data.data.username")));
           storage.set("username", get(response, "data.data.username"));
           setEmail("");
           setPassword("");
           setConfirmationCode("");
           navigate("/");
-          confirmationCode
+          isConfirmationCode
             ? toast.success("Emailingiz kiritildi", {
                 autoClose: 3000,
                 draggable: false,
@@ -69,7 +72,7 @@ const index = memo(() => {
             onChange={(e) => setEmail(e.target.value)}
           />
         </label>
-        {confirmationCode && (
+        {isConfirmationCode && (
           <>
             <label className="forgotPassword-form-label" htmlFor="#">
               <Input
@@ -80,18 +83,31 @@ const index = memo(() => {
                 onChange={(e) => setPassword(e.target.value)}
               />
             </label>
-            <label className="forgotPassword-form-label" htmlFor="#">
-              <Input
-                type="text"
-                value={userCode}
-                placeholder="Enter your code"
-                className="forgotPassword-form-label__input"
-                onChange={(e) => {
-                  setConfirmationCode(e.target.value);
-                  setUserCode(e.target.value);
-                }}
-              />
-            </label>
+            {isConfirmationCode ? (
+              <label className="forgotPassword-form-label" htmlFor="#">
+                <OTPInput
+                  numInputs={6}
+                  value={userCode}
+                  renderSeparator={<span>-</span>}
+                  onChange={(value) => {
+                    console.log(value);
+                    setUserCode(value);
+                    setConfirmationCode(value);
+                  }}
+                  renderInput={(props) => {
+                    return (
+                      <>
+                        <input
+                          required
+                          {...props}
+                          className="forgotPassword-form-label__code"
+                        />
+                      </>
+                    );
+                  }}
+                />
+              </label>
+            ) : null}
           </>
         )}
         <Button className="forgotPassword-form__btn" type="submit">
