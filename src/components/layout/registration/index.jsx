@@ -139,7 +139,7 @@ const index = memo(() => {
           <Input
             type="text"
             value={portfolioLink}
-            placeholder="Enter your portfoliolink"
+            placeholder="Enter your site demo preview link"
             className="registration-form-label__input"
             onChange={(e) => setPortfolioLink(e.target.value)}
           />

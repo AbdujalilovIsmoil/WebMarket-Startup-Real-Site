@@ -13,9 +13,9 @@ const index = memo(() => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const token = storage.get("token");
-  const [name, setName] = useState("");
   const [desc, setDesc] = useState("");
   const [price, setPrice] = useState("");
+  const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [img_link, setImgLink] = useState("");
   const [category, setCategory] = useState("");
@@ -157,7 +157,7 @@ const index = memo(() => {
                   required
                   type="text"
                   value={product_link}
-                  placeholder="Enter your product link"
+                  placeholder="Enter your site demo preview link"
                   className="product-create-form-box-label__input"
                   onChange={(e) => setProductLink(e.target.value)}
                 />
@@ -167,7 +167,7 @@ const index = memo(() => {
                   required
                   type="text"
                   value={github_link}
-                  placeholder="Enter your github link"
+                  placeholder="Enter your repo github link"
                   onChange={(e) => setGithubLink(e.target.value)}
                   className="product-create-form-box-label__input"
                 />
