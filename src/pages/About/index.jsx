@@ -34,7 +34,7 @@ const index = memo(() => {
         console.log(get(response, "data.data", []));
         if (get(response, "status") === 200) {
           dispatch(LOADER());
-          setProducts(get(response, "data.data", []).slice(0, 4));
+          setProducts(get(response, "data.data", []).slice(1, 5));
         }
       })
       .catch(() => {

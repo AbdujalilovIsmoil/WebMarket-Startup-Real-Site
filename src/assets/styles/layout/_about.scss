@@ -26,7 +26,7 @@
       }
       &__title {
         margin: 35px 0 0 0;
-        @include title($title-color, 26.552px, 500, 33.19px, default);
+        @include title($title-color, 26.552px, 500, 33.19px, capitalize);
         @include md {
           @include title($title-color, 26.552px, 500, 0, default);
         }
@@ -109,13 +109,7 @@
     margin: 55px 0;
     @include gridLayout(grid, repeat(4, auto), center, flex-start, 10px);
     @include xl {
-      @include gridLayout(
-        grid,
-        repeat(2, auto),
-        center,
-        flex-start,
-        24px
-      );
+      @include gridLayout(grid, repeat(2, auto), center, flex-start, 24px);
     }
     @include sm {
       @include gridLayout(grid, auto, center, flex-start, 24px);
