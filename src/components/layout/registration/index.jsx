@@ -128,6 +128,7 @@ const index = memo(() => {
         <label className="registration-form-label" htmlFor="#">
           <Input
             required
+            minLength={6}
             type="password"
             value={password}
             placeholder="Enter your password"

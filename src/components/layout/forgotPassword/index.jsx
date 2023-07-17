@@ -76,6 +76,7 @@ const index = memo(() => {
           <>
             <label className="forgotPassword-form-label" htmlFor="#">
               <Input
+                minLength={6}
                 type="password"
                 value={password}
                 placeholder="Enter your new password"

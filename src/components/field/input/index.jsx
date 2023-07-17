@@ -18,6 +18,7 @@ const index = memo(
     onChange,
     maxLength,
     className,
+    minLength,
     placeholder,
     onKeyDown,
     autoComplete,
@@ -40,6 +41,7 @@ const index = memo(
           multiple={multiple}
           onChange={onChange}
           className={className}
+          minLength={minLength}
           maxLength={maxLength}
           placeholder={placeholder}
           onKeyDown={onKeyDown}

@@ -64,6 +64,7 @@ const index = memo(() => {
         </label>
         <label className="login-form-label" htmlFor="#">
           <Input
+            minLength={6}
             type="password"
             value={password}
             placeholder="Enter your password"
