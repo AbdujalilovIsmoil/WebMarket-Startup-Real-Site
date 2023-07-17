@@ -88,6 +88,7 @@
             margin: 18px 0;
             @include flexbox(flex, flex-start, flex-start, row, 26px);
             &__key {
+              white-space: nowrap;
               @include title($description-color, 16px, default, 26px, default);
             }
             &__value {
@@ -95,7 +96,17 @@
             }
             &-images {
               @include flexbox(flex, flex-start, center, row, 12px);
-              transform: translateX(-80px);
+              transform: translateX(-90px);
+              &__username {
+                transform: translateY(2.5px);
+                @include title(
+                  $title-color,
+                  16px,
+                  default,
+                  default,
+                  capitalize
+                );
+              }
               &__icon {
                 @include sizes(20px, 20px);
               }

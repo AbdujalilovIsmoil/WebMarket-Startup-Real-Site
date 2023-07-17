@@ -15,6 +15,7 @@ const index = memo(
     onPaste,
     required,
     multiple,
+    disabled,
     onChange,
     maxLength,
     className,
@@ -35,6 +36,7 @@ const index = memo(
           onBlur={onBlur}
           hidden={hidden}
           onPaste={onPaste}
+          disabled={disabled}
           checked={checked}
           onFocus={onFocus}
           required={required}

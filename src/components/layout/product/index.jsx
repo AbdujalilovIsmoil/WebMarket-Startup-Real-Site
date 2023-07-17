@@ -1,14 +1,14 @@
 import { get } from "lodash";
-import { Button, Loader } from "../../field";
+import { toast } from "react-toastify";
 import { useFetch } from "../../../hook";
 import { Pagination } from "../../layout";
+import { Button, Loader } from "../../field";
 import { useNavigate } from "react-router-dom";
 import { storage } from "../../../services/storage";
-import { GET_PRODUCT, LOADER } from "../../../store/actions";
 import { useDispatch, useSelector } from "react-redux";
 import React, { memo, useEffect, useState } from "react";
+import { GET_PRODUCT, LOADER } from "../../../store/actions";
 import { AiOutlineDelete, AiOutlineEdit } from "../../../assets/icons";
-import { toast } from "react-toastify";
 
 const index = memo(() => {
   const allPageCounts = [];

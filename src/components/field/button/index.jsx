@@ -1,9 +1,15 @@
 import React, { memo } from "react";
 
-const index = memo(({ type, className, children, onClick, id }) => {
+const index = memo(({ disabled, type, className, children, onClick, id }) => {
   return (
     <>
-      <button type={type} className={className} onClick={onClick} id={id}>
+      <button
+        id={id}
+        type={type}
+        className={className}
+        disabled={disabled}
+        onClick={onClick}
+      >
         {children}
       </button>
     </>

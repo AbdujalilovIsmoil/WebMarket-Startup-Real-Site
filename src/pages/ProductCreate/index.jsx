@@ -18,6 +18,9 @@ const index = memo(() => {
   const [phone, setPhone] = useState("");
   const [img_link, setImgLink] = useState("");
   const [category, setCategory] = useState("");
+  const [phoneError, setPhoneError] = useState("");
+  const [githubError, setGithubError] = useState("");
+  const [productError, setProductError] = useState("");
   const [technology, setTechnology] = useState([]);
   const [github_link, setGithubLink] = useState("");
   const { useGet, usePostUpload, usePost } = useFetch;
@@ -75,7 +78,6 @@ const index = memo(() => {
     };
     const data = usePost({ api: "/products", token, values: productData })
       .then((response) => {
-        console.log(response);
         if (get(response, "status") === 200) {
           setName("");
           setDesc("");
@@ -95,7 +97,17 @@ const index = memo(() => {
           });
         }
       })
-      .catch(() => {
+      .catch((error) => {
+        console.log(error.response.data);
+        setPhoneError(
+          error.response.data.phone ? error.response.data.error : null
+        );
+        setProductError(
+          error.response.data.product ? error.response.data.error : null
+        );
+        setGithubError(
+          error.response.data.github ? error.response.data.error : null
+        );
         toast.error("Product yaratilmadi", {
           autoClose: 3000,
           draggable: false,
@@ -104,7 +116,6 @@ const index = memo(() => {
         });
       });
   };
-  console.log(category);
 
   return (
     <>
@@ -160,16 +171,23 @@ const index = memo(() => {
                   className="product-create-form-box-label__input"
                   onChange={(e) => setProductLink(e.target.value)}
                 />
+                <p className="text-danger" style={{ fontSize: "14px" }}>
+                  {productError}
+                </p>
               </label>
               <label className="product-create-form-box-label" htmlFor="#">
                 <Input
                   required
                   type="text"
                   value={github_link}
+                  disabled={price ? true : false}
                   placeholder="Enter your repo github link"
                   onChange={(e) => setGithubLink(e.target.value)}
                   className="product-create-form-box-label__input"
                 />
+                <p className="text-danger" style={{ fontSize: "15px" }}>
+                  {githubError}
+                </p>
               </label>
             </div>
             <div className="product-create-form-box">
@@ -182,13 +200,17 @@ const index = memo(() => {
                   onChange={(e) => setPhone(e.target.value)}
                   className="product-create-form-box-label__input"
                 />
+                <p className="text-danger" style={{ fontSize: "14px" }}>
+                  {phoneError}
+                </p>
               </label>
               <label className="product-create-form-box-label" htmlFor="#">
                 <Input
                   required
-                  type="number"
                   value={price}
+                  type="number"
                   placeholder="Enter your price"
+                  disabled={github_link ? true : false}
                   onChange={(e) => setPrice(e.target.value)}
                   className="product-create-form-box-label__input"
                 />

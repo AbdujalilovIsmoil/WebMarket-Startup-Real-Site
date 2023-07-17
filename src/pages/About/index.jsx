@@ -82,27 +82,40 @@ const index = memo(() => {
                         >
                           Live Demo
                         </Link>
-                        <a
-                          target="_blank"
-                          href={el?.github_link}
-                          className="about-container-box-buttons__btn"
-                        >
-                          Download
-                        </a>
+                        {el.download ? (
+                          <a
+                            target="_blank"
+                            className="about-container-box-buttons__btn"
+                            href={el?.github_link}
+                          >
+                            Download
+                          </a>
+                        ) : (
+                          <Button
+                            type="button"
+                            disabled={el.download}
+                            className="about-container-box-buttons__btn"
+                          >
+                            Don't Download
+                          </Button>
+                        )}
                       </div>
                       <div className="about-container-box-information">
                         <h2 className="about-container-box-information__title">
                           Theme Information:
                         </h2>
                         <ul className="about-container-box-information-list w-100">
-                          <li className="about-container-box-information-list-item">
-                            <h4 className="about-container-box-information-list-item__key">
-                              Price :
-                            </h4>
-                            <h4 className="about-container-box-information-list-item__value">
-                              {el?.price}
-                            </h4>
-                          </li>
+                          {!el.download ? (
+                            <li className="about-container-box-information-list-item">
+                              <h4 className="about-container-box-information-list-item__key">
+                                Price :
+                              </h4>
+                              <h4 className="about-container-box-information-list-item__value">
+                                {el?.price}$
+                              </h4>
+                            </li>
+                          ) : null}
+
                           <li className="about-container-box-information-list-item">
                             <h4 className="about-container-box-information-list-item__key">
                               Types:
@@ -129,6 +142,26 @@ const index = memo(() => {
                                 <h1 className="text-center text-light">
                                   NOT FOUND
                                 </h1>
+                              )}
+                            </div>
+                          </li>
+                          <li className="about-container-box-information-list-item">
+                            <h4 className="about-container-box-information-list-item__key">
+                              Create by:
+                            </h4>
+                            <div className="about-container-box-information-list-item-images d-flex justify-content-center text-center w-100">
+                              {loader ? (
+                                <div className="text-center w-100">
+                                  <Loader />
+                                </div>
+                              ) : el.user.username ? (
+                                <h6 className="about-container-box-information-list-item-images__username">
+                                  {el.user.username}
+                                </h6>
+                              ) : (
+                                <h6 className="text-center text-light">
+                                  NOT FOUND
+                                </h6>
                               )}
                             </div>
                           </li>

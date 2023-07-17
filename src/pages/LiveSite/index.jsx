@@ -44,38 +44,42 @@ const index = memo(() => {
   return (
     <>
       <section className="live">
-        <div className="live-buttons">
-          <label className="live-buttons-label">
-            <Input
-              type="checkbox"
-              className="live-buttons-label__input"
-              onChange={(e) => changeBtn({ type: e, number: 1 })}
-            />
-            <Button type="button" className="live-buttons-label-breakpoint">
-              <RxDesktop className="live-buttons-label-breakpoint__icon" />
-            </Button>
-          </label>
-          <label className="live-buttons-label">
-            <Input
-              type="checkbox"
-              className="live-buttons-label__input"
-              onChange={(e) => changeBtn({ type: e, number: 2 })}
-            />
-            <Button type="button" className="live-buttons-label-breakpoint">
-              <LuTablet className="live-buttons-label-breakpoint__icon" />
-            </Button>
-          </label>
-          <label className="live-buttons-label">
-            <Input
-              type="checkbox"
-              className="live-buttons-label__input"
-              onChange={(e) => changeBtn({ type: e, number: 3 })}
-            />
-            <Button type="button" className="live-buttons-label-breakpoint">
-              <RxMobile className="live-buttons-label-breakpoint__icon" />
-            </Button>
-          </label>
-        </div>
+        {productLink.slice(0, 5) === "https" ||
+        productLink.slice(0, 5) === "http" ? (
+          <div className="live-buttons">
+            <label className="live-buttons-label">
+              <Input
+                type="checkbox"
+                className="live-buttons-label__input"
+                onChange={(e) => changeBtn({ type: e, number: 1 })}
+              />
+              <Button type="button" className="live-buttons-label-breakpoint">
+                <RxDesktop className="live-buttons-label-breakpoint__icon" />
+              </Button>
+            </label>
+            <label className="live-buttons-label">
+              <Input
+                type="checkbox"
+                className="live-buttons-label__input"
+                onChange={(e) => changeBtn({ type: e, number: 2 })}
+              />
+              <Button type="button" className="live-buttons-label-breakpoint">
+                <LuTablet className="live-buttons-label-breakpoint__icon" />
+              </Button>
+            </label>
+            <label className="live-buttons-label">
+              <Input
+                type="checkbox"
+                className="live-buttons-label__input"
+                onChange={(e) => changeBtn({ type: e, number: 3 })}
+              />
+              <Button type="button" className="live-buttons-label-breakpoint">
+                <RxMobile className="live-buttons-label-breakpoint__icon" />
+              </Button>
+            </label>
+          </div>
+        ) : null}
+
         {productLink.slice(0, 5) === "https" ||
         productLink.slice(0, 5) === "http" ? (
           <iframe
@@ -83,7 +87,9 @@ const index = memo(() => {
             ref={breakPointRef}
             className="live-iframe"
           ></iframe>
-        ) : null}
+        ) : (
+          <h2 className="text-center mt-3">NOT FOUND</h2>
+        )}
       </section>
     </>
   );
