@@ -129,11 +129,13 @@ const index = memo(() => {
               </label>
               <label className="product-create-form-box-label" htmlFor="#">
                 <Select
-                  required
                   value={category}
                   onChange={(e) => setCategory(e.target.value)}
                   className="product-create-form-box-label-select"
                 >
+                  <option value="" disabled>
+                    Select to category
+                  </option>
                   {categoryData.length > 0
                     ? categoryData.map((el) => {
                         return (

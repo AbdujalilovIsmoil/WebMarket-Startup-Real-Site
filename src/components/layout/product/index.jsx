@@ -181,7 +181,7 @@ const index = memo(() => {
             </table>
           </div>
         </section>
-        {sliceProducts.length > 10 && (
+        {get_products.length >= 10 && (
           <Pagination
             onPageChange={handleClick}
             pageCount={allPageCounts?.length}

@@ -28,8 +28,9 @@
   &-container {
     text-align: center;
     &__img {
-      @include sizes(350px, 350px);
+      object-fit: cover;
       border-radius: 50%;
+      @include sizes(350px, 350px);
     }
     &__name {
       @include title($title-color, 35px, 400, default, capitalize);

@@ -22,9 +22,8 @@ const index = memo(() => {
   const [github_link, setGithubLink] = useState("");
   const { useGet, usePostUpload, usePost } = useFetch;
   const [product_link, setProductLink] = useState("");
-  const [categoryData, setCategoryData] = useState([]);
   const { technologies } = useSelector((state) => state);
-
+  const [categoryData, setCategoryData] = useState([]);
   useEffect(() => {
     const data = useGet({ api: "/categories" }).then((response) => {
       if (get(response, "status") === 200) {
@@ -74,8 +73,9 @@ const index = memo(() => {
       github_link,
       product_link,
     };
-    const data = usePost({ api: "/products", token, values: productData }).then(
-      (response) => {
+    const data = usePost({ api: "/products", token, values: productData })
+      .then((response) => {
+        console.log(response);
         if (get(response, "status") === 200) {
           setName("");
           setDesc("");
@@ -94,9 +94,17 @@ const index = memo(() => {
             position: "top-right",
           });
         }
-      }
-    );
+      })
+      .catch(() => {
+        toast.error("Product yaratilmadi", {
+          autoClose: 3000,
+          draggable: false,
+          pauseOnHover: false,
+          position: "top-right",
+        });
+      });
   };
+  console.log(category);
 
   return (
     <>
@@ -120,11 +128,13 @@ const index = memo(() => {
               </label>
               <label className="product-create-form-box-label" htmlFor="#">
                 <Select
-                  required
                   value={category}
                   onChange={(e) => setCategory(e.target.value)}
                   className="product-create-form-box-label-select"
                 >
+                  <option value="" disabled>
+                    Select to category
+                  </option>
                   {categoryData.length > 0
                     ? categoryData.map((el) => {
                         return (

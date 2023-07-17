@@ -72,7 +72,7 @@ const index = memo(() => {
                   <h1 className="text-center text-light">NOT FOUND</h1>
                 )}
               </div>
-              {sliceProducts.length > 9 && (
+              {products.length >= 9 && (
                 <Pagination
                   onPageChange={handleClick}
                   pageCount={allPageCounts?.length}

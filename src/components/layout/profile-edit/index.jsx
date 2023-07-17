@@ -22,9 +22,11 @@ const index = memo(() => {
   useEffect(() => {
     const data = useGet({ api: "/usersown", token }).then((response) => {
       if (get(response, "status") === 200) {
+        console.log(response);
         setEmail(get(response, "data.data[0].email"));
         setUsername(get(response, "data.data[0].username"));
         setPassword(get(response, "data.data[0].password"));
+        console.log(get(response, "data.data[0].password"));
         setImageLink(get(response, "data.data[0].imageLink"));
         setPortfolioLink(get(response, "data.data[0].portfolioLink"));
       }
