@@ -65,6 +65,16 @@
           }
           &:nth-child(2) {
             background-color: $btn-first-bg-color;
+            @include defaultQuery(400px) {
+              @include button(
+                none,
+                12px 25px,
+                4px,
+                transparent,
+                1px solid $btn-first-bg-color,
+                all 500ms ease
+              );
+            }
           }
           &:nth-child(2):hover {
             background-color: transparent;
@@ -98,7 +108,10 @@
               @include flexbox(flex, flex-start, center, row, 12px);
               transform: translateX(-90px);
               &__username {
-                transform: translateY(2.5px);
+                transform: translate(0,2.5px);
+                @include defaultQuery(400px){
+                  transform: translate(25px,5px);
+                }
                 @include title(
                   $title-color,
                   16px,
