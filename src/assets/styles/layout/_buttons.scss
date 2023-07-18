@@ -34,7 +34,7 @@
       @include flexbox(flex, center, center, row, 5px);
       @include button(
         none,
-        15px 20px 7.5px 20px !important,
+        10px 20px 2.5px 20px !important,
         4px,
         transparent,
         1px solid $moon-color,

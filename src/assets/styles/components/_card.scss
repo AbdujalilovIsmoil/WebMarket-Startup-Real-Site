@@ -9,6 +9,9 @@
   box-shadow: 0px 2px 15px -4px $card-shadow-color;
   padding: 0 0 20px 0;
   @include xl {
+    max-width: 360px;
+  }
+  @include sm {
     max-width: 100%;
   }
   &:hover {
@@ -19,12 +22,15 @@
     &__img {
       width: 100%;
       object-fit: cover;
-      height: 250px;
+      height: 225px;
+      @include xl {
+        height: 275px;
+      }
       @include md {
-        height: 225px;
+        height: 300px;
       }
       @include sm {
-        height: 300px;
+        height: 250px;
       }
     }
     &-content {
