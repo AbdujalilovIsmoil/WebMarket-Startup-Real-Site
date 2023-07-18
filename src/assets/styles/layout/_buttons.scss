@@ -34,19 +34,21 @@
       @include flexbox(flex, center, center, row, 5px);
       @include button(
         none,
-        8px 20px 0px 20px !important,
+        5px 20px 5px 20px !important,
         4px,
         transparent,
         1px solid $moon-color,
         default
       );
       &__name {
+        margin: 2.5px 0 0 0;
         transition: all 300ms ease;
         @include title($description-color, 12.8px, 400, 21px, capitalize);
       }
       &__number {
         padding: 2px 4px;
         border-radius: 4px;
+        margin: 2px 0 0 0;
         transition: all 300ms ease;
         background-color: $moon-color;
         @include title($description-color, 12px, 400, 16px, capitalize);
