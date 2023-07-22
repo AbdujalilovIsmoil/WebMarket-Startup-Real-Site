@@ -64,6 +64,9 @@
         $input-placeholder-color,
         $title-color
       );
+      &.--active {
+        background-color: $buttons-bg-color;
+      }
     }
   }
   &__btn {

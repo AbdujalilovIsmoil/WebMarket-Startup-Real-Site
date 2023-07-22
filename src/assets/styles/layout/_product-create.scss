@@ -67,6 +67,9 @@
             $input-placeholder-color,
             $title-color
           );
+          &.--disabled {
+            background-color: $buttons-bg-color;
+          }
         }
         &-select {
           @include input(

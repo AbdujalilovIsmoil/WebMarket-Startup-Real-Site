@@ -115,7 +115,6 @@ const index = memo(() => {
           <Input
             required
             type="text"
-            maxLength={20}
             value={username}
             placeholder="Enter your name"
             className="registration-form-label__input"

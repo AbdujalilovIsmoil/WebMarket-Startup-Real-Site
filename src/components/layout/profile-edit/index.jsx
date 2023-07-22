@@ -109,11 +109,12 @@ const index = memo(() => {
           </label>
           <label className="product-form-label" htmlFor="#">
             <Input
+              disabled
               required
               type="email"
               value={email}
               placeholder="Enter your email"
-              className="product-form-label__input"
+              className="product-form-label__input --active"
               onChange={(e) => setEmail(e.target.value)}
             />
           </label>
@@ -131,22 +132,22 @@ const index = memo(() => {
             <Input
               type="text"
               value={portfolioLink}
-              placeholder="Enter your site demo preview link"
               className="product-form-label__input"
+              placeholder="Enter your site demo preview link"
               onChange={(e) => setPortfolioLink(e.target.value)}
             />
           </label>
           <label className="product-form-label" htmlFor="file-upload">
             <Input
+              hidden
               type="file"
               name="file"
-              hidden
               id="file-upload"
               multiple={true}
+              className="product-form-label__input"
               onChange={(e) => {
                 postImageLinkFunction(e.target.files[0]);
               }}
-              className="product-form-label__input"
             />
             <div
               className={`product-form-label-upload ${

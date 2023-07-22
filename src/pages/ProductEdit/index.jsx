@@ -195,7 +195,9 @@ const index = memo(() => {
                   disabled={price ? true : false}
                   placeholder="Enter your repo github link"
                   onChange={(e) => setGithubLink(e.target.value)}
-                  className="product-create-form-box-label__input"
+                  className={`product-create-form-box-label__input ${
+                    price && "--disabled"
+                  }`}
                 />
                 <p className="text-danger" style={{ fontSize: "15px" }}>
                   {githubError}
@@ -224,7 +226,9 @@ const index = memo(() => {
                   placeholder="Enter your price"
                   disabled={github_link ? true : false}
                   onChange={(e) => setPrice(e.target.value)}
-                  className="product-create-form-box-label__input"
+                  className={`product-create-form-box-label__input ${
+                    github_link && "--disabled"
+                  }`}
                 />
               </label>
             </div>
