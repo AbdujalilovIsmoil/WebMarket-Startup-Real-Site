@@ -63,17 +63,20 @@ body.light .header {
     }
     &-buttons {
       &-animation {
-        border-color: #ffffff !important;
+        border: 1px solid black;
         background-color: #ffffff;
         box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.0562443);
+        &__sun {
+          color: yellow;
+        }
         &__btn {
-          @include title(black, 14.4px, 400, 23px, default);
+          @include title($title-color, 14.4px, 400, 23px, default);
           box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.0562443);
           @include button(
             none,
             8px 20px,
             4px,
-            #ffffff,
+            $btn-first-bg-color,
             1px solid #ffffff,
             all 300ms ease
           );
@@ -929,4 +932,20 @@ body.light .product-edit {
       }
     }
   }
+}
+
+body.light .page-link {
+  color: $btn-first-bg-color;
+  &:hover {
+    color: $title-color;
+    background-color: $btn-first-bg-color;
+  }
+}
+
+body.light .paginate-dots {
+  color: $btn-first-bg-color;
+}
+
+body.light .page-active {
+  color: $title-color;
 }

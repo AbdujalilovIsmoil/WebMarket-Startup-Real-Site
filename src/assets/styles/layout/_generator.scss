@@ -1,5 +1,6 @@
 .wrapper {
   position: sticky;
+  height: 100%;
   @include defaultQuery(900px) {
     z-index: 1;
     width: 100%;
@@ -18,7 +19,7 @@
 
 .generator {
   width: 330px;
-  min-height: 746px;
+  height: 300vh;
   padding: 30px 5px 80px 0;
   transition: transform 500ms ease;
   background-color: $buttons-bg-color;
