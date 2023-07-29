@@ -75,9 +75,8 @@ const index = memo(() => {
                     Static Site Generator
                   </h4>
                   <BsChevronDown
-                    className={`generator-container-box-collapse__icon ${
-                      generatorOpen && "--active"
-                    }`}
+                    className={`generator-container-box-collapse__icon ${generatorOpen && "--active"
+                      }`}
                   />
                 </div>
                 <ul
