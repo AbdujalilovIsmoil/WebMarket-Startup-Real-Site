@@ -23,7 +23,7 @@ const index = memo(({ ...rest }) => {
               </h3>
               <h5 className="section-container-box-cards-card-box-content-header-price">
                 <span className="section-container-box-cards-card-box-content-header-price__number">
-                  {get(rest, "items.price", 0)}$
+                  {get(rest, "items.price", 0) ? <>{get(rest, "items.price", 0)}$</> : "Free"}
                 </span>
               </h5>
             </div>
@@ -35,17 +35,17 @@ const index = memo(({ ...rest }) => {
             <div className="section-container-box-cards-card-box-footer-box --first">
               {get(rest, "items.technology", []).length > 0
                 ? get(rest, "items.technology", []).map((el) => {
-                    return (
-                      <React.Fragment key={el._id}>
-                        <img
-                          src={el.img_link}
-                          alt="Lang1"
-                          title="Lang1"
-                          className="section-container-box-cards-card-box-footer-box__icon"
-                        />
-                      </React.Fragment>
-                    );
-                  })
+                  return (
+                    <React.Fragment key={el._id}>
+                      <img
+                        src={el.img_link}
+                        alt="Lang1"
+                        title="Lang1"
+                        className="section-container-box-cards-card-box-footer-box__icon"
+                      />
+                    </React.Fragment>
+                  );
+                })
                 : ""}
             </div>
           </div>

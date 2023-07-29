@@ -54,11 +54,11 @@ const index = memo(() => {
           isConfirmationCode
             ? null
             : toast.success("Emailingizga kod yuborildi", {
-                autoClose: 3000,
-                draggable: false,
-                pauseOnHover: false,
-                position: "top-right",
-              });
+              autoClose: 3000,
+              draggable: false,
+              pauseOnHover: false,
+              position: "top-right",
+            });
           if (isConfirmationCode) {
             storage.set("username", get(response, "data.data.username"));
             dispatch(USERNAME(get(response, "data.data.username")));
@@ -72,11 +72,11 @@ const index = memo(() => {
             navigate("/");
             isConfirmationCode
               ? toast.success("Emailingiz kiritildi", {
-                  autoClose: 3000,
-                  draggable: false,
-                  pauseOnHover: false,
-                  position: "top-right",
-                })
+                autoClose: 3000,
+                draggable: false,
+                pauseOnHover: false,
+                position: "top-right",
+              })
               : null;
           }
         }
@@ -189,9 +189,8 @@ const index = memo(() => {
             </label>
           ) : null}
           <div
-            className={`registration-form-label-upload ${
-              imageLink ? "active" : ""
-            }`}
+            className={`registration-form-label-upload ${imageLink ? "active" : ""
+              }`}
           >
             {imageLink ? (
               <img
