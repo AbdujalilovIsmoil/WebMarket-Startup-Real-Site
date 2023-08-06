@@ -98,7 +98,6 @@ const index = memo(() => {
                   value={userCode}
                   renderSeparator={<span>-</span>}
                   onChange={(value) => {
-                    console.log(value);
                     setUserCode(value);
                     setConfirmationCode(value);
                   }}

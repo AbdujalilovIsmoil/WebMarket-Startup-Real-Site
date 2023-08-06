@@ -31,7 +31,6 @@ const index = memo(() => {
   useEffect(() => {
     const data = useGet({ api: "/products" })
       .then((response) => {
-        console.log(get(response, "data.data", []));
         if (get(response, "status") === 200) {
           dispatch(LOADER());
           setProducts(get(response, "data.data", []).slice(1, 5));
@@ -52,7 +51,6 @@ const index = memo(() => {
             </div>
           ) : about?.length > 0 ? (
             about.map((el) => {
-              console.log(el);
               return (
                 <>
                   <div className="about-container" key={el?._id}>

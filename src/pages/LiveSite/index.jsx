@@ -27,7 +27,6 @@ const index = memo(() => {
   }, []);
 
   const changeBtn = ({ type, number }) => {
-    console.log(number);
     if (type.target.checked === true) {
       if (Number(number) === 1) {
         return (breakPointRef.current.style.maxWidth = "100%");

@@ -32,7 +32,6 @@ const index = memo(() => {
           dispatch(PRODUCT_DATA(get(response, "data.data")));
           dispatch(LOADER());
         }
-        console.log(get(response, "data.data"));
       })
       .catch(() => {
         dispatch(LOADER());

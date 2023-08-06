@@ -29,7 +29,6 @@ const index = memo(() => {
   }, []);
 
   const changeTechnologies = ({ e, name }) => {
-    console.log(name);
     if (e.target.checked === true) {
       const data = useGet({
         method: "get",

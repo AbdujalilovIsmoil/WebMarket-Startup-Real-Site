@@ -110,7 +110,6 @@ const index = memo(() => {
         }
       })
       .catch((error) => {
-        console.log(error.response.data);
         setPhoneError(
           error.response.data.phone ? error.response.data.error : null
         );

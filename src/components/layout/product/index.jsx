@@ -37,7 +37,6 @@ const index = memo(() => {
         if (get(response, "status") === 200) {
           dispatch(GET_PRODUCT(get(response, "data")));
           dispatch(LOADER());
-          console.log(get(response, "data"));
         }
       })
       .catch(() => {
