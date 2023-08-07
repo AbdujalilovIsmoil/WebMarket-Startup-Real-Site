@@ -8,7 +8,7 @@
         margin: 55px 0 0 0;
         @include gridLayout(
           grid,
-          repeat(3, auto),
+          repeat(3, 1fr),
           center,
           flex-start,
           15px
