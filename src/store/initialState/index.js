@@ -8,4 +8,5 @@ export const initialState = {
   searchValue: "",
   technologies: [],
   get_products: [],
+  about_data: [],
 };

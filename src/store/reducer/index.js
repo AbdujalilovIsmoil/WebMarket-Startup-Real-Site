@@ -2,6 +2,7 @@ import { initialState } from "../initialState";
 import {
   LOADER,
   USERNAME,
+  ABOUT_DATA,
   OPEN_NAVBAR,
   CLOSE_NAVBAR,
   PRODUCT_DATA,
@@ -45,13 +46,18 @@ export const reducer = (state = initialState, action) => {
     case GET_PRODUCTS:
       return {
         ...state,
-        get_products: action.payload
-      }
+        get_products: action.payload,
+      };
     case USERNAME:
       return {
         ...state,
-        username: action.payload
-      }
+        username: action.payload,
+      };
+    case ABOUT_DATA:
+      return {
+        ...state,
+        about_data: action.payload,
+      };
     default:
       return state;
   }

@@ -1,25 +1,23 @@
 import { get } from "lodash";
 import { useFetch } from "../../hook";
-import { LOADER } from "../../store/actions";
 import { Link, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
+import { LOADER, ABOUT_DATA } from "../../store/actions";
 import React, { memo, useEffect, useState } from "react";
-import { RxDesktop, RxMobile } from "../../assets/icons";
 import { Card, Button, Loader } from "../../components/field";
 
 const index = memo(() => {
   const { id } = useParams();
   const { useGet } = useFetch;
   const dispatch = useDispatch();
-  const [about, setAbout] = useState([]);
   const [products, setProducts] = useState([]);
   const { loader } = useSelector((state) => state);
-
+  const { about_data } = useSelector((state) => state);
   useEffect(() => {
     const data = useGet({ api: `/products/${id}` })
       .then((response) => {
         if (get(response, "status") === 200) {
-          setAbout([get(response, "data.data.data")]);
+          dispatch(ABOUT_DATA([get(response, "data.data.data")]));
           dispatch(LOADER());
         }
       })
@@ -49,8 +47,8 @@ const index = memo(() => {
             <div className="text-center">
               <Loader />
             </div>
-          ) : about?.length > 0 ? (
-            about.map((el) => {
+          ) : about_data?.length > 0 ? (
+            about_data.map((el) => {
               return (
                 <>
                   <div className="about-container" key={el?._id}>
@@ -137,7 +135,10 @@ const index = memo(() => {
                                   );
                                 })
                               ) : (
-                                <h1 className="text-center text-light">
+                                <h1
+                                  className="text-center text-light"
+                                  style={{ fontSize: "17px" }}
+                                >
                                   NOT FOUND
                                 </h1>
                               )}
@@ -157,7 +158,7 @@ const index = memo(() => {
                                   {el.user.username}
                                 </h6>
                               ) : (
-                                <h6 className="text-center text-light">
+                                <h6 className="text-center text-light fs-5">
                                   NOT FOUND
                                 </h6>
                               )}

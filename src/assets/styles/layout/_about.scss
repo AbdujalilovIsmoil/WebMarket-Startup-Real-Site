@@ -10,14 +10,18 @@
     }
     &-box {
       &__img {
-        @include sizes(1000px, 100%);
+        object-fit: cover;
+        @include sizes(1300px, 100%);
         @include xl {
-          @include sizes(750px, 100%);
+          @include sizes(1000px, 100%);
         }
         @include defaultQuery(1040px) {
-          @include sizes(600px, 100%);
+          @include sizes(1000px, 100%);
         }
         @include lg {
+          @include sizes(1000px, 100%);
+        }
+        @include md {
           @include sizes(500px, 100%);
         }
         @include sm {
@@ -96,7 +100,7 @@
           transform: translateX(-30px);
           &-item {
             margin: 18px 0;
-            @include flexbox(flex, flex-start, flex-start, row, 26px);
+            @include flexbox(flex, flex-start, center, row, 10px);
             &__key {
               white-space: nowrap;
               @include title($description-color, 16px, default, 26px, default);
@@ -106,9 +110,8 @@
             }
             &-images {
               @include flexbox(flex, flex-start, center, row, 12px);
-              transform: translateX(-90px);
+              transform: translateX(-100px);
               &__username {
-                transform: translate(0,2.5px);
                 @include defaultQuery(400px){
                   transform: translate(25px,5px);
                 }
@@ -131,7 +134,7 @@
   }
   &-cards {
     margin: 55px 0;
-    @include gridLayout(grid, repeat(4, auto), center, flex-start, 10px);
+    @include gridLayout(grid, repeat(4, 1fr), center, flex-start, 10px);
     @include xl {
       @include gridLayout(grid, repeat(2, auto), center, flex-start, 24px);
     }
