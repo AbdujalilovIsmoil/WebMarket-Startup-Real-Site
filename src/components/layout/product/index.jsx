@@ -23,7 +23,7 @@ const index = memo(() => {
   const { get_products = [], loader } = useSelector((state) => state);
   const sliceProducts = get_products.slice(lastOperator, firstOperator);
 
-  for (let i = 1; i < Math.ceil(get_products.length / currentPage); i++) {
+  for (let i = 0; i < Math.ceil(get_products.length / index); i++) {
     allPageCounts.push(i);
   }
 

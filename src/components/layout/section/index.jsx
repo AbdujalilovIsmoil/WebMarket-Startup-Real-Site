@@ -18,8 +18,8 @@ const index = memo(() => {
   const { products = [], loader } = useSelector((state) => state);
   const sliceProducts = products.slice(lastOperator, firstOperator);
 
-  for (let i = 1; i < Math.ceil(products.length / currentPage); i++) {
-    allPageCounts.push(i);
+  for (let i = 0; i < Math.ceil(products.length / index); i++) {
+    allPageCounts.push(currentPage);
   }
   const handleClick = (data) => {
     setCurrentPage(data.selected + 1);
