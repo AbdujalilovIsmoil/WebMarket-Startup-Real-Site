@@ -1,9 +1,9 @@
-import { Button, links } from "../../field";
 import { truncate } from "lodash";
+import { Button, links } from "../../field";
+import { Link, NavLink } from "react-router-dom";
 import { Icon } from "../../../assets/images/png";
 import { useState, memo, useEffect } from "react";
 import { storage } from "../../../services/storage";
-import { Link, NavLink } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { OPEN_NAVBAR, CLOSE_NAVBAR } from "../../../store/actions";
 import {
@@ -25,14 +25,6 @@ const index = memo(() => {
   useEffect(() => {
     setDataUserName(username);
   }, [username]);
-
-  const lightFunction = () => {
-    document.body.classList.add("light");
-  };
-
-  const darkFunction = () => {
-    document.body.classList.remove("light");
-  };
 
   const themeFunction = () => {
     setThemeColorState((prevState) => !prevState);
