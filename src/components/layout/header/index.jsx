@@ -35,6 +35,8 @@ const index = memo(() => {
     }
   };
 
+  const token = storage.get("token") || "";
+
   return (
     <>
       <header className="header">
@@ -82,7 +84,7 @@ const index = memo(() => {
                 ))}
             </ul>
             <div className="nav-buttons">
-              {username ? (
+              {token ? (
                 <div className="nav-buttons-dropDown">
                   <Button type="button" className="nav-buttons-dropDown-btn">
                     <h4 className="nav-buttons-dropDown-btn__name">
@@ -122,9 +124,11 @@ const index = memo(() => {
                 <FiSun className="nav-buttons-animation__sun" />
                 <WiMoonAltNew className="nav-buttons-animation__moon" />
               </div>
-              <Link to="/registration" className="nav-buttons-animation__btn">
-                Registr
-              </Link>
+              {!token && (
+                <Link to="/registration" className="nav-buttons-animation__btn">
+                  Registr
+                </Link>
+              )}
             </div>
           </nav>
         </div>

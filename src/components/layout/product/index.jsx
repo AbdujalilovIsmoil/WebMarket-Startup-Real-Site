@@ -128,25 +128,25 @@ const index = memo(() => {
                               }
                             />
                           </td>
-                          <td className="product-table-room__data">
+                          <td className="product-table-room__data text-black">
                             {el.name ? el.name : ""}
                           </td>
-                          <td className="product-table-room__data">
+                          <td className="product-table-room__data text-black">
                             {el.desc ? el.desc : ""}
                           </td>
-                          <td className="product-table-room__data">
+                          <td className="product-table-room__data text-black">
                             {el.price ? el.price : ""}
                           </td>
-                          <td className="product-table-room__data">
+                          <td className="product-table-room__data text-black">
                             {el.category ? el.category : ""}
                           </td>
-                          <td className="product-table-room__data">
+                          <td className="product-table-room__data text-black">
                             {el.phone_number ? el.phone_number : ""}
                           </td>
                           <td className="product-table-room-data">
                             <a
                               target="_blank"
-                              className="product-table-room-data__link"
+                              className="product-table-room-data__link text-black"
                               href={el.product_link ? el.product_link : "#"}
                             >
                               Product Link
@@ -155,7 +155,7 @@ const index = memo(() => {
                           <td className="product-table-room-data">
                             <a
                               href={el.github_link ? el.github_link : "#"}
-                              className="product-table-room-data__link"
+                              className="product-table-room-data__link text-black"
                             >
                               Github Link
                             </a>
@@ -165,7 +165,7 @@ const index = memo(() => {
                               onClick={() =>
                                 navigate(`/product/product-edit/${el._id}`)
                               }
-                              className="product-table-room-data__icon --first"
+                              className="product-table-room-data__icon --first text-success"
                             />
                           </td>
                           <td className="product-table-room-data">
@@ -180,7 +180,7 @@ const index = memo(() => {
                   })
                 ) : (
                   <div className="table-error-content">
-                    <h1 className="text-center text-light fs-1">NOT FOUND</h1>
+                    <h1 className="text-center fs-1">NOT FOUND</h1>
                   </div>
                 )}
               </tbody>
