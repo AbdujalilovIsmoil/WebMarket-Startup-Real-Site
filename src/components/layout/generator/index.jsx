@@ -11,8 +11,9 @@ import { GET_TECHNOLOGIES, PRODUCT_DATA, LOADER } from "store/actions";
 const index = () => {
   const { useGet } = useFetch;
   const dispatch = useDispatch();
+  const [isExpanded, setIsExpanded] = useState(true);
   const [generatorOpen, setGeneratorOpen] = useState(false);
-  const { getCollapseProps, getToggleProps, isExpanded } = useCollapse();
+  const { getCollapseProps, getToggleProps } = useCollapse();
   const { technologies, navbar, loader, products } = useSelector(
     (state) => state
   );
@@ -67,7 +68,10 @@ const index = () => {
             <div className="generator-container">
               <div className="generator-container-box">
                 <div
-                  {...getToggleProps()}
+                  {...getToggleProps({
+                    onClick: () =>
+                      setIsExpanded((prevIsExpanded) => !prevIsExpanded),
+                  })}
                   className="generator-container-box-collapse"
                 >
                   <h4 className="generator-container-box-collapse__title">
@@ -83,7 +87,7 @@ const index = () => {
                   id="collapseExample"
                   {...getCollapseProps()}
                   className={`generator-container-box-list ${
-                    generatorOpen && "generator-container-box-list--open"
+                    !generatorOpen && "generator-container-box-list--open"
                   }`}
                 >
                   {loader ? (
