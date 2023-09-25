@@ -3,6 +3,7 @@ import { useFetch } from "hook";
 import { NavLink } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { BsChevronDown } from "assets/icons";
+import { useCollapse } from "react-collapsed";
 import { Input, Loader } from "components/field";
 import { useDispatch, useSelector } from "react-redux";
 import { GET_TECHNOLOGIES, PRODUCT_DATA, LOADER } from "store/actions";
@@ -11,6 +12,7 @@ const index = () => {
   const { useGet } = useFetch;
   const dispatch = useDispatch();
   const [generatorOpen, setGeneratorOpen] = useState(false);
+  const { getCollapseProps, getToggleProps, isExpanded } = useCollapse();
   const { technologies, navbar, loader, products } = useSelector(
     (state) => state
   );
@@ -65,23 +67,24 @@ const index = () => {
             <div className="generator-container">
               <div className="generator-container-box">
                 <div
-                  data-mdb-toggle="collapse"
-                  data-mdb-target="#collapseExample"
+                  {...getToggleProps()}
                   className="generator-container-box-collapse"
-                  onClick={() => setGeneratorOpen((prevState) => !prevState)}
                 >
                   <h4 className="generator-container-box-collapse__title">
                     Static Site Generator
                   </h4>
                   <BsChevronDown
                     className={`generator-container-box-collapse__icon ${
-                      generatorOpen && "--active"
+                      isExpanded && "--active"
                     }`}
                   />
                 </div>
                 <ul
-                  className="generator-container-box-list"
                   id="collapseExample"
+                  {...getCollapseProps()}
+                  className={`generator-container-box-list ${
+                    generatorOpen && "generator-container-box-list--open"
+                  }`}
                 >
                   {loader ? (
                     <div className="generator-loader">

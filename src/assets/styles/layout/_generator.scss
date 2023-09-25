@@ -58,7 +58,7 @@
       &-list {
         padding: 0 2px;
         margin: 10px 0 0 0;
-        @include flexbox(flex, center, space-between, column, 10px);
+        @include flexbox(flex, flex-start, space-between, column, 10px);
         &-item {
           position: relative;
           &__input {
@@ -78,6 +78,9 @@
             padding: 10px 10px;
             transition: background-color 300ms ease;
             @include flexbox(flex, space-between, center, row, stretch);
+            &:hover {
+              background-color: $moon-color;
+            }
             &-icons {
               @include flexbox(flex, flex-start, center, row, 7px);
               &__language {
