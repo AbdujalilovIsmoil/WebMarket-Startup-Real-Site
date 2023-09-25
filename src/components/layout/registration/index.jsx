@@ -1,12 +1,12 @@
 import { get } from "lodash";
 import { toast } from "react-toastify";
-import { useFetch } from "../../../hook";
-import { Input, Button } from "../../field";
 import OTPInput from "react-otp-input";
+import { useFetch } from "../../../hook";
 import { useDispatch } from "react-redux";
+import { Input, Button } from "../../field";
 import React, { memo, useState } from "react";
-import { storage } from "../../../services/storage";
 import { USERNAME } from "../../../store/actions";
+import { storage } from "../../../services/storage";
 import { Link, useNavigate } from "react-router-dom";
 
 const index = memo(() => {
@@ -54,11 +54,11 @@ const index = memo(() => {
           isConfirmationCode
             ? null
             : toast.success("Emailingizga kod yuborildi", {
-              autoClose: 3000,
-              draggable: false,
-              pauseOnHover: false,
-              position: "top-right",
-            });
+                autoClose: 3000,
+                draggable: false,
+                pauseOnHover: false,
+                position: "top-right",
+              });
           if (isConfirmationCode) {
             storage.set("username", get(response, "data.data.username"));
             dispatch(USERNAME(get(response, "data.data.username")));
@@ -72,11 +72,11 @@ const index = memo(() => {
             navigate("/");
             isConfirmationCode
               ? toast.success("Emailingiz kiritildi", {
-                autoClose: 3000,
-                draggable: false,
-                pauseOnHover: false,
-                position: "top-right",
-              })
+                  autoClose: 3000,
+                  draggable: false,
+                  pauseOnHover: false,
+                  position: "top-right",
+                })
               : null;
           }
         }
@@ -188,8 +188,9 @@ const index = memo(() => {
             </label>
           ) : null}
           <div
-            className={`registration-form-label-upload ${imageLink ? "active" : ""
-              }`}
+            className={`registration-form-label-upload ${
+              imageLink ? "active" : ""
+            }`}
           >
             {imageLink ? (
               <img
