@@ -101,7 +101,7 @@
     display: none;
     position: relative;
     margin: 45px 0 0 0;
-    @include defaultQuery(900px) {
+    @include defaultQuery($md) {
       @include flexbox(flex, flex-start, flex-start, column, 16px);
     }
     &::after {

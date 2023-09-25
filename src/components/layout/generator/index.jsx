@@ -73,11 +73,7 @@ const index = () => {
                   <h4 className="generator-container-box-collapse__title">
                     Static Site Generator
                   </h4>
-                  <BsChevronDown
-                    className={`generator-container-box-collapse__icon ${
-                      generatorOpen && "--active"
-                    }`}
-                  />
+                  <BsChevronDown className="generator-container-box-collapse__icon" />
                 </div>
                 <ul
                   className="generator-container-box-list"
@@ -134,33 +130,18 @@ const index = () => {
             </div>
             <ul className="generator-list">
               <li className="generator-list-item">
-                <NavLink className="generator-list-item__link" to="themes">
-                  Themes
+                <NavLink className="generator-list-item__link" to="/">
+                  Home
                 </NavLink>
               </li>
               <li className="generator-list-item">
-                <NavLink className="generator-list-item__link" to="themesByUs">
-                  Themes By Us
-                </NavLink>
-              </li>
-              <li className="generator-list-item">
-                <NavLink className="generator-list-item__link" to="tools">
-                  Tools
-                </NavLink>
-              </li>
-              <li className="generator-list-item">
-                <NavLink className="generator-list-item__link" to="examples">
-                  Examples
-                </NavLink>
-              </li>
-              <li className="generator-list-item">
-                <NavLink className="generator-list-item__link" to="sponsors">
-                  Sponsors
-                </NavLink>
-              </li>
-              <li className="generator-list-item">
-                <NavLink className="generator-list-item__link" to="blog">
+                <NavLink className="generator-list-item__link" to="/blog">
                   Blog
+                </NavLink>
+              </li>
+              <li className="generator-list-item">
+                <NavLink className="generator-list-item__link" to="/teamByUs">
+                  Team By Us
                 </NavLink>
               </li>
             </ul>
