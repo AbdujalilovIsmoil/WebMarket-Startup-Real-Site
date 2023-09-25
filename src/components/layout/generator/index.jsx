@@ -73,7 +73,11 @@ const index = () => {
                   <h4 className="generator-container-box-collapse__title">
                     Static Site Generator
                   </h4>
-                  <BsChevronDown className="generator-container-box-collapse__icon" />
+                  <BsChevronDown
+                    className={`generator-container-box-collapse__icon ${
+                      generatorOpen && "--active"
+                    }`}
+                  />
                 </div>
                 <ul
                   className="generator-container-box-list"
