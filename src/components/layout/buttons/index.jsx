@@ -1,11 +1,11 @@
 import { get } from "lodash";
-import { useFetch } from "../../../hook";
-import { memo, useEffect, useState } from "react";
-import { Button, Input, Loader } from "../../field";
+import { useFetch } from "hook";
+import { useEffect, useState } from "react";
+import { PRODUCT_DATA, LOADER } from "store/actions";
 import { useDispatch, useSelector } from "react-redux";
-import { PRODUCT_DATA, LOADER } from "../../../store/actions";
+import { Button, Input, Loader } from "components/field";
 
-const index = memo(() => {
+const index = () => {
   const { useGet } = useFetch;
   const dispatch = useDispatch();
   const [categories, setCategories] = useState([]);
@@ -78,6 +78,6 @@ const index = memo(() => {
       </div>
     </>
   );
-});
+};
 
 export default index;

@@ -1,19 +1,9 @@
-import React, { memo } from "react";
-
-const index = memo(({ disabled, type, className, children, onClick, id }) => {
+const index = ({ children, ...props }) => {
   return (
     <>
-      <button
-        id={id}
-        type={type}
-        className={className}
-        disabled={disabled}
-        onClick={onClick}
-      >
-        {children}
-      </button>
+      <button {...props}>{children}</button>
     </>
   );
-});
+};
 
 export default index;

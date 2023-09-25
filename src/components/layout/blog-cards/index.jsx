@@ -1,8 +1,7 @@
-import React, { memo } from "react";
-import { BlogIntro } from "../../../assets/images/svg";
-import { BlogCard1, BlogCard2 } from "../../../assets/images/jpg";
+import { BlogIntro } from "assets/images/svg";
+import { BlogCard1, BlogCard2 } from "assets/images/jpg";
 
-const index = memo(() => {
+const index = () => {
   return (
     <>
       <div className="blog-cards-container">
@@ -89,6 +88,6 @@ const index = memo(() => {
       </div>
     </>
   );
-});
+};
 
 export default index;

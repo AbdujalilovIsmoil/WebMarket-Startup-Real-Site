@@ -1,9 +1,6 @@
-import React, { memo } from "react";
-
-const index = memo(() => {
+const index = () => {
   return (
     <>
-
       <div className="lds-ring">
         <div></div>
         <div></div>
@@ -12,6 +9,6 @@ const index = memo(() => {
       </div>
     </>
   );
-});
+};
 
 export default index;

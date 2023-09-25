@@ -1,12 +1,11 @@
 import { get } from "lodash";
-import { memo } from "react";
-import { useFetch } from "../../../hook";
-import { FiSearch } from "../../../assets/icons";
-import { Input, Select, Button } from "../../field";
+import { useFetch } from "hook";
+import { FiSearch } from "assets/icons";
 import { useDispatch, useSelector } from "react-redux";
-import { PRODUCT_DATA, CHANGE_INPUT, LOADER } from "../../../store/actions";
+import { Input, Select, Button } from "components/field";
+import { PRODUCT_DATA, CHANGE_INPUT, LOADER } from "store/actions";
 
-const index = memo(() => {
+const index = () => {
   const { useGet } = useFetch;
   const dispatch = useDispatch();
   const { searchValue, products } = useSelector((state) => state);
@@ -57,6 +56,6 @@ const index = memo(() => {
       </form>
     </>
   );
-});
+};
 
 export default index;

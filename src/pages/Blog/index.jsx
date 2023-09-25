@@ -1,7 +1,6 @@
-import React, { memo } from "react";
 import { BlogTitles, BlogCards } from "components/layout";
 
-const index = memo(() => {
+const index = () => {
   return (
     <>
       <section className="blog">
@@ -12,6 +11,6 @@ const index = memo(() => {
       </section>
     </>
   );
-});
+};
 
 export default index;

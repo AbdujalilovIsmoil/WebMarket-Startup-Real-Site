@@ -1,6 +1,4 @@
-import React, { memo } from "react";
-
-const index = memo(() => {
+const index = () => {
   return (
     <>
       <div className="blog-titles">
@@ -11,6 +9,6 @@ const index = memo(() => {
       </div>
     </>
   );
-});
+};
 
 export default index;

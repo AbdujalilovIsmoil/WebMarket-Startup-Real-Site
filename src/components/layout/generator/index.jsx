@@ -1,13 +1,13 @@
 import { get } from "lodash";
-import { Input, Loader } from "../../field";
-import { useFetch } from "../../../hook";
+import { useFetch } from "hook";
 import { NavLink } from "react-router-dom";
-import { memo, useEffect, useState } from "react";
-import { BsChevronDown } from "../../../assets/icons";
+import { useEffect, useState } from "react";
+import { BsChevronDown } from "assets/icons";
+import { Input, Loader } from "components/field";
 import { useDispatch, useSelector } from "react-redux";
-import { GET_TECHNOLOGIES, PRODUCT_DATA, LOADER } from "../../../store/actions";
+import { GET_TECHNOLOGIES, PRODUCT_DATA, LOADER } from "store/actions";
 
-const index = memo(() => {
+const index = () => {
   const { useGet } = useFetch;
   const dispatch = useDispatch();
   const [generatorOpen, setGeneratorOpen] = useState(false);
@@ -74,8 +74,9 @@ const index = memo(() => {
                     Static Site Generator
                   </h4>
                   <BsChevronDown
-                    className={`generator-container-box-collapse__icon ${generatorOpen && "--active"
-                      }`}
+                    className={`generator-container-box-collapse__icon ${
+                      generatorOpen && "--active"
+                    }`}
                   />
                 </div>
                 <ul
@@ -168,6 +169,6 @@ const index = memo(() => {
       </div>
     </>
   );
-});
+};
 
 export default index;

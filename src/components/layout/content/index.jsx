@@ -1,6 +1,4 @@
-import React, { memo } from "react";
-
-const index = memo(() => {
+const index = () => {
   return (
     <>
       <section className="content">
@@ -13,6 +11,6 @@ const index = memo(() => {
       </section>
     </>
   );
-});
+};
 
 export default index;

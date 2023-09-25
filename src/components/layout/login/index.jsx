@@ -1,14 +1,14 @@
 import { get } from "lodash";
+import { useFetch } from "hook";
+import { useState } from "react";
 import { toast } from "react-toastify";
-import { useFetch } from "../../../hook";
-import { Input, Button } from "../../field";
-import React, { memo, useState } from "react";
-import { storage } from "../../../services/storage";
-import { USERNAME } from "../../../store/actions";
+import { USERNAME } from "store/actions";
+import { storage } from "services/storage";
+import { Input, Button } from "components/field";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
-const index = memo(() => {
+const index = () => {
   const { usePost } = useFetch;
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -82,6 +82,6 @@ const index = memo(() => {
       </form>
     </>
   );
-});
+};
 
 export default index;

@@ -1,12 +1,11 @@
-import React, { memo } from "react";
 import { Products } from "components/layout";
 
-const index = memo(() => {
+const index = () => {
   return (
     <>
       <Products />
     </>
   );
-});
+};
 
 export default index;

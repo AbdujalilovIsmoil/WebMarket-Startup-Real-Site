@@ -1,14 +1,14 @@
 import { get } from "lodash";
+import { useFetch } from "hook";
 import { toast } from "react-toastify";
-import { useFetch } from "../../../hook";
-import { Input, Button } from "../../field";
+import { USERNAME } from "store/actions";
 import { useDispatch } from "react-redux";
+import { storage } from "services/storage";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { storage } from "../../../services/storage";
-import { USERNAME } from "../../../store/actions";
-import React, { memo, useEffect, useState } from "react";
+import { Input, Button } from "components/field";
 
-const index = memo(() => {
+const index = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const token = storage.get("token");
@@ -170,6 +170,6 @@ const index = memo(() => {
       </div>
     </>
   );
-});
+};
 
 export default index;

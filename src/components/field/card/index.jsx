@@ -1,11 +1,11 @@
 import { get } from "lodash";
-import React, { memo } from "react";
-import { useFetch } from "../../../hook";
+import { useFetch } from "hook";
+import { Fragment } from "react";
 import { useDispatch } from "react-redux";
+import { ABOUT_DATA } from "store/actions";
 import { useNavigate } from "react-router-dom";
-import { ABOUT_DATA } from "../../../store/actions";
 
-const index = memo(({ ...rest }) => {
+const index = ({ ...rest }) => {
   const { useGet } = useFetch;
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -56,14 +56,14 @@ const index = memo(({ ...rest }) => {
               {get(rest, "items.technology", []).length > 0
                 ? get(rest, "items.technology", []).map((el) => {
                     return (
-                      <React.Fragment key={el._id}>
+                      <Fragment key={el._id}>
                         <img
                           src={el.img_link}
                           alt="Lang1"
                           title="Lang1"
                           className="section-container-box-cards-card-box-footer-box__icon"
                         />
-                      </React.Fragment>
+                      </Fragment>
                     );
                   })
                 : ""}
@@ -73,6 +73,6 @@ const index = memo(({ ...rest }) => {
       </div>
     </>
   );
-});
+};
 
 export default index;

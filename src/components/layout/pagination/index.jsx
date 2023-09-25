@@ -1,16 +1,14 @@
-import React, { memo } from "react";
 import ReactPaginate from "react-paginate";
 
-const index = memo(({ pageCount, onPageChange }) => {
+const index = (props) => {
   return (
     <>
       <ReactPaginate
+        {...props}
         nextLabel=">"
-        previousLabel="<"
         breakLabel="..."
-        pageCount={pageCount}
+        previousLabel="<"
         nextClassName="next-style"
-        onPageChange={onPageChange}
         pageLinkClassName="page-link"
         nextLinkClassName="next-style"
         breakClassName="paginate-dots"
@@ -21,6 +19,6 @@ const index = memo(({ pageCount, onPageChange }) => {
       />
     </>
   );
-});
+};
 
 export default index;

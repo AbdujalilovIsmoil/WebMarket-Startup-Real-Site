@@ -1,15 +1,15 @@
 import { get } from "lodash";
+import { useFetch } from "hook";
+import { useState } from "react";
 import { toast } from "react-toastify";
 import OTPInput from "react-otp-input";
-import { useFetch } from "../../../hook";
+import { USERNAME } from "store/actions";
 import { useDispatch } from "react-redux";
-import { Input, Button } from "../../field";
-import React, { memo, useState } from "react";
-import { USERNAME } from "../../../store/actions";
-import { storage } from "../../../services/storage";
+import { storage } from "services/storage";
+import { Input, Button } from "components/field";
 import { Link, useNavigate } from "react-router-dom";
 
-const index = memo(() => {
+const index = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [email, setEmail] = useState("");
@@ -219,6 +219,6 @@ const index = memo(() => {
       </form>
     </>
   );
-});
+};
 
 export default index;

@@ -1,16 +1,15 @@
-import React, { memo } from "react";
 import { ForgotPassword } from "components/layout";
 
-const index = memo(() => {
+const index = () => {
   return (
     <>
       <div className="container">
         <section className="forgotPassword">
-            <ForgotPassword />
+          <ForgotPassword />
         </section>
       </div>
     </>
   );
-});
+};
 
 export default index;

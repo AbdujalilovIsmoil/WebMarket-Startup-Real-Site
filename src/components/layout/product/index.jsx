@@ -1,16 +1,16 @@
 import { get } from "lodash";
+import { useFetch } from "hook";
 import { toast } from "react-toastify";
-import { useFetch } from "../../../hook";
-import { Pagination } from "../../layout";
-import { Button, Loader } from "../../field";
+import { storage } from "services/storage";
+import { Pagination } from "components/layout";
 import { useNavigate } from "react-router-dom";
-import { storage } from "../../../services/storage";
+import { Button, Loader } from "components/field";
+import React, { useEffect, useState } from "react";
+import { GET_PRODUCT, LOADER } from "store/actions";
 import { useDispatch, useSelector } from "react-redux";
-import React, { memo, useEffect, useState } from "react";
-import { GET_PRODUCT, LOADER } from "../../../store/actions";
-import { AiOutlineDelete, AiOutlineEdit } from "../../../assets/icons";
+import { AiOutlineDelete, AiOutlineEdit } from "assets/icons";
 
-const index = memo(() => {
+const index = () => {
   const allPageCounts = [];
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -196,6 +196,6 @@ const index = memo(() => {
       </div>
     </>
   );
-});
+};
 
 export default index;

@@ -1,12 +1,11 @@
-import { memo } from "react";
 import { Section } from "components/layout";
 
-const index = memo(() => {
+const index = () => {
   return (
     <>
       <Section />
     </>
   );
-});
+};
 
 export default index;

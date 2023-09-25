@@ -1,11 +1,11 @@
 import { truncate } from "lodash";
-import { Button, links } from "../../field";
+import { Icon } from "assets/images/png";
+import { storage } from "services/storage";
+import { useState, useEffect } from "react";
+import { Button, links } from "components/field";
 import { Link, NavLink } from "react-router-dom";
-import { Icon } from "../../../assets/images/png";
-import { useState, memo, useEffect } from "react";
-import { storage } from "../../../services/storage";
 import { useDispatch, useSelector } from "react-redux";
-import { OPEN_NAVBAR, CLOSE_NAVBAR } from "../../../store/actions";
+import { OPEN_NAVBAR, CLOSE_NAVBAR } from "store/actions";
 import {
   FiSun,
   FiMenu,
@@ -13,9 +13,9 @@ import {
   CgProfile,
   CgWebsite,
   WiMoonAltNew,
-} from "../../../assets/icons";
+} from "assets/icons";
 
-const index = memo(() => {
+const index = () => {
   const dispatch = useDispatch();
   const username = storage.get("username");
   const { navbar } = useSelector((state) => state);
@@ -135,6 +135,6 @@ const index = memo(() => {
       </header>
     </>
   );
-});
+};
 
 export default index;

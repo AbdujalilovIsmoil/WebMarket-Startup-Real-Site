@@ -1,7 +1,6 @@
-import React, { memo } from "react";
 import { Login } from "components/layout";
 
-const index = memo(() => {
+const index = () => {
   return (
     <>
       <div className="container">
@@ -11,6 +10,6 @@ const index = memo(() => {
       </div>
     </>
   );
-});
+};
 
 export default index;

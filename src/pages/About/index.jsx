@@ -2,11 +2,11 @@ import { get } from "lodash";
 import { useFetch } from "hook";
 import { Link, useParams } from "react-router-dom";
 import { LOADER, ABOUT_DATA } from "store/actions";
+import { Fragment, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Card, Button, Loader } from "components/field";
-import React, { memo, useEffect, useState } from "react";
 
-const index = memo(() => {
+const index = () => {
   const { id } = useParams();
   const { useGet } = useFetch;
   const dispatch = useDispatch();
@@ -124,14 +124,14 @@ const index = memo(() => {
                               ) : el?.technology?.length > 0 ? (
                                 el.technology.map((el) => {
                                   return (
-                                    <React.Fragment key={el._id}>
+                                    <Fragment key={el._id}>
                                       <img
                                         src={el.img_link}
                                         alt="Lang1"
                                         title="Lang1"
                                         className="about-container-box-information-list-item-images__icon"
                                       />
-                                    </React.Fragment>
+                                    </Fragment>
                                   );
                                 })
                               ) : (
@@ -197,6 +197,6 @@ const index = memo(() => {
       </div>
     </>
   );
-});
+};
 
 export default index;

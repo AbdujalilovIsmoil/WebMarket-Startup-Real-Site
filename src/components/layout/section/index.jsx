@@ -1,13 +1,13 @@
 import { get } from "lodash";
-import Pagination from "../pagination";
-import { useFetch } from "../../../hook";
-import { Card, Loader } from "../../field";
+import { useFetch } from "hook";
+import { Card, Loader } from "components/field";
+import { PRODUCT_DATA, LOADER } from "store/actions";
+import { Fragment, useEffect, useState } from "react";
+import Pagination from "components/layout/pagination";
 import { useDispatch, useSelector } from "react-redux";
-import React, { memo, useEffect, useState } from "react";
-import { PRODUCT_DATA, LOADER } from "../../../store/actions";
-import { Generator, Content, Buttons, Form } from "../../layout";
+import { Generator, Content, Buttons, Form } from "components/layout";
 
-const index = memo(() => {
+const index = () => {
   const allPageCounts = [];
   const { useGet } = useFetch;
   const dispatch = useDispatch();
@@ -62,9 +62,9 @@ const index = memo(() => {
                 ) : sliceProducts.length > 0 ? (
                   sliceProducts.map((el) => {
                     return (
-                      <React.Fragment>
+                      <Fragment>
                         <Card items={el} />
-                      </React.Fragment>
+                      </Fragment>
                     );
                   })
                 ) : (
@@ -83,6 +83,6 @@ const index = memo(() => {
       </section>
     </>
   );
-});
+};
 
 export default index;

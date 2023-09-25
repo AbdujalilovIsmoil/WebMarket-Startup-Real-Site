@@ -1,13 +1,13 @@
 import { get } from "lodash";
-import { useFetch } from "../../../hook";
-import { Button, Loader } from "../../field";
-import { LOADER } from "../../../store/actions";
+import { useFetch } from "hook";
+import { LOADER } from "store/actions";
+import { storage } from "services/storage";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { storage } from "../../../services/storage";
+import { Button, Loader } from "components/field";
 import { useDispatch, useSelector } from "react-redux";
-import React, { memo, useEffect, useState } from "react";
 
-const index = memo(() => {
+const index = () => {
   const { useGet } = useFetch;
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -16,14 +16,16 @@ const index = memo(() => {
   const { loader } = useSelector((state) => state);
 
   useEffect(() => {
-    const data = useGet({ api: "/usersown", token }).then((response) => {
-      if (get(response, "status") === 200) {
+    const data = useGet({ api: "/usersown", token })
+      .then((response) => {
+        if (get(response, "status") === 200) {
+          dispatch(LOADER());
+          setUser(get(response, "data.data"));
+        }
+      })
+      .catch(() => {
         dispatch(LOADER());
-        setUser(get(response, "data.data"));
-      }
-    }).catch(() => {
-      dispatch(LOADER());
-    })
+      });
   }, []);
 
   return (
@@ -72,6 +74,6 @@ const index = memo(() => {
       )}
     </>
   );
-});
+};
 
 export default index;
