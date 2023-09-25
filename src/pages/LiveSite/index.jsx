@@ -1,9 +1,9 @@
 import { get } from "lodash";
-import { useFetch } from "../../hook";
+import { useFetch } from "hook";
 import { useParams } from "react-router-dom";
-import { Button, Input } from "../../components/field";
+import { Button, Input } from "components/field";
+import { RxDesktop, RxMobile, LuTablet } from "assets/icons";
 import React, { memo, useEffect, useRef, useState } from "react";
-import { RxDesktop, RxMobile, LuTablet } from "../../assets/icons";
 
 const index = memo(() => {
   const { id } = useParams();

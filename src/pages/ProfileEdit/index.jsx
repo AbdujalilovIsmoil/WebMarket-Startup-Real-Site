@@ -1,5 +1,5 @@
 import React, { memo } from "react";
-import { ProfileEdit } from "../../components/layout";
+import { ProfileEdit } from "components/layout";
 
 const index = memo(() => {
   return (

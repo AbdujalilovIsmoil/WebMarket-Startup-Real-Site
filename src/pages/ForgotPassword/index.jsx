@@ -1,5 +1,5 @@
 import React, { memo } from "react";
-import { ForgotPassword } from "../../components/layout";
+import { ForgotPassword } from "components/layout";
 
 const index = memo(() => {
   return (

@@ -1,5 +1,5 @@
 import React, { memo } from "react";
-import { Login } from "../../components/layout";
+import { Login } from "components/layout";
 
 const index = memo(() => {
   return (

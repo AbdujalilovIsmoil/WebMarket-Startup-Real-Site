@@ -1,12 +1,12 @@
 import { get } from "lodash";
-import { useFetch } from "../../hook";
+import { useFetch } from "hook";
 import { toast } from "react-toastify";
+import { storage } from "services/storage";
 import { useNavigate } from "react-router-dom";
-import { storage } from "../../services/storage";
+import { GET_TECHNOLOGIES } from "store/actions";
 import { useDispatch, useSelector } from "react-redux";
-import { GET_TECHNOLOGIES } from "../../store/actions";
 import React, { memo, useEffect, useState } from "react";
-import { Input, Button, Select, Textarea } from "../../components/field";
+import { Input, Button, Select, Textarea } from "components/field";
 
 const index = memo(() => {
   const dispatch = useDispatch();

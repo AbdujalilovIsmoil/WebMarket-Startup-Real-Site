@@ -1,5 +1,5 @@
 import React, { memo } from "react";
-import { BlogTitles, BlogCards } from "../../components/layout";
+import { BlogTitles, BlogCards } from "components/layout";
 
 const index = memo(() => {
   return (

@@ -1,5 +1,5 @@
 import { memo } from "react";
-import { Section } from "../../components/layout";
+import { Section } from "components/layout";
 
 const index = memo(() => {
   return (

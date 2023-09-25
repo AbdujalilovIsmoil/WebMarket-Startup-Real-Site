@@ -1,10 +1,10 @@
 import { get } from "lodash";
-import { useFetch } from "../../hook";
+import { useFetch } from "hook";
 import { Link, useParams } from "react-router-dom";
+import { LOADER, ABOUT_DATA } from "store/actions";
 import { useDispatch, useSelector } from "react-redux";
-import { LOADER, ABOUT_DATA } from "../../store/actions";
+import { Card, Button, Loader } from "components/field";
 import React, { memo, useEffect, useState } from "react";
-import { Card, Button, Loader } from "../../components/field";
 
 const index = memo(() => {
   const { id } = useParams();
