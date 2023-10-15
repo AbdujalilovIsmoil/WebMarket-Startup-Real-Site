@@ -100,7 +100,7 @@
           transform: translateX(-30px);
           &-item {
             margin: 18px 0;
-            @include flexbox(flex, flex-start, center, row, 10px);
+            @include flexbox(flex, space-between, center, row, 10px);
             &__key {
               white-space: nowrap;
               @include title($description-color, 16px, default, 26px, default);
@@ -109,12 +109,9 @@
               @include title($title-color, 16px, default, 26px, default);
             }
             &-images {
+              flex-wrap: wrap;
               @include flexbox(flex, flex-start, center, row, 12px);
-              transform: translateX(-100px);
               &__username {
-                @include defaultQuery(400px){
-                  transform: translate(25px,5px);
-                }
                 @include title(
                   $title-color,
                   16px,
@@ -124,6 +121,7 @@
                 );
               }
               &__icon {
+                margin: 0 0 10px 0;
                 @include sizes(20px, 20px);
               }
             }

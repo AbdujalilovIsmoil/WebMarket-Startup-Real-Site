@@ -116,7 +116,7 @@ const index = () => {
                             <h4 className="about-container-box-information-list-item__key">
                               Types:
                             </h4>
-                            <div className="about-container-box-information-list-item-images d-flex justify-content-center text-center w-100">
+                            <div className="about-container-box-information-list-item-images w-100">
                               {loader ? (
                                 <div className="text-center w-100">
                                   <Loader />
@@ -148,7 +148,7 @@ const index = () => {
                             <h4 className="about-container-box-information-list-item__key">
                               Create by:
                             </h4>
-                            <div className="about-container-box-information-list-item-images d-flex justify-content-center text-center w-100">
+                            <div className="about-container-box-information-list-item-images w-100">
                               {loader ? (
                                 <div className="text-center w-100">
                                   <Loader />
