@@ -3,7 +3,7 @@ import { useFetch } from "hook";
 import { Card, Loader } from "components/field";
 import { PRODUCT_DATA, LOADER } from "store/actions";
 import { Fragment, useEffect, useState } from "react";
-import Pagination from "components/layout/pagination";
+import Pagination from "components/layout/Pagination";
 import { useDispatch, useSelector } from "react-redux";
 import { Generator, Content, Buttons, Form } from "components/layout";
 

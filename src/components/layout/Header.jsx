@@ -1,4 +1,4 @@
-import { truncate } from "lodash";
+import { get, truncate } from "lodash";
 import { storage } from "services";
 import { Icon } from "assets/images/png";
 import { useState, useEffect } from "react";
@@ -71,8 +71,8 @@ const index = () => {
               </Link>
             </div>
             <ul className="nav-list">
-              {links.length &&
-                links.map((el) => (
+              {get(links, "links").length > 0 &&
+                get(links, "links").map((el) => (
                   <li className="nav-list-item" key={el.id}>
                     <NavLink
                       className={({ isActive }) =>

@@ -31,7 +31,7 @@
           object-fit: cover;
           @include sizes(50px, 50px);
           @include defaultQuery(480px) {
-            @include sizes(40px, 40px);
+            @include sizes(45px, 45px);
           }
         }
         &__title {
@@ -44,10 +44,10 @@
           );
           transform: translateY(4px);
           @include defaultQuery(480px) {
-            transform: translateY(5px);
+            transform: translate(-5px, 8px);
             @include title(
               $title-color,
-              20px !important,
+              18px !important,
               400,
               default,
               capitalize

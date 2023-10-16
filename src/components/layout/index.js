@@ -1,18 +1,18 @@
-import Form from "./form";
-import Login from "./login";
-import Header from "./header";
-import Section from "./section";
-import Buttons from "./buttons";
-import Content from "./content";
-import Profile from "./profile";
-import Products from "./product";
-import Generator from "./generator";
-import BlogCards from "./blog-cards";
-import Pagination from "./pagination";
-import BlogTitles from "./blog-titles";
-import ProfileEdit from "./profile-edit";
-import Registration from "./registration";
-import ForgotPassword from "./forgotPassword";
+import Form from "./Form";
+import Login from "./Login";
+import Header from "./Header";
+import Section from "./Section";
+import Buttons from "./Buttons";
+import Content from "./Content";
+import Profile from "./Profile";
+import Products from "./Product";
+import Generator from "./Generator";
+import BlogCards from "./BlogCards";
+import Pagination from "./Pagination";
+import BlogTitles from "./BlogTitles";
+import ProfileEdit from "./ProfileEdit";
+import Registration from "./Registration";
+import ForgotPassword from "./ForgotPassword";
 
 export {
     Form,
