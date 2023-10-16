@@ -5,7 +5,7 @@ import { PRODUCT_DATA } from "store/actions";
 import { useDispatch, useSelector } from "react-redux";
 import { Button, Input, Loader } from "components/field";
 
-const index = () => {
+const Buttons = () => {
   const { useGet } = useFetch;
   const dispatch = useDispatch();
   const [isLoader, setIsLoader] = useState(false);
@@ -87,4 +87,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default Buttons;

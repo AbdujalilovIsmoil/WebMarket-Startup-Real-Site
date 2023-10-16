@@ -5,7 +5,7 @@ import { useDispatch } from "react-redux";
 import { ABOUT_DATA } from "store/actions";
 import { useNavigate } from "react-router-dom";
 
-const index = ({ ...rest }) => {
+const Card = ({ ...rest }) => {
   const { useGet } = useFetch;
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -75,4 +75,4 @@ const index = ({ ...rest }) => {
   );
 };
 
-export default index;
+export default Card;

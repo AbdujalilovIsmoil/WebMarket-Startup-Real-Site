@@ -8,7 +8,7 @@ import { Input, Button } from "components/field";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
-const index = () => {
+const Login = () => {
   const { usePost } = useFetch;
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -84,4 +84,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default Login;

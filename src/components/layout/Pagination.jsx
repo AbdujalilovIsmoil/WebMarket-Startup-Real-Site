@@ -1,6 +1,6 @@
 import ReactPaginate from "react-paginate";
 
-const index = (props) => {
+const Pagination = (props) => {
   return (
     <>
       <ReactPaginate
@@ -21,4 +21,4 @@ const index = (props) => {
   );
 };
 
-export default index;
+export default Pagination;

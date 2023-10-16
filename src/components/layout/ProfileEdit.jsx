@@ -8,7 +8,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Input, Button, Loader } from "components/field";
 
-const index = () => {
+const ProfileEdit = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const token = storage.get("token");
@@ -185,4 +185,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default ProfileEdit;

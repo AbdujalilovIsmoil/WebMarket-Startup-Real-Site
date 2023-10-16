@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { Button, Loader } from "components/field";
 import { useDispatch, useSelector } from "react-redux";
 
-const index = () => {
+const Profile = () => {
   const { useGet } = useFetch;
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -78,4 +78,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default Profile;

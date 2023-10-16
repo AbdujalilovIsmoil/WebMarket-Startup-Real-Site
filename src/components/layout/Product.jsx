@@ -10,7 +10,7 @@ import { GET_PRODUCT, LOADER } from "store/actions";
 import { useDispatch, useSelector } from "react-redux";
 import { AiOutlineDelete, AiOutlineEdit } from "assets/icons";
 
-const index = () => {
+const Product = () => {
   const allPageCounts = [];
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -206,4 +206,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default Product;

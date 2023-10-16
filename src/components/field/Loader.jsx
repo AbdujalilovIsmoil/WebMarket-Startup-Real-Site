@@ -1,4 +1,4 @@
-const index = () => {
+const Loader = () => {
   return (
     <>
       <div className="lds-ring">
@@ -11,4 +11,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default Loader;

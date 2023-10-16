@@ -1,8 +1,8 @@
-const index = (props) => {
+const Input = (props) => {
   return (
     <>
       <input {...props} />
     </>
   );
 };
-export default index;
+export default Input;

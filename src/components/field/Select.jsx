@@ -1,8 +1,8 @@
-const index = ({ children, ...props }) => {
+const Select = ({ children, ...props }) => {
   return (
     <>
       <select {...props}>{children}</select>
     </>
   );
 };
-export default index;
+export default Select;

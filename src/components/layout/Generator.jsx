@@ -1,7 +1,6 @@
 import { get } from "lodash";
 import { useFetch } from "hook";
-import { Icon } from "assets/images/png";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { BsChevronDown } from "assets/icons";
 import { useCollapse } from "react-collapsed";
@@ -9,7 +8,7 @@ import { Input, Loader } from "components/field";
 import { useDispatch, useSelector } from "react-redux";
 import { GET_TECHNOLOGIES, PRODUCT_DATA, LOADER } from "store/actions";
 
-const index = () => {
+const Generator = () => {
   const { useGet } = useFetch;
   const dispatch = useDispatch();
   const [isLoader, setIsLoader] = useState(false);
@@ -162,4 +161,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default Generator;

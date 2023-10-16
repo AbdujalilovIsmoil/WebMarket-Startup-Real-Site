@@ -1,4 +1,4 @@
-const index = () => {
+const BlogTitles = () => {
   return (
     <>
       <div className="blog-titles">
@@ -11,4 +11,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default BlogTitles;

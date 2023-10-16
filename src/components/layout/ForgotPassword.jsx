@@ -9,7 +9,7 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { Input, Button } from "components/field";
 
-const index = () => {
+const ForgetPassword = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [email, setEmail] = useState("");
@@ -125,4 +125,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default ForgetPassword;

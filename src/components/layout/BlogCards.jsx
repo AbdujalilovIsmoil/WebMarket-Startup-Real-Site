@@ -1,7 +1,7 @@
 import { BlogIntro } from "assets/images/svg";
 import { BlogCard1, BlogCard2 } from "assets/images/jpg";
 
-const index = () => {
+const BlogCards = () => {
   return (
     <>
       <div className="blog-cards-container">
@@ -90,4 +90,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default BlogCards;

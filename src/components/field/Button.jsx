@@ -1,4 +1,4 @@
-const index = ({ children, ...props }) => {
+const Button = ({ children, ...props }) => {
   return (
     <>
       <button {...props}>{children}</button>
@@ -6,4 +6,4 @@ const index = ({ children, ...props }) => {
   );
 };
 
-export default index;
+export default Button;

@@ -7,7 +7,7 @@ import Pagination from "components/layout/Pagination";
 import { useDispatch, useSelector } from "react-redux";
 import { Generator, Content, Buttons, Form } from "components/layout";
 
-const index = () => {
+const Section = () => {
   const allPageCounts = [];
   const { useGet } = useFetch;
   const dispatch = useDispatch();
@@ -89,4 +89,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default Section;

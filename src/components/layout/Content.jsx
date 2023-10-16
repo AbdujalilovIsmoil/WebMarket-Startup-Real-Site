@@ -1,4 +1,4 @@
-const index = () => {
+const Content = () => {
   return (
     <>
       <section className="content">
@@ -13,4 +13,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default Content;

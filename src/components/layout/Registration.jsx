@@ -9,7 +9,7 @@ import { useDispatch } from "react-redux";
 import { Input, Button } from "components/field";
 import { Link, useNavigate } from "react-router-dom";
 
-const index = () => {
+const Registration = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [email, setEmail] = useState("");
@@ -221,4 +221,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default Registration;

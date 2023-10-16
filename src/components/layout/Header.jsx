@@ -15,7 +15,7 @@ import {
   WiMoonAltNew,
 } from "assets/icons";
 
-const index = () => {
+const Header = () => {
   const dispatch = useDispatch();
   const location = useLocation();
   const username = storage.get("username");
@@ -141,4 +141,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default Header;

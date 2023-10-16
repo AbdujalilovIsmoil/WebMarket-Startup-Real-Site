@@ -1,8 +1,8 @@
-const index = ({ children, ...props }) => {
+const Texterea = ({ children, ...props }) => {
   return (
     <>
       <textarea {...props}>{children}</textarea>
     </>
   );
 };
-export default index;
+export default Texterea;

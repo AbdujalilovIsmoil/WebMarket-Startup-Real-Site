@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Input, Select, Button } from "components/field";
 import { PRODUCT_DATA, CHANGE_INPUT, LOADER } from "store/actions";
 
-const index = () => {
+const Form = () => {
   const { useGet } = useFetch;
   const dispatch = useDispatch();
   const { searchValue, products } = useSelector((state) => state);
@@ -58,4 +58,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default Form;
