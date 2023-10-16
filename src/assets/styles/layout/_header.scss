@@ -24,12 +24,15 @@
       }
       &-link {
         @include defaultQuery(480px) {
-          display: none;
+          // display: none;
         }
         @include flexbox(flex, flex-start, center, row, 10px);
         &__img {
           object-fit: cover;
           @include sizes(50px, 50px);
+          @include defaultQuery(480px) {
+            @include sizes(40px, 40px);
+          }
         }
         &__title {
           @include title(
@@ -40,6 +43,16 @@
             capitalize
           );
           transform: translateY(4px);
+          @include defaultQuery(480px) {
+            transform: translateY(5px);
+            @include title(
+              $title-color,
+              20px !important,
+              400,
+              default,
+              capitalize
+            );
+          }
         }
       }
     }

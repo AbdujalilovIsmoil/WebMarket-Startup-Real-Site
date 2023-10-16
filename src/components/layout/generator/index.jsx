@@ -155,15 +155,6 @@ const index = () => {
                 </NavLink>
               </li>
             </ul>
-            <Link className="generator-intro" to="/">
-              <img
-                src={Icon}
-                alt="Intro"
-                title="Intro"
-                className="generator-intro__img"
-              />
-              <h1 className="generator-intro__title">WebMarket</h1>
-            </Link>
           </div>
         </div>
       </div>

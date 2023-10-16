@@ -3,7 +3,6 @@
     @include flexbox(flex, flex-end, center, row, stretch);
     transform: translate(-50px, 50px);
     &__btn {
-      margin: 0 0 30px 0;
       @include button(
         none,
         15px 20px 10px 20px,
@@ -26,22 +25,40 @@
     }
   }
   &-container {
+    margin-top: 30px;
     text-align: center;
+    @include defaultQuery(480px) {
+      margin-top: 100px;
+    }
     &__img {
       object-fit: cover;
       border-radius: 50%;
       @include sizes(350px, 350px);
+      @include sm {
+        @include sizes(200px, 200px);
+      }
     }
     &__name {
-      @include title($title-color, 35px, 400, default, capitalize);
       margin: 20px 0 20px 0;
+      @include title($title-color, 35px, 400, default, capitalize);
+      @include defaultQuery(480px) {
+        font-size: 30px;
+        margin: 10px 0 10px 0;
+      }
     }
     &__email {
-      @include title($title-color, 20px, 400, default, default);
       margin: 20px 0;
+      @include title($title-color, 20px, 400, default, default);
+      @include defaultQuery(480px) {
+        margin: 10px 0;
+        font-size: 16px;
+      }
     }
     &__portfolio {
       @include title($title-color, 20px, 400, default, default);
+      @include defaultQuery(480px) {
+        font-size: 16px;
+      }
       &:hover {
         text-decoration: underline;
         @include title($title-color, 20px, 400, default, default);

@@ -1,6 +1,6 @@
 import Routes from "./routes/Routes";
 import { lazy, Suspense } from "react";
-import 'react-toastify/dist/ReactToastify.css';
+import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
@@ -10,6 +10,7 @@ const About = lazy(() => import("./pages/About"));
 const Login = lazy(() => import("./pages/Login"));
 const Profile = lazy(() => import("./pages/Profile"));
 const Product = lazy(() => import("./pages/Product"));
+const NotFound = lazy(() => import("./pages/NotFound"));
 const LiveSite = lazy(() => import("./pages/LiveSite"));
 const TeamByUs = lazy(() => import("./pages/TeamByUs"));
 const ProfileEdit = lazy(() => import("./pages/ProfileEdit"));
@@ -21,13 +22,13 @@ const ForgotPassword = lazy(() => import("./pages/ForgotPassword"));
 
 const router = createBrowserRouter([
   {
-    path: "*",
-    element: <h1>NOT FOUND</h1>,
-  },
-  {
     path: "/",
     element: <Routes />,
     children: [
+      {
+        path: "*",
+        element: <NotFound />,
+      },
       {
         path: "/",
         element: <Home />,
@@ -70,7 +71,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/liveSite/:id",
-        element: <LiveSite />
+        element: <LiveSite />,
       },
     ],
   },
