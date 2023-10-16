@@ -8,15 +8,22 @@ import { Button, Input, Loader } from "components/field";
 const index = () => {
   const { useGet } = useFetch;
   const dispatch = useDispatch();
+  const [isLoader, setIsLoader] = useState(false);
   const [categories, setCategories] = useState([]);
   const { loader, products } = useSelector((state) => state);
 
   useEffect(() => {
-    const data = useGet({ api: "/categories" }).then((response) => {
-      if (get(response, "status") === 200) {
-        setCategories(get(response, "data"));
-      }
-    });
+    setIsLoader(true);
+    const data = useGet({ api: "/categories" })
+      .then((response) => {
+        if (get(response, "status") === 200) {
+          setIsLoader(false);
+          setCategories(get(response, "data"));
+        }
+      })
+      .catch(() => {
+        setIsLoader(false);
+      });
   }, []);
 
   const changeBtn = ({ category, type }) => {
@@ -41,7 +48,7 @@ const index = () => {
   return (
     <>
       <div className="section-container-box-buttons-container">
-        {loader ? (
+        {isLoader ? (
           <div className="buttons-loader">
             <Loader />
           </div>

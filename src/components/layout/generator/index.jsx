@@ -11,19 +11,20 @@ import { GET_TECHNOLOGIES, PRODUCT_DATA, LOADER } from "store/actions";
 const index = () => {
   const { useGet } = useFetch;
   const dispatch = useDispatch();
+  const [isLoader, setIsLoader] = useState(false);
   const [isExpanded, setExpanded] = useState(true);
-  const [generatorOpen, setGeneratorOpen] = useState(false);
   const { getCollapseProps, getToggleProps } = useCollapse({ isExpanded });
   const { technologies, navbar, loader, products } = useSelector(
     (state) => state
   );
 
   useEffect(() => {
+    setIsLoader(true);
     const data = useGet({ api: "/technologies", method: "get" })
       .then((response) => {
         if (get(response, "data.status") === 200) {
+          setIsLoader(false);
           dispatch(GET_TECHNOLOGIES(get(response, "data.data")));
-          dispatch(LOADER());
         }
       })
       .catch(() => {
@@ -87,7 +88,7 @@ const index = () => {
                   {...getCollapseProps()}
                   className="generator-container-box-list"
                 >
-                  {loader ? (
+                  {isLoader ? (
                     <div className="generator-loader">
                       <Loader />
                     </div>

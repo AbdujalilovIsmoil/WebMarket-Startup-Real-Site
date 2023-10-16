@@ -20,6 +20,7 @@ const index = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const firstOperator = index * currentPage;
   const lastOperator = firstOperator - index;
+  const [isLoader, setIsLoader] = useState(false);
   const { get_products = [], loader } = useSelector((state) => state);
   const sliceProducts = get_products.slice(lastOperator, firstOperator);
 
