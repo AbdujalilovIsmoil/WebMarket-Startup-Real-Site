@@ -1,6 +1,7 @@
 import { get } from "lodash";
 import { useFetch } from "hook";
-import { NavLink } from "react-router-dom";
+import { Icon } from "assets/images/png";
+import { Link, NavLink } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { BsChevronDown } from "assets/icons";
 import { useCollapse } from "react-collapsed";
@@ -154,6 +155,15 @@ const index = () => {
                 </NavLink>
               </li>
             </ul>
+            <Link className="generator-intro" to="/">
+              <img
+                src={Icon}
+                alt="Intro"
+                title="Intro"
+                className="generator-intro__img"
+              />
+              <h1 className="generator-intro__title">WebMarket</h1>
+            </Link>
           </div>
         </div>
       </div>

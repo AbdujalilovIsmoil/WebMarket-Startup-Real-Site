@@ -34,6 +34,22 @@
   @include sm {
     width: 100%;
   }
+  &-intro {
+    display: none;
+    margin-top: 20px;
+    @include defaultQuery(480px) {
+      @include flexbox(flex, flex-start, center, row, 10px);
+    }
+    &__img {
+      width: 75px;
+      height: 75px;
+      object-fit: cover;
+    }
+    &__title {
+      transform: translateY(4px);
+      @include title($title-color, 25px !important, 400, default, capitalize);
+    }
+  }
   &-container {
     &-box {
       margin: 20px 0 0 0;
