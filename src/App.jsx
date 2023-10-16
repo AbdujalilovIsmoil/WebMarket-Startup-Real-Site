@@ -1,4 +1,4 @@
-import Routes from "./routes";
+import Routes from "./routes/Routes";
 import { lazy, Suspense } from "react";
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from "react-toastify";

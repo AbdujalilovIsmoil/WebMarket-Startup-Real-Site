@@ -1,6 +1,6 @@
 import { Products } from "components/layout";
 
-const index = () => {
+const Product = () => {
   return (
     <>
       <Products />
@@ -8,4 +8,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default Product;

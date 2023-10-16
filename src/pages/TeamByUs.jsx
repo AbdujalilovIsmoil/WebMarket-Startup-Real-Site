@@ -1,4 +1,4 @@
-const index = () => {
+const TeamByUs = () => {
   return (
     <>
       <div className="container">
@@ -8,4 +8,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default TeamByUs;

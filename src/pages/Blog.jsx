@@ -1,6 +1,6 @@
 import { BlogTitles, BlogCards } from "components/layout";
 
-const index = () => {
+const Blog = () => {
   return (
     <>
       <section className="blog">
@@ -13,4 +13,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default Blog;

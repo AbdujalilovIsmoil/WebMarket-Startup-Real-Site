@@ -1,7 +1,7 @@
 import { get } from "lodash";
 import { useFetch } from "hook";
+import { storage } from "services";
 import { toast } from "react-toastify";
-import { storage } from "services/storage";
 import { Pagination } from "components/layout";
 import { useNavigate } from "react-router-dom";
 import { Button, Loader } from "components/field";

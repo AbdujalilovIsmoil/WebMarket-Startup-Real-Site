@@ -1,14 +1,14 @@
 import { get } from "lodash";
 import { useFetch } from "hook";
+import { storage } from "services";
 import { toast } from "react-toastify";
-import { storage } from "services/storage";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { GET_TECHNOLOGIES } from "store/actions";
 import { useDispatch, useSelector } from "react-redux";
 import { Input, Button, Select, Textarea } from "components/field";
 
-const index = () => {
+const ProductCreate = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const token = storage.get("token");
@@ -300,4 +300,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default ProductCreate;

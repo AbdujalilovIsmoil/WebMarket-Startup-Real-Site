@@ -5,7 +5,7 @@ import { Button, Input } from "components/field";
 import { useEffect, useRef, useState } from "react";
 import { RxDesktop, RxMobile, LuTablet } from "assets/icons";
 
-const index = () => {
+const LiveSite = () => {
   const { id } = useParams();
   const { useGet } = useFetch;
   const breakPointRef = useRef();
@@ -94,4 +94,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default LiveSite;

@@ -6,7 +6,7 @@ import { Fragment, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Card, Button, Loader } from "components/field";
 
-const index = () => {
+const About = () => {
   const { id } = useParams();
   const { useGet } = useFetch;
   const dispatch = useDispatch();
@@ -199,4 +199,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default About;

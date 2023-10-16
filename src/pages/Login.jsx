@@ -1,6 +1,6 @@
 import { Login } from "components/layout";
 
-const index = () => {
+const Login = () => {
   return (
     <>
       <div className="container">
@@ -12,4 +12,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default Login;

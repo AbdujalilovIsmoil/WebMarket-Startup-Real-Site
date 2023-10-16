@@ -1,7 +1,7 @@
 import { get } from "lodash";
 import { useFetch } from "hook";
 import { useEffect, useState } from "react";
-import { PRODUCT_DATA, LOADER } from "store/actions";
+import { PRODUCT_DATA } from "store/actions";
 import { useDispatch, useSelector } from "react-redux";
 import { Button, Input, Loader } from "components/field";
 

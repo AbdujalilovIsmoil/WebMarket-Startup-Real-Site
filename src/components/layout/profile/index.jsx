@@ -1,7 +1,7 @@
 import { get } from "lodash";
 import { useFetch } from "hook";
+import { storage } from "services";
 import { LOADER } from "store/actions";
-import { storage } from "services/storage";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button, Loader } from "components/field";

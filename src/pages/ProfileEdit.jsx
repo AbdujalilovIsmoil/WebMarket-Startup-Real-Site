@@ -1,6 +1,6 @@
 import { ProfileEdit } from "components/layout";
 
-const index = () => {
+const ProfileEdit = () => {
   return (
     <>
       <ProfileEdit />
@@ -8,4 +8,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default ProfileEdit;

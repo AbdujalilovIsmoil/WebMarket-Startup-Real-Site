@@ -1,6 +1,6 @@
 import { Profile } from "components/layout";
 
-const index = () => {
+const Profile = () => {
   return (
     <>
       <Profile />
@@ -8,4 +8,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default Profile;

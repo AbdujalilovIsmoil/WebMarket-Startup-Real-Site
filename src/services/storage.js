@@ -1,4 +1,4 @@
-export const storage = {
+const storage = {
   set: (key, value) => {
     if (!value || value.length <= 0) return;
 
@@ -36,3 +36,5 @@ export const storage = {
     return window.localStorage.clear();
   },
 };
+
+export default storage;

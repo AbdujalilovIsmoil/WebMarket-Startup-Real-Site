@@ -1,6 +1,6 @@
 import { truncate } from "lodash";
+import { storage } from "services";
 import { Icon } from "assets/images/png";
-import { storage } from "services/storage";
 import { useState, useEffect } from "react";
 import { Button, links } from "components/field";
 import { Link, NavLink } from "react-router-dom";

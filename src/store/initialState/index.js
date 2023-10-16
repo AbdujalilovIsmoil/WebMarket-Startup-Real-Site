@@ -1,4 +1,4 @@
-import { storage } from "services/storage";
+import { storage } from "services";
 
 export const initialState = {
   loader: true,

@@ -1,6 +1,6 @@
 import { ForgotPassword } from "components/layout";
 
-const index = () => {
+const ForgotPassword = () => {
   return (
     <>
       <div className="container">
@@ -12,4 +12,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default ForgotPassword;

@@ -1,9 +1,9 @@
 import { get } from "lodash";
 import { useFetch } from "hook";
 import { useState } from "react";
+import { storage } from "services";
 import { toast } from "react-toastify";
 import { USERNAME } from "store/actions";
-import { storage } from "services/storage";
 import { Input, Button } from "components/field";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";

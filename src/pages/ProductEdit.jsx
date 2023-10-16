@@ -1,14 +1,14 @@
 import { get } from "lodash";
 import { useFetch } from "hook";
+import { storage } from "services";
 import { toast } from "react-toastify";
-import { storage } from "services/storage";
 import { useEffect, useState } from "react";
 import { GET_TECHNOLOGIES } from "store/actions";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import { Input, Button, Select, Textarea } from "components/field";
 
-const index = () => {
+const ProductEdit = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -312,4 +312,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default ProductEdit;

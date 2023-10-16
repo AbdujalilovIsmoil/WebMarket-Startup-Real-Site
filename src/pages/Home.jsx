@@ -1,6 +1,6 @@
 import { Section } from "components/layout";
 
-const index = () => {
+const Home = () => {
   return (
     <>
       <Section />
@@ -8,4 +8,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default Home;
