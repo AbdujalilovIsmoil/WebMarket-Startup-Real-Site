@@ -13,24 +13,26 @@ const index = () => {
   const dispatch = useDispatch();
   const token = storage.get("token");
   const [user, setUser] = useState([]);
+  const [isLoader, setIsLoader] = useState(false);
   const { loader } = useSelector((state) => state);
 
   useEffect(() => {
+    setIsLoader(true);
     const data = useGet({ api: "/usersown", token })
       .then((response) => {
         if (get(response, "status") === 200) {
-          dispatch(LOADER());
+          setIsLoader(false);
           setUser(get(response, "data.data"));
         }
       })
       .catch(() => {
-        dispatch(LOADER());
+        setIsLoader(false);
       });
   }, []);
 
   return (
     <>
-      {loader ? (
+      {isLoader ? (
         <div className="d-flex justify-content-center mt-5">
           <Loader />
         </div>

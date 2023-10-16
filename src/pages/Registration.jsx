@@ -1,6 +1,6 @@
 import { Registration } from "components/layout";
 
-const Registration = () => {
+const RegistrComponent = () => {
   return (
     <>
       <div className="container">
@@ -12,4 +12,4 @@ const Registration = () => {
   );
 };
 
-export default Registration;
+export default RegistrComponent;

@@ -16,7 +16,7 @@ const index = () => {
   const firstOperator = index * currentPage;
   const lastOperator = firstOperator - index;
   const [isLoader, setIsLoader] = useState(false);
-  const { products = [], loader } = useSelector((state) => state);
+  const { products = [] } = useSelector((state) => state);
   const sliceProducts = products.slice(lastOperator, firstOperator);
 
   for (let i = 0; i < Math.ceil(products.length / index); i++) {

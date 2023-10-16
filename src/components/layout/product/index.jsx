@@ -21,7 +21,7 @@ const index = () => {
   const firstOperator = index * currentPage;
   const lastOperator = firstOperator - index;
   const [isLoader, setIsLoader] = useState(false);
-  const { get_products = [], loader } = useSelector((state) => state);
+  const { get_products = [] } = useSelector((state) => state);
   const sliceProducts = get_products.slice(lastOperator, firstOperator);
 
   for (let i = 0; i < Math.ceil(get_products.length / index); i++) {
@@ -45,6 +45,8 @@ const index = () => {
         setIsLoader(false);
       });
   };
+
+  console.log(sliceProducts);
 
   useEffect(() => {
     setIsLoader(true);
@@ -88,7 +90,7 @@ const index = () => {
             </Button>
           </div>
           <div className="table-responsive">
-            <table class="table table-bordered w-100 align-middle mt-5 product-table rounded-4">
+            <table class="table-bordered w-100 align-middle mt-5 product-table">
               <thead>
                 <tr className="product-table-room text-center">
                   <th className="product-table-room__thead">№</th>
@@ -104,12 +106,10 @@ const index = () => {
                   <th className="product-table-room__thead">delete</th>
                 </tr>
               </thead>
+
               <tbody>
-                {isLoader ? (
-                  <div className="loader">
-                    <Loader />
-                  </div>
-                ) : sliceProducts.length > 0 ? (
+                {!isLoader &&
+                  sliceProducts.length > 0 &&
                   sliceProducts.map((el, index) => {
                     return (
                       <>
@@ -180,14 +180,19 @@ const index = () => {
                         </tr>
                       </>
                     );
-                  })
-                ) : (
-                  <div className="table-error-content">
-                    <h1 className="text-center fs-1">NOT FOUND</h1>
-                  </div>
-                )}
+                  })}
               </tbody>
             </table>
+            {!isLoader && sliceProducts.length === 0 && (
+              <div className="table-error-content">
+                <h1 className="text-center fs-1 text-light">NOT DATA</h1>
+              </div>
+            )}
+            {isLoader && (
+              <div className="section-container__loader">
+                <Loader />
+              </div>
+            )}
           </div>
         </section>
         {get_products.length >= 10 && (

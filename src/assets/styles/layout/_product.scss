@@ -25,8 +25,11 @@
       }
     }
   }
+  &__table {
+    background-color: $btn-first-bg-color !important;
+  }
   &-table {
-    background-color: $btn-first-bg-color;
+    background-color: $btn-first-bg-color !important;
     &-room {
       &__thead {
         padding: 10px;
@@ -38,7 +41,7 @@
         overflow: hidden;
         white-space: nowrap;
         text-overflow: ellipsis;
-        @include title($title-color, 15px, 400, default, capitalize);
+        @include title($title-color !important, 15px, 400, default, capitalize);
       }
       &-data {
         &__img {
@@ -51,7 +54,13 @@
           white-space: nowrap;
           text-overflow: ellipsis;
           text-decoration: underline;
-          @include title($title-color, 15px, 400, default, capitalize);
+          @include title(
+            $title-color !important,
+            15px,
+            400,
+            default,
+            capitalize
+          );
           &:hover {
             text-decoration: underline;
             @include title($title-color, 15px, 400, default, capitalize);
@@ -61,10 +70,10 @@
           font-size: 20px;
           cursor: pointer;
           &.--first {
-            color: $title-color;
+            color: $title-color !important;
           }
           &.--second {
-            color: $error-color;
+            color: $error-color !important;
           }
         }
       }

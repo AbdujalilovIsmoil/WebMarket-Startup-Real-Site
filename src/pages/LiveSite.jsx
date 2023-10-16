@@ -1,7 +1,7 @@
 import { get } from "lodash";
 import { useFetch } from "hook";
 import { useParams } from "react-router-dom";
-import { Button, Input } from "components/field";
+import { Button, Input, Loader } from "components/field";
 import { useEffect, useRef, useState } from "react";
 import { RxDesktop, RxMobile, LuTablet } from "assets/icons";
 
@@ -9,21 +9,28 @@ const LiveSite = () => {
   const { id } = useParams();
   const { useGet } = useFetch;
   const breakPointRef = useRef();
+  const [isLoader, setIsLoader] = useState(false);
   const [productLink, setProductLink] = useState("");
 
   useEffect(() => {
-    const data = useGet({ api: `/products/${id}` }).then((response) => {
-      if (get(response, "status") === 200) {
-        if (
-          get(response, "data.data.data.product_link", "").slice(0, 5) ===
-            "https" ||
-          get(response, "data.data.data.product_link", "").slice(0, 5) ===
-            "http"
-        ) {
-          setProductLink(get(response, "data.data.data.product_link", ""));
+    setIsLoader(true);
+    const data = useGet({ api: `/products/${id}` })
+      .then((response) => {
+        if (get(response, "status") === 200) {
+          setIsLoader(false);
+          if (
+            get(response, "data.data.data.product_link", "").slice(0, 5) ===
+              "https" ||
+            get(response, "data.data.data.product_link", "").slice(0, 5) ===
+              "http"
+          ) {
+            setProductLink(get(response, "data.data.data.product_link", ""));
+          }
         }
-      }
-    });
+      })
+      .catch(() => {
+        setIsLoader(false);
+      });
   }, []);
 
   const changeBtn = ({ type, number }) => {
@@ -42,54 +49,59 @@ const LiveSite = () => {
 
   return (
     <>
-      <section className="live">
-        {productLink.slice(0, 5) === "https" ||
-        productLink.slice(0, 5) === "http" ? (
-          <div className="live-buttons">
-            <label className="live-buttons-label">
-              <Input
-                type="checkbox"
-                className="live-buttons-label__input"
-                onChange={(e) => changeBtn({ type: e, number: 1 })}
-              />
-              <Button type="button" className="live-buttons-label-breakpoint">
-                <RxDesktop className="live-buttons-label-breakpoint__icon" />
-              </Button>
-            </label>
-            <label className="live-buttons-label">
-              <Input
-                type="checkbox"
-                className="live-buttons-label__input"
-                onChange={(e) => changeBtn({ type: e, number: 2 })}
-              />
-              <Button type="button" className="live-buttons-label-breakpoint">
-                <LuTablet className="live-buttons-label-breakpoint__icon" />
-              </Button>
-            </label>
-            <label className="live-buttons-label">
-              <Input
-                type="checkbox"
-                className="live-buttons-label__input"
-                onChange={(e) => changeBtn({ type: e, number: 3 })}
-              />
-              <Button type="button" className="live-buttons-label-breakpoint">
-                <RxMobile className="live-buttons-label-breakpoint__icon" />
-              </Button>
-            </label>
-          </div>
-        ) : null}
-
-        {productLink.slice(0, 5) === "https" ||
-        productLink.slice(0, 5) === "http" ? (
-          <iframe
-            src={productLink}
-            ref={breakPointRef}
-            className="live-iframe"
-          ></iframe>
-        ) : (
-          <h2 className="text-center mt-3">NOT FOUND</h2>
-        )}
-      </section>
+      {isLoader ? (
+        <div className="section-container__loader">
+          <Loader />
+        </div>
+      ) : (
+        <section className="live">
+          {productLink.slice(0, 5) === "https" ||
+          productLink.slice(0, 5) === "http" ? (
+            <div className="live-buttons">
+              <label className="live-buttons-label">
+                <Input
+                  type="checkbox"
+                  className="live-buttons-label__input"
+                  onChange={(e) => changeBtn({ type: e, number: 1 })}
+                />
+                <Button type="button" className="live-buttons-label-breakpoint">
+                  <RxDesktop className="live-buttons-label-breakpoint__icon" />
+                </Button>
+              </label>
+              <label className="live-buttons-label">
+                <Input
+                  type="checkbox"
+                  className="live-buttons-label__input"
+                  onChange={(e) => changeBtn({ type: e, number: 2 })}
+                />
+                <Button type="button" className="live-buttons-label-breakpoint">
+                  <LuTablet className="live-buttons-label-breakpoint__icon" />
+                </Button>
+              </label>
+              <label className="live-buttons-label">
+                <Input
+                  type="checkbox"
+                  className="live-buttons-label__input"
+                  onChange={(e) => changeBtn({ type: e, number: 3 })}
+                />
+                <Button type="button" className="live-buttons-label-breakpoint">
+                  <RxMobile className="live-buttons-label-breakpoint__icon" />
+                </Button>
+              </label>
+            </div>
+          ) : null}
+          {productLink.slice(0, 5) === "https" ||
+          productLink.slice(0, 5) === "http" ? (
+            <iframe
+              src={productLink}
+              ref={breakPointRef}
+              className="live-iframe"
+            ></iframe>
+          ) : (
+            <h2 className="text-center mt-3">NOT FOUND</h2>
+          )}
+        </section>
+      )}
     </>
   );
 };

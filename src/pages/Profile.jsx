@@ -1,6 +1,6 @@
 import { Profile } from "components/layout";
 
-const Profile = () => {
+const ProfileComponent = () => {
   return (
     <>
       <Profile />
@@ -8,4 +8,4 @@ const Profile = () => {
   );
 };
 
-export default Profile;
+export default ProfileComponent;

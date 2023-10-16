@@ -11,31 +11,34 @@ const About = () => {
   const { useGet } = useFetch;
   const dispatch = useDispatch();
   const [products, setProducts] = useState([]);
+  const [isLoader, setIsLoader] = useState(false);
   const { loader } = useSelector((state) => state);
   const { about_data } = useSelector((state) => state);
   useEffect(() => {
+    setIsLoader(true);
     const data = useGet({ api: `/products/${id}` })
       .then((response) => {
         if (get(response, "status") === 200) {
+          setIsLoader(false);
           dispatch(ABOUT_DATA([get(response, "data.data.data")]));
-          dispatch(LOADER());
         }
       })
       .catch(() => {
-        dispatch(LOADER());
+        setIsLoader(false);
       });
   }, []);
 
   useEffect(() => {
+    setIsLoader(true);
     const data = useGet({ api: "/products" })
       .then((response) => {
         if (get(response, "status") === 200) {
-          dispatch(LOADER());
+          setIsLoader(false);
           setProducts(get(response, "data.data", []).slice(1, 5));
         }
       })
       .catch(() => {
-        dispatch(LOADER());
+        setIsLoader(false);
       });
   }, []);
 
@@ -43,8 +46,8 @@ const About = () => {
     <>
       <div className="container">
         <section className="about w-100">
-          {loader ? (
-            <div className="text-center">
+          {isLoader ? (
+            <div className="section-container__loader">
               <Loader />
             </div>
           ) : about_data?.length > 0 ? (
@@ -117,12 +120,14 @@ const About = () => {
                               Types:
                             </h4>
                             <div className="about-container-box-information-list-item-images w-100">
-                              {loader ? (
-                                <div className="text-center w-100">
+                              {isLoader && (
+                                <div className="section-container__loader">
                                   <Loader />
                                 </div>
-                              ) : el?.technology?.length > 0 ? (
-                                el.technology.map((el) => {
+                              )}
+                              {!isLoader &&
+                                el?.technologies?.length > 0 &&
+                                el?.technologies.map((el) => {
                                   return (
                                     <Fragment key={el._id}>
                                       <img
@@ -133,15 +138,7 @@ const About = () => {
                                       />
                                     </Fragment>
                                   );
-                                })
-                              ) : (
-                                <h1
-                                  className="text-center text-light"
-                                  style={{ fontSize: "17px" }}
-                                >
-                                  NOT FOUND
-                                </h1>
-                              )}
+                                })}
                             </div>
                           </li>
                           <li className="about-container-box-information-list-item">
@@ -149,8 +146,8 @@ const About = () => {
                               Create by:
                             </h4>
                             <div className="about-container-box-information-list-item-images w-100">
-                              {loader ? (
-                                <div className="text-center w-100">
+                              {isLoader ? (
+                                <div className="section-container__loader">
                                   <Loader />
                                 </div>
                               ) : el.user.username ? (
@@ -175,17 +172,13 @@ const About = () => {
             <h1 className="text-center text-light">NOT FOUND</h1>
           )}
           <div className="about-cards">
-            {loader ? (
-              <>
+            {isLoader ? (
+              <div className="section-container__loader">
                 <Loader />
-              </>
+              </div>
             ) : products.length > 0 ? (
               products.map((el) => {
-                return (
-                  <>
-                    <Card items={el} />
-                  </>
-                );
+                return <Card items={el} />;
               })
             ) : (
               <div className="d-flex justify-content-center">
