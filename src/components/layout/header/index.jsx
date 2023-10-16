@@ -3,7 +3,7 @@ import { storage } from "services";
 import { Icon } from "assets/images/png";
 import { useState, useEffect } from "react";
 import { Button, links } from "components/field";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { OPEN_NAVBAR, CLOSE_NAVBAR } from "store/actions";
 import {
@@ -17,6 +17,7 @@ import {
 
 const index = () => {
   const dispatch = useDispatch();
+  const location = useLocation();
   const username = storage.get("username");
   const { navbar } = useSelector((state) => state);
   const [dataUserName, setDataUserName] = useState("");
@@ -43,19 +44,22 @@ const index = () => {
         <div className="container">
           <nav className="nav">
             <div className="nav-intro">
-              <div className="nav-intro-menu">
-                {navbar ? (
-                  <FaTimes
-                    className="nav-intro-menu__icon"
-                    onClick={() => dispatch(CLOSE_NAVBAR())}
-                  />
-                ) : (
-                  <FiMenu
-                    className="nav-intro-menu__icon"
-                    onClick={() => dispatch(OPEN_NAVBAR())}
-                  />
-                )}
-              </div>
+              {location.pathname === "/" && (
+                <div className="nav-intro-menu">
+                  {navbar ? (
+                    <FaTimes
+                      className="nav-intro-menu__icon"
+                      onClick={() => dispatch(CLOSE_NAVBAR())}
+                    />
+                  ) : (
+                    <FiMenu
+                      className="nav-intro-menu__icon"
+                      onClick={() => dispatch(OPEN_NAVBAR())}
+                    />
+                  )}
+                </div>
+              )}
+
               <Link className="nav-intro-link" to="/">
                 <img
                   src={Icon}
