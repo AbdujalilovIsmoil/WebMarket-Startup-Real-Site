@@ -3,24 +3,16 @@
   &-container {
     width: 100%;
     @include flexbox(flex, flex-start, flex-start, row, stretch);
+    &__loader {
+      @include flexbox(flex, center, center, row, stretch);
+      margin-top: 50px;
+    }
     &-box {
       &-cards {
         margin: 55px 0 0 0;
-        @include gridLayout(
-          grid,
-          repeat(3, 1fr),
-          center,
-          flex-start,
-          15px
-        );
+        @include gridLayout(grid, repeat(3, 1fr), center, flex-start, 15px);
         @include xl {
-          @include gridLayout(
-            grid,
-            repeat(2, auto),
-            center,
-            flex-start,
-            24px
-          );
+          @include gridLayout(grid, repeat(2, auto), center, flex-start, 24px);
         }
         @include sm {
           @include gridLayout(grid, auto, center, flex-start, 24px);

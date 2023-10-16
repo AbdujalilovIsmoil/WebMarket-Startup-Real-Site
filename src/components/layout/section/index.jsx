@@ -15,6 +15,7 @@ const index = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const firstOperator = index * currentPage;
   const lastOperator = firstOperator - index;
+  const [isLoader, setIsLoader] = useState(false);
   const { products = [], loader } = useSelector((state) => state);
   const sliceProducts = products.slice(lastOperator, firstOperator);
 
@@ -26,15 +27,16 @@ const index = () => {
   };
 
   useEffect(() => {
+    setIsLoader(true);
     const data = useGet({ api: "/products" })
       .then((response) => {
         if (get(response, "status") === 200) {
+          setIsLoader(false);
           dispatch(PRODUCT_DATA(get(response, "data.data")));
-          dispatch(LOADER());
         }
       })
       .catch(() => {
-        dispatch(LOADER());
+        setIsLoader(false);
       });
   }, []);
 
@@ -54,23 +56,25 @@ const index = () => {
                   <Form />
                 </div>
               </div>
+              {isLoader && (
+                <div className="section-container__loader">
+                  <Loader />
+                </div>
+              )}
               <div className="section-container-box-cards">
-                {loader ? (
-                  <div className="card-loader">
-                    <Loader />
-                  </div>
-                ) : sliceProducts.length > 0 ? (
+                {!isLoader &&
+                  sliceProducts.length > 0 &&
                   sliceProducts.map((el) => {
                     return (
                       <Fragment>
                         <Card items={el} />
                       </Fragment>
                     );
-                  })
-                ) : (
-                  <h1 className="text-center text-light">NOT FOUND</h1>
-                )}
+                  })}
               </div>
+              {sliceProducts.length === 0 && (
+                <h1 className="text-center text-light">NOT FOUND</h1>
+              )}
               {products.length >= 9 && (
                 <Pagination
                   onPageChange={handleClick}

@@ -35,17 +35,19 @@ const index = () => {
   const getProductsFunction = () => {
     const data = useGet({ api: "/productsmyown", token })
       .then((response) => {
+        dispatch(LOADER());
         if (get(response, "status") === 200) {
+          setIsLoader(false);
           dispatch(GET_PRODUCT(get(response, "data")));
-          dispatch(LOADER());
         }
       })
       .catch(() => {
-        dispatch(LOADER());
+        setIsLoader(false);
       });
   };
 
   useEffect(() => {
+    setIsLoader(true);
     getProductsFunction();
   }, []);
 
@@ -103,7 +105,7 @@ const index = () => {
                 </tr>
               </thead>
               <tbody>
-                {loader ? (
+                {isLoader ? (
                   <div className="loader">
                     <Loader />
                   </div>
