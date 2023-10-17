@@ -1,8 +1,8 @@
 import { get } from "lodash";
 import { useFetch } from "hook";
+import { useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
 import { PRODUCT_DATA } from "store/actions";
-import { useDispatch, useSelector } from "react-redux";
 import { Button, Input, Loader } from "components/field";
 
 const Buttons = () => {
@@ -10,7 +10,6 @@ const Buttons = () => {
   const dispatch = useDispatch();
   const [isLoader, setIsLoader] = useState(false);
   const [categories, setCategories] = useState([]);
-  const { loader, products } = useSelector((state) => state);
 
   useEffect(() => {
     setIsLoader(true);
@@ -80,7 +79,7 @@ const Buttons = () => {
             );
           })
         ) : (
-          <h1>NOT FOUND</h1>
+          <h1 className="text-light text-center w-100">NOT DATA</h1>
         )}
       </div>
     </>

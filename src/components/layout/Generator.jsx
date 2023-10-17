@@ -6,17 +6,15 @@ import { BsChevronDown } from "assets/icons";
 import { useCollapse } from "react-collapsed";
 import { Input, Loader } from "components/field";
 import { useDispatch, useSelector } from "react-redux";
-import { GET_TECHNOLOGIES, PRODUCT_DATA, LOADER } from "store/actions";
+import { GET_TECHNOLOGIES, PRODUCT_DATA } from "store/actions";
 
 const Generator = () => {
   const { useGet } = useFetch;
   const dispatch = useDispatch();
   const [isLoader, setIsLoader] = useState(false);
   const [isExpanded, setExpanded] = useState(true);
+  const { technologies, navbar } = useSelector((state) => state);
   const { getCollapseProps, getToggleProps } = useCollapse({ isExpanded });
-  const { technologies, navbar, loader, products } = useSelector(
-    (state) => state
-  );
 
   useEffect(() => {
     setIsLoader(true);
@@ -28,7 +26,7 @@ const Generator = () => {
         }
       })
       .catch(() => {
-        dispatch(LOADER());
+        setIsLoader(false);
       });
   }, []);
 
@@ -92,7 +90,7 @@ const Generator = () => {
                     <div className="generator-loader">
                       <Loader />
                     </div>
-                  ) : technologies.length > 0 ? (
+                  ) : technologies?.length > 0 ? (
                     technologies.map((el) => {
                       return (
                         <>
@@ -132,7 +130,7 @@ const Generator = () => {
                       );
                     })
                   ) : (
-                    <h1 className="text-center text-light">NOT FOUND</h1>
+                    <h3 className="text-center text-light">NO DATA</h3>
                   )}
                 </ul>
               </div>
