@@ -9,10 +9,12 @@ const LiveSite = () => {
   const { id } = useParams();
   const { useGet } = useFetch;
   const breakPointRef = useRef();
+  const [isError, setIsError] = useState(false);
   const [isLoader, setIsLoader] = useState(false);
   const [productLink, setProductLink] = useState("");
 
   useEffect(() => {
+    setIsError(false);
     setIsLoader(true);
     const data = useGet({ api: `/products/${id}` })
       .then((response) => {
@@ -29,6 +31,7 @@ const LiveSite = () => {
         }
       })
       .catch(() => {
+        setIsError(true);
         setIsLoader(false);
       });
   }, []);
@@ -55,8 +58,8 @@ const LiveSite = () => {
         </div>
       ) : (
         <section className="live">
-          {productLink.slice(0, 5) === "https" ||
-          productLink.slice(0, 5) === "http" ? (
+          {productLink.slice(0, 5).toLowerCase() === "https" ||
+          productLink.slice(0, 5).toLowerCase() === "http" ? (
             <div className="live-buttons">
               <label className="live-buttons-label">
                 <Input
@@ -98,7 +101,7 @@ const LiveSite = () => {
               className="live-iframe"
             ></iframe>
           ) : (
-            <h2 className="text-center mt-3">NOT FOUND</h2>
+            <h2 className="text-center mt-5 text-light">NOT FOUND</h2>
           )}
         </section>
       )}
