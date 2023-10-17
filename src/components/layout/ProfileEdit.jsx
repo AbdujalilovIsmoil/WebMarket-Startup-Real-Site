@@ -15,6 +15,7 @@ const ProfileEdit = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [username, setUsername] = useState("");
+  const [isError, setIsError] = useState(false);
   const [imageLink, setImageLink] = useState("");
   const [isLoader, setIsLoader] = useState(false);
   const { useGet, usePostUpload, usePut } = useFetch;
@@ -22,6 +23,7 @@ const ProfileEdit = () => {
 
   useEffect(() => {
     setIsLoader(true);
+    setIsError(false);
     const data = useGet({ api: "/usersown", token })
       .then((response) => {
         if (get(response, "status") === 200) {
@@ -34,6 +36,7 @@ const ProfileEdit = () => {
         }
       })
       .catch(() => {
+        setIsError(true);
         setIsLoader(false);
       });
   }, []);
@@ -105,6 +108,8 @@ const ProfileEdit = () => {
           <div className="section-container__loader">
             <Loader />
           </div>
+        ) : isError ? (
+          <h2 className="text-center mt-5 text-light">NO DATA</h2>
         ) : (
           <form className="product-form" onSubmit={(e) => postData(e)}>
             <label className="product-form-label" htmlFor="#">
