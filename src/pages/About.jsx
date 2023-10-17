@@ -1,7 +1,7 @@
 import { get } from "lodash";
 import { useFetch } from "hook";
+import { ABOUT_DATA } from "store/actions";
 import { Link, useParams } from "react-router-dom";
-import { LOADER, ABOUT_DATA } from "store/actions";
 import { Fragment, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Card, Button, Loader } from "components/field";
@@ -12,8 +12,8 @@ const About = () => {
   const dispatch = useDispatch();
   const [products, setProducts] = useState([]);
   const [isLoader, setIsLoader] = useState(false);
-  const { loader } = useSelector((state) => state);
   const { about_data } = useSelector((state) => state);
+
   useEffect(() => {
     setIsLoader(true);
     const data = useGet({ api: `/products/${id}` })
@@ -169,23 +169,25 @@ const About = () => {
               );
             })
           ) : (
-            <h1 className="text-center text-light">NOT FOUND</h1>
+            <h1 className="text-center text-light">NOT DATA</h1>
           )}
           <div className="about-cards">
             {isLoader ? (
               <div className="section-container__loader">
                 <Loader />
               </div>
-            ) : products.length > 0 ? (
+            ) : (
+              products.length > 0 &&
               products.map((el) => {
                 return <Card items={el} />;
               })
-            ) : (
-              <div className="d-flex justify-content-center">
-                <h1 className="text-center text-light">NOT FOUND</h1>
-              </div>
             )}
           </div>
+          {!isLoader && products.length === 0 && (
+            <div className="d-flex justify-content-center">
+              <h1 className="text-center text-light">NOT DATA</h1>
+            </div>
+          )}
         </section>
       </div>
     </>
