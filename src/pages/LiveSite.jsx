@@ -101,7 +101,7 @@ const LiveSite = () => {
               className="live-iframe"
             ></iframe>
           ) : (
-            <h2 className="text-center mt-5 text-light">NOT FOUND</h2>
+            <h2 className="text-center mt-5 text-light">NOT DATA</h2>
           )}
         </section>
       )}
