@@ -1,7 +1,7 @@
 import { get } from "lodash";
 import { useFetch } from "hook";
+import { PRODUCT_DATA } from "store/actions";
 import { Card, Loader } from "components/field";
-import { PRODUCT_DATA, LOADER } from "store/actions";
 import { Fragment, useEffect, useState } from "react";
 import Pagination from "components/layout/Pagination";
 import { useDispatch, useSelector } from "react-redux";
@@ -56,24 +56,24 @@ const Section = () => {
                   <Form />
                 </div>
               </div>
-              {isLoader && (
+              {isLoader ? (
                 <div className="section-container__loader">
                   <Loader />
                 </div>
+              ) : (
+                <div className="section-container-box-cards">
+                  {sliceProducts.length > 0 &&
+                    sliceProducts.map((el) => {
+                      return (
+                        <Fragment>
+                          <Card items={el} />
+                        </Fragment>
+                      );
+                    })}
+                </div>
               )}
-              <div className="section-container-box-cards">
-                {!isLoader &&
-                  sliceProducts.length > 0 &&
-                  sliceProducts.map((el) => {
-                    return (
-                      <Fragment>
-                        <Card items={el} />
-                      </Fragment>
-                    );
-                  })}
-              </div>
-              {sliceProducts.length === 0 && (
-                <h1 className="text-center text-light">NOT FOUND</h1>
+              {!isLoader && sliceProducts.length === 0 && (
+                <h1 className="text-center text-light">NO DATA</h1>
               )}
               {products.length >= 9 && (
                 <Pagination
