@@ -1,13 +1,13 @@
 .blog-cards-container {
   max-width: 1000px;
-  margin: 70px auto 0 auto;
+  margin: 0 auto 0 auto;
   @include lg {
     margin: 0 auto 0 auto;
   }
   &-box {
     margin: 70px 0 0 0;
     @include lg {
-      margin: 60px auto 0 auto;
+      margin: 10px auto 60px auto;
     }
     position: relative;
     @include flexbox(flex, flex-start, center, row, 24px);
@@ -27,7 +27,6 @@
     &__img {
       height: 200px;
       max-width: 100%;
-      max-width: 400px;
       border-radius: 4px;
       @include lg {
         width: 100%;
@@ -56,7 +55,10 @@
       }
       &__title {
         margin: 10px 0;
+        overflow: hidden;
         max-width: 576px;
+        white-space: nowrap;
+        text-overflow: ellipsis;
         @include lg {
           max-width: 100%;
         }
