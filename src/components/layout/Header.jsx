@@ -1,5 +1,5 @@
-import { get, truncate } from "lodash";
 import { storage } from "services";
+import { get, truncate } from "lodash";
 import { Icon } from "assets/images/png";
 import { useState, useEffect } from "react";
 import { Button, links } from "components/field";
@@ -21,20 +21,32 @@ const Header = () => {
   const username = storage.get("username");
   const { navbar } = useSelector((state) => state);
   const [dataUserName, setDataUserName] = useState("");
-  const [themeColorState, setThemeColorState] = useState(false);
-
+  const [themeColorState, setThemeColorState] = useState(
+    JSON.parse(storage.get("theme")) || false
+  );
   useEffect(() => {
     setDataUserName(username);
   }, [username]);
 
   const themeFunction = () => {
-    setThemeColorState((prevState) => !prevState);
+    if (themeColorState) {
+      storage.set("theme", JSON.stringify(true));
+      document.body.classList.add("light");
+      setThemeColorState((preThemeState) => !preThemeState);
+    } else {
+      storage.set("theme", JSON.stringify(false));
+      document.body.classList.remove("light");
+      setThemeColorState((preThemeState) => !preThemeState);
+    }
+  };
+
+  useEffect(() => {
     if (themeColorState) {
       document.body.classList.add("light");
     } else {
       document.body.classList.remove("light");
     }
-  };
+  }, []);
 
   const token = storage.get("token") || "";
 
