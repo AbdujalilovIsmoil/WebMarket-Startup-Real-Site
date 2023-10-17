@@ -19,6 +19,7 @@ const ProductEdit = () => {
   const [phone, setPhone] = useState("");
   const [img_link, setImgLink] = useState("");
   const [category, setCategory] = useState("");
+  const [isError, setIsError] = useState(false);
   const [isLoader, setIsLoader] = useState(false);
   const [technology, setTechnology] = useState([]);
   const [github_link, setGithubLink] = useState("");
@@ -31,34 +32,48 @@ const ProductEdit = () => {
   const { technologies } = useSelector((state) => state);
 
   useEffect(() => {
-    const data = useGet({ api: `/products/${id}` }).then((response) => {
-      if (get(response, "status") === 200) {
-        setName(get(response, "data.data.data.name", ""));
-        setCategory(get(response, "data.data.data.category", ""));
-        setProductLink(get(response, "data.data.data.product_link", ""));
-        setGithubLink(get(response, "data.data.data.github_link", ""));
-        setPhone(get(response, "data.data.data.phone_number", ""));
-        setPrice(get(response, "data.data.data.price", ""));
-        setImgLink(get(response, "data.data.data.img_link", ""));
-        setDesc(get(response, "data.data.data.desc", ""));
-      }
-    });
+    setIsError(false);
+    const data = useGet({ api: `/products/${id}` })
+      .then((response) => {
+        if (get(response, "status") === 200) {
+          setName(get(response, "data.data.data.name", ""));
+          setCategory(get(response, "data.data.data.category", ""));
+          setProductLink(get(response, "data.data.data.product_link", ""));
+          setGithubLink(get(response, "data.data.data.github_link", ""));
+          setPhone(get(response, "data.data.data.phone_number", ""));
+          setPrice(get(response, "data.data.data.price", ""));
+          setImgLink(get(response, "data.data.data.img_link", ""));
+          setDesc(get(response, "data.data.data.desc", ""));
+        }
+      })
+      .catch(() => {
+        setIsError(true);
+      });
   }, []);
 
   useEffect(() => {
     setIsLoader(true);
-    const data1 = useGet({ api: "/categories" }).then((response) => {
-      if (get(response, "status") === 200) {
-        setIsLoader(false);
-        setCategoryData(get(response, "data"));
-      }
-    });
-    const data2 = useGet({ api: "/technologies" }).then((response) => {
-      if (get(response, "status") === 200) {
-        setIsLoader(false);
-        dispatch(GET_TECHNOLOGIES(get(response, "data.data")));
-      }
-    });
+    setIsError(false);
+    const data1 = useGet({ api: "/categories" })
+      .then((response) => {
+        if (get(response, "status") === 200) {
+          setIsLoader(false);
+          setCategoryData(get(response, "data"));
+        }
+      })
+      .catch(() => {
+        setIsError(true);
+      });
+    const data2 = useGet({ api: "/technologies" })
+      .then((response) => {
+        if (get(response, "status") === 200) {
+          setIsLoader(false);
+          dispatch(GET_TECHNOLOGIES(get(response, "data.data")));
+        }
+      })
+      .catch(() => {
+        setIsError(true);
+      });
   }, []);
 
   const getTechnologyIdFunction = ({ type, id }) => {
@@ -136,6 +151,10 @@ const ProductEdit = () => {
           {isLoader ? (
             <div className="section-container__loader">
               <Loader />
+            </div>
+          ) : isError ? (
+            <div className="section-container__loader">
+              <h3 className="mt-3 text-light">NO DATA</h3>
             </div>
           ) : (
             <form
