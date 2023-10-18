@@ -92,14 +92,12 @@ const router = createBrowserRouter([
 
 const App = () => {
   return (
-    <>
-      <main className="main">
-        <ToastContainer />
-        <Suspense fallback="">
-          <RouterProvider router={router} />
-        </Suspense>
-      </main>
-    </>
+    <main className="main">
+      <ToastContainer />
+      <Suspense fallback="">
+        <RouterProvider router={router} />
+      </Suspense>
+    </main>
   );
 };
 

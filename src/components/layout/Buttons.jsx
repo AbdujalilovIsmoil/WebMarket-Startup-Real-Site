@@ -45,44 +45,42 @@ const Buttons = () => {
   };
 
   return (
-    <>
-      <div className="section-container-box-buttons-container">
-        {isLoader ? (
-          <div className="buttons-loader">
-            <Loader />
-          </div>
-        ) : categories.length > 0 ? (
-          categories.map((el) => {
-            return (
-              <>
-                <label className="section-container-box-buttons-container-label">
-                  <Input
-                    type="checkbox"
-                    className="section-container-box-buttons-container-label__input"
-                    onChange={(e) =>
-                      changeBtn({ type: e, category: el.category })
-                    }
-                  />
-                  <Button
-                    type="button"
-                    className="section-container-box-buttons-container-label-btn"
-                  >
-                    <h5 className="section-container-box-buttons-container-label-btn__name">
-                      {el.category}
-                    </h5>
-                    <h5 className="section-container-box-buttons-container-label-btn__number">
-                      {el.count}
-                    </h5>
-                  </Button>
-                </label>
-              </>
-            );
-          })
-        ) : (
-          <h1 className="text-light text-center w-100">NOT DATA</h1>
-        )}
-      </div>
-    </>
+    <div className="section-container-box-buttons-container">
+      {isLoader ? (
+        <div className="buttons-loader">
+          <Loader />
+        </div>
+      ) : categories.length > 0 ? (
+        categories.map((el) => {
+          return (
+            <>
+              <label className="section-container-box-buttons-container-label">
+                <Input
+                  type="checkbox"
+                  className="section-container-box-buttons-container-label__input"
+                  onChange={(e) =>
+                    changeBtn({ type: e, category: el.category })
+                  }
+                />
+                <Button
+                  type="button"
+                  className="section-container-box-buttons-container-label-btn"
+                >
+                  <h5 className="section-container-box-buttons-container-label-btn__name">
+                    {el.category}
+                  </h5>
+                  <h5 className="section-container-box-buttons-container-label-btn__number">
+                    {el.count}
+                  </h5>
+                </Button>
+              </label>
+            </>
+          );
+        })
+      ) : (
+        <h1 className="text-light text-center w-100">NOT DATA</h1>
+      )}
+    </div>
   );
 };
 

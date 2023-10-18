@@ -30,31 +30,29 @@ const Form = () => {
   }
 
   return (
-    <>
-      <form className="form" onSubmit={(e) => postProductSearch(e)}>
-        <label htmlFor="#" className="form-label">
-          <Input
-            type="text"
-            value={searchValue}
-            onChange={(e) => dispatch(CHANGE_INPUT(e.target.value))}
-            className="form-label__search"
-            placeholder="Search for a site…"
-          />
-          <Button className="form-label-btn" type="submit">
-            <FiSearch className="form-label-btn__icon" />
-          </Button>
-        </label>
-        <Select
-          className="form-label-select"
-          onChange={(e) => sortFunction(products, e.target.value)}
-        >
-          <option className="form-label-select__option">A-Z</option>
-          <option className="form-label-select__option" value="z-a">
-            Z-A
-          </option>
-        </Select>
-      </form>
-    </>
+    <form className="form" onSubmit={(e) => postProductSearch(e)}>
+      <label htmlFor="#" className="form-label">
+        <Input
+          type="text"
+          value={searchValue}
+          onChange={(e) => dispatch(CHANGE_INPUT(e.target.value))}
+          className="form-label__search"
+          placeholder="Search for a site…"
+        />
+        <Button className="form-label-btn" type="submit">
+          <FiSearch className="form-label-btn__icon" />
+        </Button>
+      </label>
+      <Select
+        className="form-label-select"
+        onChange={(e) => sortFunction(products, e.target.value)}
+      >
+        <option className="form-label-select__option">A-Z</option>
+        <option className="form-label-select__option" value="z-a">
+          Z-A
+        </option>
+      </Select>
+    </form>
   );
 };
 

@@ -1,9 +1,9 @@
-import axios from "axios";
+import { axios } from "services";
 
 const useFetch = {
   useGet: async ({ api, token }) => {
     return await axios
-      .get(`https://startupwepapp.onrender.com/api${api}`, {
+      .get(api, {
         headers: {
           "Content-Type": "application/json",
           token,
@@ -13,7 +13,7 @@ const useFetch = {
   },
   useDelete: async ({ api, token }) => {
     return await axios
-      .delete(`https://startupwepapp.onrender.com/api${api}`, {
+      .delete(api, {
         headers: {
           "Content-Type": "application/json",
           token,
@@ -22,16 +22,12 @@ const useFetch = {
       .then((response) => response);
   },
   usePost: async ({ api, token, values }) => {
-    return await axios.post(
-      `https://startupwepapp.onrender.com/api${api}`,
-      values,
-      {
-        headers: {
-          "Content-Type": "application/json",
-          token: token ? token : "",
-        },
-      }
-    );
+    return await axios.post(api, values, {
+      headers: {
+        "Content-Type": "application/json",
+        token: token ? token : "",
+      },
+    });
   },
   usePostUpload: async ({ values }) => {
     return await axios.post(
@@ -40,7 +36,7 @@ const useFetch = {
     );
   },
   usePut: async ({ values, api, token }) => {
-    return axios.put(`https://startupwepapp.onrender.com/api${api}`, values, {
+    return axios.put(api, values, {
       headers: {
         "Content-Type": "application/json",
         token,

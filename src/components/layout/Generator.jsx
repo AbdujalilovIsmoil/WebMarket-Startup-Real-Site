@@ -60,102 +60,100 @@ const Generator = () => {
   }
 
   return (
-    <>
-      <div className={`wrapper ${navbar && "--active"}`}>
-        <div className="generator">
-          <div className="container">
-            <div className="generator-container">
-              <div className="generator-container-box">
-                <div
-                  {...getToggleProps({
-                    onClick: () => setExpanded((prevExpanded) => !prevExpanded),
-                  })}
-                  className="generator-container-box-collapse"
-                >
-                  <h4 className="generator-container-box-collapse__title">
-                    Static Site Generator
-                  </h4>
-                  <BsChevronDown
-                    className={`generator-container-box-collapse__icon ${
-                      isExpanded && "--active"
-                    }`}
-                  />
-                </div>
-                <ul
-                  id="collapseExample"
-                  {...getCollapseProps()}
-                  className="generator-container-box-list"
-                >
-                  {isLoader ? (
-                    <div className="generator-loader">
-                      <Loader />
-                    </div>
-                  ) : technologies?.length > 0 ? (
-                    technologies.map((el) => {
-                      return (
-                        <>
-                          <li
-                            key={el?._id}
-                            className="generator-container-box-list-item"
-                          >
-                            <Input
-                              type="checkbox"
-                              id={el?._id}
-                              className="generator-container-box-list-item__input"
-                              onChange={(e) =>
-                                changeTechnologies({ e, name: el.name })
-                              }
-                            />
-                            <label
-                              className="generator-container-box-list-item-label"
-                              htmlFor={el?._id}
-                            >
-                              <div className="generator-container-box-list-item-label-icons">
-                                <img
-                                  alt="GeneratorIcon1"
-                                  src={el.img_link ? el.img_link : ""}
-                                  title="GeneratorIcon1"
-                                  className="generator-container-box-list-item-label-icons__language"
-                                />
-                                <h4 className="generator-container-box-list-item-label-icons__title">
-                                  {el.name ? el.name : ""}
-                                </h4>
-                              </div>
-                              <h4 className="generator-container-box-list-item-label__number">
-                                {el.count ? el.count : 0}
-                              </h4>
-                            </label>
-                          </li>
-                        </>
-                      );
-                    })
-                  ) : (
-                    <h3 className="text-center text-light">NO DATA</h3>
-                  )}
-                </ul>
+    <div className={`wrapper ${navbar && "--active"}`}>
+      <div className="generator">
+        <div className="container">
+          <div className="generator-container">
+            <div className="generator-container-box">
+              <div
+                {...getToggleProps({
+                  onClick: () => setExpanded((prevExpanded) => !prevExpanded),
+                })}
+                className="generator-container-box-collapse"
+              >
+                <h4 className="generator-container-box-collapse__title">
+                  Static Site Generator
+                </h4>
+                <BsChevronDown
+                  className={`generator-container-box-collapse__icon ${
+                    isExpanded && "--active"
+                  }`}
+                />
               </div>
+              <ul
+                id="collapseExample"
+                {...getCollapseProps()}
+                className="generator-container-box-list"
+              >
+                {isLoader ? (
+                  <div className="generator-loader">
+                    <Loader />
+                  </div>
+                ) : technologies?.length > 0 ? (
+                  technologies.map((el) => {
+                    return (
+                      <>
+                        <li
+                          key={el?._id}
+                          className="generator-container-box-list-item"
+                        >
+                          <Input
+                            type="checkbox"
+                            id={el?._id}
+                            className="generator-container-box-list-item__input"
+                            onChange={(e) =>
+                              changeTechnologies({ e, name: el.name })
+                            }
+                          />
+                          <label
+                            className="generator-container-box-list-item-label"
+                            htmlFor={el?._id}
+                          >
+                            <div className="generator-container-box-list-item-label-icons">
+                              <img
+                                alt="GeneratorIcon1"
+                                src={el.img_link ? el.img_link : ""}
+                                title="GeneratorIcon1"
+                                className="generator-container-box-list-item-label-icons__language"
+                              />
+                              <h4 className="generator-container-box-list-item-label-icons__title">
+                                {el.name ? el.name : ""}
+                              </h4>
+                            </div>
+                            <h4 className="generator-container-box-list-item-label__number">
+                              {el.count ? el.count : 0}
+                            </h4>
+                          </label>
+                        </li>
+                      </>
+                    );
+                  })
+                ) : (
+                  <h3 className="text-center text-light">NO DATA</h3>
+                )}
+              </ul>
             </div>
-            <ul className="generator-list">
-              <li className="generator-list-item">
-                <NavLink className="generator-list-item__link" to="/">
-                  Home
-                </NavLink>
-              </li>
-              <li className="generator-list-item">
-                <NavLink className="generator-list-item__link" to="/blog">
-                  Blog
-                </NavLink>
-              </li>
-              <li className="generator-list-item">
-                <NavLink className="generator-list-item__link" to="/teamByUs">
-                  Team By Us
-                </NavLink>
-              </li>
-            </ul>
           </div>
+          <ul className="generator-list">
+            <li className="generator-list-item">
+              <NavLink className="generator-list-item__link" to="/">
+                Home
+              </NavLink>
+            </li>
+            <li className="generator-list-item">
+              <NavLink className="generator-list-item__link" to="/blog">
+                Blog
+              </NavLink>
+            </li>
+            <li className="generator-list-item">
+              <NavLink className="generator-list-item__link" to="/teamByUs">
+                Team By Us
+              </NavLink>
+            </li>
+          </ul>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

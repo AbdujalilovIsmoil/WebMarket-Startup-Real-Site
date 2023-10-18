@@ -20,58 +20,56 @@ const Card = ({ ...rest }) => {
   };
 
   return (
-    <>
-      <div
-        onClick={() => clickHandler()}
-        className="section-container-box-cards-card"
-      >
-        <div className="section-container-box-cards-card-box">
-          <img
-            src={get(rest, "items.img_link", "")}
-            alt="cardImg"
-            title="cardImg"
-            className="section-container-box-cards-card-box__img"
-          />
-          <div className="section-container-box-cards-card-box-content">
-            <div className="section-container-box-cards-card-box-content-header">
-              <h3 className="section-container-box-cards-card-box-content-header__title">
-                {get(rest, "items.name", "")}
-              </h3>
-              <h5 className="section-container-box-cards-card-box-content-header-price">
-                <span className="section-container-box-cards-card-box-content-header-price__number">
-                  {get(rest, "items.price", 0) ? (
-                    <>{get(rest, "items.price", 0)}$</>
-                  ) : (
-                    "Free"
-                  )}
-                </span>
-              </h5>
-            </div>
-            <p className="section-container-box-cards-card-box-content-description">
-              {get(rest, "items.user.username", "")}
-            </p>
+    <div
+      onClick={() => clickHandler()}
+      className="section-container-box-cards-card"
+    >
+      <div className="section-container-box-cards-card-box">
+        <img
+          src={get(rest, "items.img_link", "")}
+          alt="cardImg"
+          title="cardImg"
+          className="section-container-box-cards-card-box__img"
+        />
+        <div className="section-container-box-cards-card-box-content">
+          <div className="section-container-box-cards-card-box-content-header">
+            <h3 className="section-container-box-cards-card-box-content-header__title">
+              {get(rest, "items.name", "")}
+            </h3>
+            <h5 className="section-container-box-cards-card-box-content-header-price">
+              <span className="section-container-box-cards-card-box-content-header-price__number">
+                {get(rest, "items.price", 0) ? (
+                  <>{get(rest, "items.price", 0)}$</>
+                ) : (
+                  "Free"
+                )}
+              </span>
+            </h5>
           </div>
-          <div className="section-container-box-cards-card-box-footer">
-            <div className="section-container-box-cards-card-box-footer-box --first">
-              {get(rest, "items.technology", []).length > 0
-                ? get(rest, "items.technology", []).map((el) => {
-                    return (
-                      <Fragment key={el._id}>
-                        <img
-                          src={el.img_link}
-                          alt="Lang1"
-                          title="Lang1"
-                          className="section-container-box-cards-card-box-footer-box__icon"
-                        />
-                      </Fragment>
-                    );
-                  })
-                : ""}
-            </div>
+          <p className="section-container-box-cards-card-box-content-description">
+            {get(rest, "items.user.username", "")}
+          </p>
+        </div>
+        <div className="section-container-box-cards-card-box-footer">
+          <div className="section-container-box-cards-card-box-footer-box --first">
+            {get(rest, "items.technology", []).length > 0
+              ? get(rest, "items.technology", []).map((el) => {
+                  return (
+                    <Fragment key={el._id}>
+                      <img
+                        src={el.img_link}
+                        alt="Lang1"
+                        title="Lang1"
+                        className="section-container-box-cards-card-box-footer-box__icon"
+                      />
+                    </Fragment>
+                  );
+                })
+              : ""}
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

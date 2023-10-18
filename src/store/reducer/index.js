@@ -1,6 +1,5 @@
 import { initialState } from "store/initialState";
 import {
-  LOADER,
   USERNAME,
   ABOUT_DATA,
   OPEN_NAVBAR,
@@ -9,7 +8,7 @@ import {
   CHANGE_INPUT,
   GET_PRODUCTS,
   GET_TECHNOLOGIES,
-} from "../type";
+} from "store/type";
 
 export const reducer = (state = initialState, action) => {
   switch (action.type) {
@@ -27,11 +26,6 @@ export const reducer = (state = initialState, action) => {
       return {
         ...state,
         products: action.payload,
-      };
-    case LOADER:
-      return {
-        ...state,
-        loader: false,
       };
     case CHANGE_INPUT:
       return {

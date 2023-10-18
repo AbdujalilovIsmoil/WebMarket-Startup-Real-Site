@@ -102,91 +102,89 @@ const ProfileEdit = () => {
   };
 
   return (
-    <>
-      <div className="container">
-        {isLoader ? (
-          <div className="section-container__loader">
-            <Loader />
-          </div>
-        ) : isError ? (
-          <h2 className="text-center mt-5 text-light">NO DATA</h2>
-        ) : (
-          <form className="product-form" onSubmit={(e) => postData(e)}>
-            <label className="product-form-label" htmlFor="#">
-              <Input
-                required
-                type="text"
-                value={username}
-                placeholder="Enter your name"
-                className="product-form-label__input"
-                onChange={(e) => setUsername(e.target.value)}
-              />
-            </label>
-            <label className="product-form-label" htmlFor="#">
-              <Input
-                disabled
-                required
-                type="email"
-                value={email}
-                placeholder="Enter your email"
-                className="product-form-label__input --active"
-                onChange={(e) => setEmail(e.target.value)}
-              />
-            </label>
-            <label className="product-form-label" htmlFor="#">
-              <Input
-                required
-                type="password"
-                value={password}
-                placeholder="Enter your password"
-                className="product-form-label__input"
-                onChange={(e) => setPassword(e.target.value)}
-              />
-            </label>
-            <label className="product-form-label" htmlFor="#">
-              <Input
-                type="text"
-                value={portfolioLink}
-                className="product-form-label__input"
-                placeholder="Enter your site demo preview link"
-                onChange={(e) => setPortfolioLink(e.target.value)}
-              />
-            </label>
-            <label className="product-form-label" htmlFor="file-upload">
-              <Input
-                hidden
-                type="file"
-                name="file"
-                id="file-upload"
-                multiple={true}
-                className="product-form-label__input"
-                onChange={(e) => {
-                  postImageLinkFunction(e.target.files[0]);
-                }}
-              />
-              <div
-                className={`product-form-label-upload ${
-                  imageLink ? "active" : ""
-                }`}
-              >
-                {imageLink ? (
-                  <img
-                    src={imageLink}
-                    alt=""
-                    className="product-form-label-upload__img"
-                  />
-                ) : (
-                  <h2 className="text-light">RASM YUKLANG</h2>
-                )}
-              </div>
-            </label>
-            <Button className="product-form__btn" type="submit">
-              Send
-            </Button>
-          </form>
-        )}
-      </div>
-    </>
+    <div className="container">
+      {isLoader ? (
+        <div className="section-container__loader">
+          <Loader />
+        </div>
+      ) : isError ? (
+        <h2 className="text-center mt-5 text-light">NO DATA</h2>
+      ) : (
+        <form className="product-form" onSubmit={(e) => postData(e)}>
+          <label className="product-form-label" htmlFor="#">
+            <Input
+              required
+              type="text"
+              value={username}
+              placeholder="Enter your name"
+              className="product-form-label__input"
+              onChange={(e) => setUsername(e.target.value)}
+            />
+          </label>
+          <label className="product-form-label" htmlFor="#">
+            <Input
+              disabled
+              required
+              type="email"
+              value={email}
+              placeholder="Enter your email"
+              className="product-form-label__input --active"
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </label>
+          <label className="product-form-label" htmlFor="#">
+            <Input
+              required
+              type="password"
+              value={password}
+              placeholder="Enter your password"
+              className="product-form-label__input"
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </label>
+          <label className="product-form-label" htmlFor="#">
+            <Input
+              type="text"
+              value={portfolioLink}
+              className="product-form-label__input"
+              placeholder="Enter your site demo preview link"
+              onChange={(e) => setPortfolioLink(e.target.value)}
+            />
+          </label>
+          <label className="product-form-label" htmlFor="file-upload">
+            <Input
+              hidden
+              type="file"
+              name="file"
+              id="file-upload"
+              multiple={true}
+              className="product-form-label__input"
+              onChange={(e) => {
+                postImageLinkFunction(e.target.files[0]);
+              }}
+            />
+            <div
+              className={`product-form-label-upload ${
+                imageLink ? "active" : ""
+              }`}
+            >
+              {imageLink ? (
+                <img
+                  src={imageLink}
+                  alt=""
+                  className="product-form-label-upload__img"
+                />
+              ) : (
+                <h2 className="text-light">RASM YUKLANG</h2>
+              )}
+            </div>
+          </label>
+          <Button className="product-form__btn" type="submit">
+            Send
+          </Button>
+        </form>
+      )}
+    </div>
   );
 };
 

@@ -1,8 +1,4 @@
 const Select = ({ children, ...props }) => {
-  return (
-    <>
-      <select {...props}>{children}</select>
-    </>
-  );
+  return <select {...props}>{children}</select>;
 };
 export default Select;

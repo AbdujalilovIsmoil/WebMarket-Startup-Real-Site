@@ -1,4 +1,3 @@
-import React from "react";
 import App from "./App.jsx";
 import { store } from "./store";
 import "./assets/styles/index.scss";

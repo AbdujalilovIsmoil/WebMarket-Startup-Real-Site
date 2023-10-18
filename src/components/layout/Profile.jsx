@@ -28,7 +28,7 @@ const Profile = () => {
   }, []);
 
   return (
-    <>
+    <div className="container">
       {isLoader ? (
         <div className="d-flex justify-content-center mt-5">
           <Loader />
@@ -69,7 +69,7 @@ const Profile = () => {
       ) : (
         <h1 className="text-center text-light mt-5">NOT DATA</h1>
       )}
-    </>
+    </div>
   );
 };
 

@@ -41,51 +41,49 @@ const Section = () => {
   }, []);
 
   return (
-    <>
-      <section className="section">
-        <div className="section-container">
+    <section className="section">
+      <div className="section-container">
+        <div className="section-container-box">
+          <Generator />
+        </div>
+        <div className="container">
           <div className="section-container-box">
-            <Generator />
-          </div>
-          <div className="container">
-            <div className="section-container-box">
-              <Content />
-              <div className="section-container-box-buttons">
-                <Buttons />
-                <div className="section-container-box-buttons-form">
-                  <Form />
-                </div>
+            <Content />
+            <div className="section-container-box-buttons">
+              <Buttons />
+              <div className="section-container-box-buttons-form">
+                <Form />
               </div>
-              {isLoader ? (
-                <div className="section-container__loader">
-                  <Loader />
-                </div>
-              ) : (
-                <div className="section-container-box-cards">
-                  {sliceProducts.length > 0 &&
-                    sliceProducts.map((el) => {
-                      return (
-                        <Fragment>
-                          <Card items={el} />
-                        </Fragment>
-                      );
-                    })}
-                </div>
-              )}
-              {!isLoader && sliceProducts.length === 0 && (
-                <h1 className="text-center text-light">NO DATA</h1>
-              )}
-              {products.length >= 9 && (
-                <Pagination
-                  onPageChange={handleClick}
-                  pageCount={allPageCounts?.length}
-                />
-              )}
             </div>
+            {isLoader ? (
+              <div className="section-container__loader">
+                <Loader />
+              </div>
+            ) : (
+              <div className="section-container-box-cards">
+                {sliceProducts.length > 0 &&
+                  sliceProducts.map((el) => {
+                    return (
+                      <Fragment>
+                        <Card items={el} />
+                      </Fragment>
+                    );
+                  })}
+              </div>
+            )}
+            {!isLoader && sliceProducts.length === 0 && (
+              <h1 className="text-center text-light">NO DATA</h1>
+            )}
+            {products.length >= 9 && (
+              <Pagination
+                onPageChange={handleClick}
+                pageCount={allPageCounts?.length}
+              />
+            )}
           </div>
         </div>
-      </section>
-    </>
+      </div>
+    </section>
   );
 };
 
