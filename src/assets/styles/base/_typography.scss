@@ -57,6 +57,9 @@ body.light .header {
       &-link {
         &__title {
           @include title(black, 25px !important, 400, default, capitalize);
+          @include defaultQuery(480px) {
+            @include title(black, 16px !important, 400, default, capitalize);
+          }
         }
       }
     }
