@@ -6,12 +6,12 @@ const links = [
   },
   {
     id: 2,
-    link: "/blog",
+    link: "pages/blog",
     title: "Blog",
   },
   {
     id: 3,
-    link: "/teamByUs",
+    link: "pages/teamByUs",
     title: "Team By Us",
   },
 ];

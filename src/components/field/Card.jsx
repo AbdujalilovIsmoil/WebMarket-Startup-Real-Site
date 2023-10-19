@@ -11,12 +11,12 @@ const Card = ({ ...rest }) => {
   const dispatch = useDispatch();
 
   const clickHandler = () => {
-    navigate(`/About/${get(rest, "items._id", "")}`);
+    navigate(`/pages/about/${get(rest, "items._id", "")}`);
     const data = useGet({
       api: `/products/${get(rest, "items._id", "")}`,
-    }).then((response) => {
-      dispatch(ABOUT_DATA([get(response, "data.data.data")]));
-    });
+    }).then((response) =>
+      dispatch(ABOUT_DATA([get(response, "data.data.data")]))
+    );
   };
 
   return (
@@ -26,9 +26,9 @@ const Card = ({ ...rest }) => {
     >
       <div className="section-container-box-cards-card-box">
         <img
-          src={get(rest, "items.img_link", "")}
           alt="cardImg"
           title="cardImg"
+          src={get(rest, "items.img_link", "")}
           className="section-container-box-cards-card-box__img"
         />
         <div className="section-container-box-cards-card-box-content">
@@ -39,7 +39,7 @@ const Card = ({ ...rest }) => {
             <h5 className="section-container-box-cards-card-box-content-header-price">
               <span className="section-container-box-cards-card-box-content-header-price__number">
                 {get(rest, "items.price", 0) ? (
-                  <>{get(rest, "items.price", 0)}$</>
+                  <Fragment>{get(rest, "items.price", 0)}$</Fragment>
                 ) : (
                   "Free"
                 )}
@@ -57,9 +57,9 @@ const Card = ({ ...rest }) => {
                   return (
                     <Fragment key={el._id}>
                       <img
-                        src={el.img_link}
                         alt="Lang1"
                         title="Lang1"
+                        src={el.img_link}
                         className="section-container-box-cards-card-box-footer-box__icon"
                       />
                     </Fragment>

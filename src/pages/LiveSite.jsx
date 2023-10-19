@@ -1,15 +1,15 @@
 import { get } from "lodash";
 import { useFetch } from "hook";
 import { useParams } from "react-router-dom";
-import { Button, Input, Loader } from "components/field";
 import { useEffect, useRef, useState } from "react";
+import { Button, Input, Loader } from "components/field";
 import { RxDesktop, RxMobile, LuTablet } from "assets/icons";
 
 const LiveSite = () => {
   const { id } = useParams();
   const { useGet } = useFetch;
   const breakPointRef = useRef();
-  const [isError, setIsError] = useState(false);
+  const [_, setIsError] = useState(false);
   const [isLoader, setIsLoader] = useState(false);
   const [productLink, setProductLink] = useState("");
 

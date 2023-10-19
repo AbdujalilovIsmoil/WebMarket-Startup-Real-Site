@@ -1,11 +1,12 @@
+import { links } from "data";
 import { storage } from "services";
 import { get, truncate } from "lodash";
 import { Icon } from "assets/images/png";
+import { Button } from "components/field";
 import { useState, useEffect } from "react";
-import { Button, links } from "components/field";
-import { Link, NavLink, useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { OPEN_NAVBAR, CLOSE_NAVBAR } from "store/actions";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import {
   FiSun,
   FiMenu,
@@ -24,6 +25,7 @@ const Header = () => {
   const [themeColorState, setThemeColorState] = useState(
     JSON.parse(storage.get("theme")) || false
   );
+
   useEffect(() => {
     setDataUserName(username);
   }, [username]);
@@ -82,8 +84,8 @@ const Header = () => {
             </Link>
           </div>
           <ul className="nav-list">
-            {get(links, "links").length > 0 &&
-              get(links, "links").map((el) => (
+            {links?.length > 0 &&
+              links?.map((el) => (
                 <li className="nav-list-item" key={el.id}>
                   <NavLink
                     className={({ isActive }) =>
@@ -112,7 +114,7 @@ const Header = () => {
                 <ul className="nav-buttons-dropDown-list">
                   <li className="nav-buttons-dropDown-list-item">
                     <Link
-                      to="/profile"
+                      to="pages/profile"
                       className="nav-buttons-dropDown-list-item-link"
                     >
                       Profile
@@ -121,7 +123,7 @@ const Header = () => {
                   </li>
                   <li className="nav-buttons-dropDown-list-item">
                     <Link
-                      to="/product"
+                      to="pages/product"
                       className="nav-buttons-dropDown-list-item-link"
                     >
                       Product
@@ -140,7 +142,10 @@ const Header = () => {
               <WiMoonAltNew className="nav-buttons-animation__moon" />
             </div>
             {!token && (
-              <Link to="/registration" className="nav-buttons-animation__btn">
+              <Link
+                to="pages/registration"
+                className="nav-buttons-animation__btn"
+              >
                 Registr
               </Link>
             )}

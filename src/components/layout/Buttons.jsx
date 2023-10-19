@@ -20,9 +20,7 @@ const Buttons = () => {
           setCategories(get(response, "data"));
         }
       })
-      .catch(() => {
-        setIsLoader(false);
-      });
+      .catch(() => setIsLoader(false));
   }, []);
 
   const changeBtn = ({ category, type }) => {
@@ -53,28 +51,24 @@ const Buttons = () => {
       ) : categories.length > 0 ? (
         categories.map((el) => {
           return (
-            <>
-              <label className="section-container-box-buttons-container-label">
-                <Input
-                  type="checkbox"
-                  className="section-container-box-buttons-container-label__input"
-                  onChange={(e) =>
-                    changeBtn({ type: e, category: el.category })
-                  }
-                />
-                <Button
-                  type="button"
-                  className="section-container-box-buttons-container-label-btn"
-                >
-                  <h5 className="section-container-box-buttons-container-label-btn__name">
-                    {el.category}
-                  </h5>
-                  <h5 className="section-container-box-buttons-container-label-btn__number">
-                    {el.count}
-                  </h5>
-                </Button>
-              </label>
-            </>
+            <label className="section-container-box-buttons-container-label">
+              <Input
+                type="checkbox"
+                className="section-container-box-buttons-container-label__input"
+                onChange={(e) => changeBtn({ type: e, category: el.category })}
+              />
+              <Button
+                type="button"
+                className="section-container-box-buttons-container-label-btn"
+              >
+                <h5 className="section-container-box-buttons-container-label-btn__name">
+                  {el.category}
+                </h5>
+                <h5 className="section-container-box-buttons-container-label-btn__number">
+                  {el.count}
+                </h5>
+              </Button>
+            </label>
           );
         })
       ) : (

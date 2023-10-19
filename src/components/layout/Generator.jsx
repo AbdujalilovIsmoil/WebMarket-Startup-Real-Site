@@ -25,9 +25,7 @@ const Generator = () => {
           dispatch(GET_TECHNOLOGIES(get(response, "data.data")));
         }
       })
-      .catch(() => {
-        setIsLoader(false);
-      });
+      .catch(() => setIsLoader(false));
   }, []);
 
   const changeTechnologies = ({ e, name }) => {

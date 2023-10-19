@@ -14,16 +14,16 @@ const ProductEdit = () => {
   const navigate = useNavigate();
   const token = storage.get("token");
   const [desc, setDesc] = useState("");
-  const [price, setPrice] = useState("");
   const [name, setName] = useState("");
+  const [price, setPrice] = useState("");
   const [phone, setPhone] = useState("");
   const [img_link, setImgLink] = useState("");
   const [category, setCategory] = useState("");
   const [isError, setIsError] = useState(false);
   const [isLoader, setIsLoader] = useState(false);
   const [technology, setTechnology] = useState([]);
-  const [github_link, setGithubLink] = useState("");
   const [phoneError, setPhoneError] = useState("");
+  const [github_link, setGithubLink] = useState("");
   const [githubError, setGithubError] = useState("");
   const { useGet, usePostUpload, usePut } = useFetch;
   const [product_link, setProductLink] = useState("");
@@ -33,6 +33,8 @@ const ProductEdit = () => {
 
   useEffect(() => {
     setIsError(false);
+    setIsLoader(true);
+
     const data = useGet({ api: `/products/${id}` })
       .then((response) => {
         if (get(response, "status") === 200) {
@@ -46,14 +48,8 @@ const ProductEdit = () => {
           setDesc(get(response, "data.data.data.desc", ""));
         }
       })
-      .catch(() => {
-        setIsError(true);
-      });
-  }, []);
+      .catch(() => setIsError(true));
 
-  useEffect(() => {
-    setIsLoader(true);
-    setIsError(false);
     const data1 = useGet({ api: "/categories" })
       .then((response) => {
         if (get(response, "status") === 200) {
@@ -61,9 +57,8 @@ const ProductEdit = () => {
           setCategoryData(get(response, "data"));
         }
       })
-      .catch(() => {
-        setIsError(true);
-      });
+      .catch(() => setIsError(true));
+
     const data2 = useGet({ api: "/technologies" })
       .then((response) => {
         if (get(response, "status") === 200) {
@@ -71,9 +66,7 @@ const ProductEdit = () => {
           dispatch(GET_TECHNOLOGIES(get(response, "data.data")));
         }
       })
-      .catch(() => {
-        setIsError(true);
-      });
+      .catch(() => setIsError(true));
   }, []);
 
   const getTechnologyIdFunction = ({ type, id }) => {

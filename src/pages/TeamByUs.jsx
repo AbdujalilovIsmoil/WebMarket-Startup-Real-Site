@@ -1,10 +1,8 @@
 const TeamByUs = () => {
   return (
-    <>
-      <div className="container">
-        <h1>TeamByUs</h1>
-      </div>
-    </>
+    <div className="container">
+      <h4>TeamByUs</h4>
+    </div>
   );
 };
 

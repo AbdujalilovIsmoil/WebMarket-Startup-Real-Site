@@ -1,4 +1,2 @@
-const Input = (props) => {
-  return <input {...props} />;
-};
+const Input = (props) => <input {...props} />;
 export default Input;

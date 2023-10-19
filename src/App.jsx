@@ -34,58 +34,58 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "/blog",
+        path: "pages/blog",
         element: <Blog />,
       },
       {
-        path: "About/:id",
+        path: "pages/about/:id",
         element: <About />,
       },
       {
-        path: "/product",
+        path: "pages/product",
         element: <Product />,
       },
       {
-        path: "/product-create",
+        path: "pages/product-create",
         element: <ProductCreate />,
       },
       {
-        path: "/product/product-edit/:id",
+        path: "pages/product/product-edit/:id",
         element: <ProductEdit />,
       },
       {
-        path: "/profile",
+        path: "pages/profile",
         element: <Profile />,
       },
       {
-        path: "/profile-create",
+        path: "pages/profile-create",
         element: <ProfileCreate />,
       },
       {
-        path: "/profile-edit",
+        path: "pages/profile-edit",
         element: <ProfileEdit />,
       },
       {
-        path: "/teamByUs",
+        path: "pages/teamByUs",
         element: <TeamByUs />,
       },
       {
-        path: "/liveSite/:id",
+        path: "pages/liveSite/:id",
         element: <LiveSite />,
       },
     ],
   },
 
   {
-    path: "/registration",
+    path: "pages/registration",
     element: <Registration />,
   },
   {
-    path: "/login",
+    path: "pages/login",
     element: <Login />,
   },
   {
-    path: "/forgotPassword",
+    path: "pages/forgotPassword",
     element: <ForgotPassword />,
   },
 ]);
