@@ -1,10 +1,10 @@
 import { get } from "lodash";
 import { useFetch } from "hook";
 import { PRODUCT_DATA } from "store/actions";
-import { Card, Loader } from "components/field";
 import { Fragment, useEffect, useState } from "react";
 import Pagination from "components/layout/Pagination";
 import { useDispatch, useSelector } from "react-redux";
+import { Card, Loader, NoData } from "components/field";
 import { Generator, Content, Buttons, Form } from "components/layout";
 
 const Home = () => {
@@ -69,9 +69,7 @@ const Home = () => {
                   })}
               </div>
             )}
-            {!isLoader && sliceProducts.length === 0 && (
-              <h4 className="text-center text-light fs-1 error-text">NO DATA</h4>
-            )}
+            {!isLoader && sliceProducts.length === 0 && <NoData />}
             {products.length >= 9 && (
               <Pagination
                 onPageChange={handleClick}

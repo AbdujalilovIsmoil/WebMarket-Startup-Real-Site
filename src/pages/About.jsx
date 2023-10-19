@@ -4,7 +4,7 @@ import { ABOUT_DATA } from "store/actions";
 import { Link, useParams } from "react-router-dom";
 import { Fragment, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Card, Button, Loader } from "components/field";
+import { Card, Button, Loader, NoData } from "components/field";
 
 const About = () => {
   const { id } = useParams();
@@ -147,9 +147,7 @@ const About = () => {
                                 {el.user.username}
                               </h6>
                             ) : (
-                              <h4 className="text-center text-light fs-1 error-text">
-                                NOT FOUND
-                              </h4>
+                              <NoData />
                             )}
                           </div>
                         </li>
@@ -161,7 +159,7 @@ const About = () => {
             );
           })
         ) : (
-          <h4 className="text-center text-light fs-1 error-text">NOT DATA</h4>
+          <NoData />
         )}
         <div className="about-cards">
           {isLoader ? (
@@ -177,7 +175,7 @@ const About = () => {
         </div>
         {!isLoader && products.length === 0 && (
           <div className="d-flex justify-content-center">
-            <h4 className="text-center text-light fs-1 error-text">NOT DATA</h4>
+            <NoData />
           </div>
         )}
       </section>

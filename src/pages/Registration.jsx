@@ -176,11 +176,11 @@ const Registration = () => {
                   }}
                   renderInput={(props) => {
                     return (
-                        <input
-                          required
-                          {...props}
-                          className="registration-form-label__code"
-                        />
+                      <input
+                        required
+                        {...props}
+                        className="registration-form-label__code"
+                      />
                     );
                   }}
                 />

@@ -4,8 +4,8 @@ import { NavLink } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { BsChevronDown } from "assets/icons";
 import { useCollapse } from "react-collapsed";
-import { Input, Loader } from "components/field";
 import { useDispatch, useSelector } from "react-redux";
+import { Input, Loader, NoData } from "components/field";
 import { GET_TECHNOLOGIES, PRODUCT_DATA } from "store/actions";
 
 const Generator = () => {
@@ -125,9 +125,7 @@ const Generator = () => {
                     );
                   })
                 ) : (
-                  <h4 className="text-center text-light fs-1 error-text">
-                    NO DATA
-                  </h4>
+                  <NoData />
                 )}
               </ul>
             </div>

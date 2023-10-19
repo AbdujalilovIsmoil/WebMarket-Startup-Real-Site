@@ -6,8 +6,8 @@ import { useEffect, useState } from "react";
 import { GET_PRODUCT } from "store/actions";
 import { Pagination } from "components/layout";
 import { useNavigate } from "react-router-dom";
-import { Button, Loader } from "components/field";
 import { useDispatch, useSelector } from "react-redux";
+import { Button, Loader, NoData } from "components/field";
 import { AiOutlineDelete, AiOutlineEdit } from "assets/icons";
 
 const Product = () => {
@@ -181,7 +181,7 @@ const Product = () => {
           </table>
           {!isLoader && sliceProducts.length === 0 && (
             <div className="table-error-content">
-              <h4 className="text-center fs-1 text-light error-text">NO DATA</h4>
+              <NoData />
             </div>
           )}
           {isLoader && (

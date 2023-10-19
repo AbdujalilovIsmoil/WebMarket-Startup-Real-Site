@@ -51,7 +51,7 @@ const Login = () => {
   return (
     <div className="container">
       <section className="login">
-        <h1 className="login__title">login</h1>
+        <h4 className="login__title">login</h4>
         <form className="login-form" onSubmit={(e) => postData(e)}>
           <label className="login-form-label" htmlFor="#">
             <Input

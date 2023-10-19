@@ -3,7 +3,7 @@ import { useFetch } from "hook";
 import { useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
 import { PRODUCT_DATA } from "store/actions";
-import { Button, Input, Loader } from "components/field";
+import { Button, Input, Loader, NoData } from "components/field";
 
 const Buttons = () => {
   const { useGet } = useFetch;
@@ -72,9 +72,7 @@ const Buttons = () => {
           );
         })
       ) : (
-        <h4 className="text-light text-center w-100 fs-1 error-text">
-          NOT DATA
-        </h4>
+        <NoData />
       )}
     </div>
   );

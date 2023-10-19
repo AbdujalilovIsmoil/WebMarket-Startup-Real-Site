@@ -6,7 +6,14 @@ import { useEffect, useState } from "react";
 import { GET_TECHNOLOGIES } from "store/actions";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
-import { Input, Button, Select, Textarea, Loader } from "components/field";
+import {
+  Input,
+  Button,
+  Select,
+  Loader,
+  NoData,
+  Textarea,
+} from "components/field";
 
 const ProductEdit = () => {
   const { id } = useParams();
@@ -147,7 +154,7 @@ const ProductEdit = () => {
             </div>
           ) : isError ? (
             <div className="section-container__loader">
-              <h4 className="mt-3 text-light fs-1 error-text">NO DATA</h4>
+              <NoData />
             </div>
           ) : (
             <form

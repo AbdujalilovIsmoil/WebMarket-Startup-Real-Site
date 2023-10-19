@@ -122,11 +122,22 @@ body.light .generator {
           &-label {
             &-icons {
               &__title {
+                transition: color 150ms linear;
                 @include title(black, 14px, 400, 20px, capitalize);
               }
             }
             &__number {
+              transition: color 150ms linear;
               @include title(black, 14px, 400, 20px, default);
+            }
+            &:hover {
+              background-color: $btn-first-bg-color;
+              .generator-container-box-list-item-label-icons__title {
+                color: $title-color;
+              }
+              .generator-container-box-list-item-label__number {
+                color: $title-color;
+              }
             }
           }
         }

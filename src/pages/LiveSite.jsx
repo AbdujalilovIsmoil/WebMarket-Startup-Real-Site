@@ -2,8 +2,8 @@ import { get } from "lodash";
 import { useFetch } from "hook";
 import { useParams } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
-import { Button, Input, Loader } from "components/field";
 import { RxDesktop, RxMobile, LuTablet } from "assets/icons";
+import { Button, Input, Loader, NoData } from "components/field";
 
 const LiveSite = () => {
   const { id } = useParams();
@@ -101,7 +101,7 @@ const LiveSite = () => {
               className="live-iframe"
             ></iframe>
           ) : (
-            <h4 className="text-center mt-5 text-light fs-1 error-text">NOT DATA</h4>
+            <NoData />
           )}
         </section>
       )}
