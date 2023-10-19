@@ -42,11 +42,13 @@
       );
     }
     &-select {
-      transform: translateY(-5px);
       letter-spacing: 0.7px;
       padding: 0 24px 0 24px;
       box-shadow: 0px 2px 9px $input-shadow-color;
       @include title($title-color, 14px, 400, 20px, default);
+      @include defaultQuery(900px) {
+        width: 100% !important;
+      }
       @include input(
         200px,
         56px,
