@@ -117,6 +117,7 @@
     &-item {
       transform: translateX(-30px);
       &__link {
+        transition: color 150ms linear;
         @include title($title-color, 16px, 400, 26px, capitalize);
         &:hover {
           color: $btn-first-bg-color;

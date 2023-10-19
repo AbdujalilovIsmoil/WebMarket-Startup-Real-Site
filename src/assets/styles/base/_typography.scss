@@ -50,23 +50,20 @@ body.light .header {
   .nav {
     &-intro {
       &-menu {
-        color: black;
-        background-color: #ffffff;
+        color: white;
+        background-color: $btn-first-bg-color;
         box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.0562443);
       }
       &-link {
         &__title {
-          @include title(black, 25px !important, 400, default, capitalize);
-          @include defaultQuery(480px) {
-            @include title(black, 16px !important, 400, default, capitalize);
-          }
+          color: black;
         }
       }
     }
     &-list {
       &-item {
         &__link {
-          @include title(black, 16px, 500, 26px, capitalize);
+          color: black;
           &--active {
             color: $isActive-color;
           }
@@ -77,8 +74,17 @@ body.light .header {
       }
     }
     &-buttons {
+      &-dropDown {
+        &-btn {
+          background-color: $btn-first-bg-color;
+          box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.0562443);
+          &__name {
+            color: white;
+          }
+        }
+      }
       &-animation {
-        border: 1px solid black;
+        border: 1px solid $btn-first-bg-color;
         background-color: #ffffff;
         box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.0562443);
         &__sun {
@@ -143,6 +149,16 @@ body.light .generator {
               }
             }
           }
+        }
+      }
+    }
+  }
+  &-list {
+    &-item {
+      &__link {
+        color: black;
+        &:hover {
+          color: $btn-first-bg-color;
         }
       }
     }
