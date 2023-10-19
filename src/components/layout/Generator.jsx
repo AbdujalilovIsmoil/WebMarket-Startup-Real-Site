@@ -137,12 +137,12 @@ const Generator = () => {
               </NavLink>
             </li>
             <li className="generator-list-item">
-              <NavLink className="generator-list-item__link" to="/blog">
+              <NavLink className="generator-list-item__link" to="/pages/blog">
                 Blog
               </NavLink>
             </li>
             <li className="generator-list-item">
-              <NavLink className="generator-list-item__link" to="/teamByUs">
+              <NavLink className="generator-list-item__link" to="/pages/teamByUs">
                 Team By Us
               </NavLink>
             </li>
