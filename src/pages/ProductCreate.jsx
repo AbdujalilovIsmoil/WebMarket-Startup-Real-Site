@@ -256,34 +256,32 @@ const ProductCreate = () => {
             {technologies.length > 0
               ? technologies.map((el) => {
                   return (
-                    <>
-                      <label
-                        htmlFor="check"
-                        className="product-create-form-technologies-label"
+                    <label
+                      htmlFor="check"
+                      className="product-create-form-technologies-label"
+                    >
+                      <Input
+                        type="checkbox"
+                        onChange={(e) => {
+                          getTechnologyIdFunction({
+                            type: e.target.checked,
+                            id: el._id,
+                          });
+                        }}
+                        className="product-create-form-technologies-label__input"
+                      />
+                      <Button
+                        type="button"
+                        className="product-create-form-technologies-label-btn"
                       >
-                        <Input
-                          type="checkbox"
-                          onChange={(e) => {
-                            getTechnologyIdFunction({
-                              type: e.target.checked,
-                              id: el._id,
-                            });
-                          }}
-                          className="product-create-form-technologies-label__input"
-                        />
-                        <Button
-                          type="button"
-                          className="product-create-form-technologies-label-btn"
-                        >
-                          <h5 className="product-create-form-technologies-label-btn__name">
-                            {el.name}
-                          </h5>
-                          <h5 className="product-create-form-technologies-label-btn__number">
-                            {el.count}
-                          </h5>
-                        </Button>
-                      </label>
-                    </>
+                        <h5 className="product-create-form-technologies-label-btn__name">
+                          {el.name}
+                        </h5>
+                        <h5 className="product-create-form-technologies-label-btn__number">
+                          {el.count}
+                        </h5>
+                      </Button>
+                    </label>
                   );
                 })
               : ""}

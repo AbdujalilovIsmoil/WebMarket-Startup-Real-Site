@@ -147,9 +147,9 @@ const About = () => {
                                 {el.user.username}
                               </h6>
                             ) : (
-                              <h6 className="text-center text-light fs-5">
+                              <h4 className="text-center text-light fs-1 error-text">
                                 NOT FOUND
-                              </h6>
+                              </h4>
                             )}
                           </div>
                         </li>
@@ -161,7 +161,7 @@ const About = () => {
             );
           })
         ) : (
-          <h1 className="text-center text-light">NOT DATA</h1>
+          <h4 className="text-center text-light fs-1 error-text">NOT DATA</h4>
         )}
         <div className="about-cards">
           {isLoader ? (
@@ -177,7 +177,7 @@ const About = () => {
         </div>
         {!isLoader && products.length === 0 && (
           <div className="d-flex justify-content-center">
-            <h1 className="text-center text-light">NOT DATA</h1>
+            <h4 className="text-center text-light fs-1 error-text">NOT DATA</h4>
           </div>
         )}
       </section>

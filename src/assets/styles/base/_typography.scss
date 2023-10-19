@@ -15,8 +15,20 @@ body.light .lds-ring div {
   border-color: $btn-first-bg-color transparent transparent transparent;
 }
 
+body.light .registration-form-label__code {
+  color: $intro-text-color;
+}
+
 body.light {
   background-color: #f2f2f2;
+}
+
+body.light .error-text {
+  color: $intro-text-color !important;
+}
+
+body.light .live-buttons-label-breakpoint__icon {
+  color: $btn-first-bg-color !important;
 }
 
 body.light h1 {

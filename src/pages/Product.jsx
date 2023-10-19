@@ -181,7 +181,7 @@ const Product = () => {
           </table>
           {!isLoader && sliceProducts.length === 0 && (
             <div className="table-error-content">
-              <h1 className="text-center fs-1 text-light">NO DATA</h1>
+              <h4 className="text-center fs-1 text-light error-text">NO DATA</h4>
             </div>
           )}
           {isLoader && (

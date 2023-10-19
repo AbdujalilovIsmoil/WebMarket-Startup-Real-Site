@@ -70,7 +70,7 @@ const Home = () => {
               </div>
             )}
             {!isLoader && sliceProducts.length === 0 && (
-              <h1 className="text-center text-light">NO DATA</h1>
+              <h4 className="text-center text-light fs-1 error-text">NO DATA</h4>
             )}
             {products.length >= 9 && (
               <Pagination

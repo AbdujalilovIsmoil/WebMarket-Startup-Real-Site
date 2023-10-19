@@ -6,7 +6,6 @@ import Generator from "./Generator";
 import BlogCards from "./BlogCards";
 import Pagination from "./Pagination";
 import BlogTitles from "./BlogTitles";
-import ForgotPassword from "./ForgotPassword";
 
 export {
   Form,
@@ -17,5 +16,4 @@ export {
   Generator,
   Pagination,
   BlogTitles,
-  ForgotPassword,
 };

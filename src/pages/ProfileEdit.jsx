@@ -108,7 +108,7 @@ const ProfileEdit = () => {
           <Loader />
         </div>
       ) : isError ? (
-        <h2 className="text-center mt-5 text-light">NO DATA</h2>
+        <h4 className="text-center mt-5 text-light fs-1 error-text">NO DATA</h4>
       ) : (
         <form className="product-form" onSubmit={(e) => postData(e)}>
           <label className="product-form-label" htmlFor="#">

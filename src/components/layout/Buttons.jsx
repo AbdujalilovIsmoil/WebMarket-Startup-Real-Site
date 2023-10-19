@@ -72,7 +72,9 @@ const Buttons = () => {
           );
         })
       ) : (
-        <h1 className="text-light text-center w-100">NOT DATA</h1>
+        <h4 className="text-light text-center w-100 fs-1 error-text">
+          NOT DATA
+        </h4>
       )}
     </div>
   );

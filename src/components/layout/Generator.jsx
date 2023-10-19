@@ -90,44 +90,44 @@ const Generator = () => {
                 ) : technologies?.length > 0 ? (
                   technologies.map((el) => {
                     return (
-                      <>
-                        <li
-                          key={el?._id}
-                          className="generator-container-box-list-item"
+                      <li
+                        key={el?._id}
+                        className="generator-container-box-list-item"
+                      >
+                        <Input
+                          type="checkbox"
+                          id={el?._id}
+                          className="generator-container-box-list-item__input"
+                          onChange={(e) =>
+                            changeTechnologies({ e, name: el.name })
+                          }
+                        />
+                        <label
+                          className="generator-container-box-list-item-label"
+                          htmlFor={el?._id}
                         >
-                          <Input
-                            type="checkbox"
-                            id={el?._id}
-                            className="generator-container-box-list-item__input"
-                            onChange={(e) =>
-                              changeTechnologies({ e, name: el.name })
-                            }
-                          />
-                          <label
-                            className="generator-container-box-list-item-label"
-                            htmlFor={el?._id}
-                          >
-                            <div className="generator-container-box-list-item-label-icons">
-                              <img
-                                alt="GeneratorIcon1"
-                                src={el.img_link ? el.img_link : ""}
-                                title="GeneratorIcon1"
-                                className="generator-container-box-list-item-label-icons__language"
-                              />
-                              <h4 className="generator-container-box-list-item-label-icons__title">
-                                {el.name ? el.name : ""}
-                              </h4>
-                            </div>
-                            <h4 className="generator-container-box-list-item-label__number">
-                              {el.count ? el.count : 0}
+                          <div className="generator-container-box-list-item-label-icons">
+                            <img
+                              alt="GeneratorIcon1"
+                              src={el.img_link ? el.img_link : ""}
+                              title="GeneratorIcon1"
+                              className="generator-container-box-list-item-label-icons__language"
+                            />
+                            <h4 className="generator-container-box-list-item-label-icons__title">
+                              {el.name ? el.name : ""}
                             </h4>
-                          </label>
-                        </li>
-                      </>
+                          </div>
+                          <h4 className="generator-container-box-list-item-label__number">
+                            {el.count ? el.count : 0}
+                          </h4>
+                        </label>
+                      </li>
                     );
                   })
                 ) : (
-                  <h3 className="text-center text-light">NO DATA</h3>
+                  <h4 className="text-center text-light fs-1 error-text">
+                    NO DATA
+                  </h4>
                 )}
               </ul>
             </div>

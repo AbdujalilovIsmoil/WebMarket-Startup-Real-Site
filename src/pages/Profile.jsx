@@ -64,7 +64,7 @@ const Profile = () => {
           );
         })
       ) : (
-        <h1 className="text-center text-light mt-5">NOT DATA</h1>
+        <h4 className="text-center text-light mt-5 fs-1 error-text">NOT DATA</h4>
       )}
     </div>
   );
