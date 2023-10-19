@@ -58,7 +58,7 @@ const Generator = () => {
   }
 
   return (
-    <div className={`wrapper ${navbar && "--active"}`}>
+    <div className={`wrapper ${navbar ? "--active" : ""}`}>
       <div className="generator">
         <div className="container">
           <div className="generator-container">
